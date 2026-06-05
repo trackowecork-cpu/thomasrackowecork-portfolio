@@ -1,4 +1,4 @@
-export const metadata = { title: "Direction E.3 — Thomas Rackowe Cork" };
+export const metadata = { title: "Thomas Rackowe Cork — Product Designer" };
 
 import { DirectionENav } from "./_components/nav";
 import { DirectionEFooter } from "./_components/footer";

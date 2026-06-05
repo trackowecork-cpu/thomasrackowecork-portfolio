@@ -33,7 +33,7 @@ export function DirectionENav() {
         .en-active { color: ${INK}; }
       `}</style>
       <header className="en">
-        <a href="/direction-e" className="en-name">Thomas Rackowe Cork</a>
+        <a href="/" className="en-name">Thomas Rackowe Cork</a>
         <nav className="en-links">
           <a
             href="/direction-e#work"
