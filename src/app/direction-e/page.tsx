@@ -221,8 +221,8 @@ export default function DirectionE3() {
           <div className="e3-about-flex">
             <div className="e3-about-circle">
               <Image
-                src="/Mirror ball copy.png"
-                alt="Mirror ball"
+                src="/assets/about-section/thomas-portrait.png"
+                alt="Thomas Rackowe Cork"
                 fill
                 style={{ objectFit: "cover" }}
               />
