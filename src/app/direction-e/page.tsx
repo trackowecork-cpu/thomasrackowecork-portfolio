@@ -221,7 +221,7 @@ export default function DirectionE3() {
           <div className="e3-about-flex">
             <div className="e3-about-circle">
               <Image
-                src="/assets/about-section/thomas-portrait2.png"
+                src="/assets/about-section/thomas-portrait3.png"
                 alt="Thomas Rackowe Cork"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center center" }}
