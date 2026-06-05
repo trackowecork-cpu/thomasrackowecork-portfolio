@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ── Font references (must use @theme inline to reference CSS variables from next/font) ── */
+@theme inline {
+  --font-sans:  var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono:  var(--font-geist-mono);
+}
+
+/* ── Design tokens ── */
+@theme {
+  /* Surface */
+  --color-canvas:           #F5F1EC;
+  --color-canvas-alt:       #EDE9E3;
+
+  /* Ink */
+  --color-ink:              #1A1714;
+  --color-ink-secondary:    #4A4542;
+  --color-ink-muted:        #6B6560;
+  --color-ink-faint:        #A8A09A;
+
+  /* Accent */
+  --color-rust:             #B5614A;
+  --color-rust-dark:        #9A4D3A;
+
+  /* Borders */
+  --color-border:           #DDD8D2;
+  --color-border-strong:    #C4BDB7;
+
+  /* Color fields — project hero backgrounds */
+  --color-field-brown:      #4A3728;
+  --color-field-sage:       #4A5547;
+  --color-field-tan:        #C4A882;
+  --color-field-terracotta: #C96444;
+
+  /* Border radius */
+  --radius-none: 0px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+}
+
+/* ── Base ── */
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: #F5F1EC;
+  color: #1A1714;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #B5614A;
+  color: #ffffff;
+}
+
+/* ── Layout container ── */
+.site-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-inline: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-container {
+    padding-inline: 5rem;
+  }
+}
+
+/* Prose reading width for case study body text */
+.prose-width {
+  max-width: 680px;
+}

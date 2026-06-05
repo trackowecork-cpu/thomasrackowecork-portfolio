@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+
+# macOS
+.DS_Store
+
+# Portfolio source content (local only — not part of the website code)
+Portfolio Source/
+
+# Claude Code tooling (local only)
+.claude/
+skills/
+CLAUDE.md
+AGENTS.md
