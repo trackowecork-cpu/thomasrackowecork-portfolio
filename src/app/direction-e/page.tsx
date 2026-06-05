@@ -1,5 +1,6 @@
 export const metadata = { title: "Thomas Rackowe Cork — Product Designer" };
 
+import Image from "next/image";
 import { DirectionENav } from "./_components/nav";
 import { DirectionEFooter } from "./_components/footer";
 import { C, M, S, GR, BD, INK, IN2, MUT, FNT, ACC } from "./_tokens";
@@ -95,6 +96,7 @@ export default function DirectionE3() {
           width: 160px; height: 160px;
           border-radius: 50%; background: #1A1714;
           border: 1px solid ${BD}; box-sizing: border-box; flex-shrink: 0;
+          position: relative; overflow: hidden;
         }
         @media (min-width: 640px) { .e3-about-circle { width: 200px; height: 200px; } }
         @media (min-width: 1024px) { .e3-about-circle { width: 220px; height: 220px; } }
@@ -217,7 +219,14 @@ export default function DirectionE3() {
           <span className="e3-section-label">About</span>
 
           <div className="e3-about-flex">
-            <div className="e3-about-circle" />
+            <div className="e3-about-circle">
+              <Image
+                src="/Mirror ball copy.png"
+                alt="Mirror ball"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
 
             <div style={{
               display: "flex", flexDirection: "column",
