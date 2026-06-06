@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Rebuilding the Foundations of Proximus+ — Thomas Rackowe Cork",
+  title: "Rebuilding the Foundations of Proximus' Mobile App — Thomas Rackowe Cork",
   description:
-    "Redesigning the foundations of telecom product and service management — simplifying complexity, improving operational clarity, and building a scalable platform for future services.",
+    "How we are redefining product and service management for the future of Proximus+.",
 };
 
 import { DirectionENav } from "../../_components/nav";
@@ -70,7 +70,7 @@ export default function ProximusPlusCaseStudy() {
             color: INK, margin: 0,
             marginBottom: "clamp(1.125rem, 2.5vw, 1.75rem)",
           }}>
-            Rebuilding the Foundations of Proximus+
+            Rebuilding the Foundations of Proximus&apos; Mobile App
           </h1>
 
           <p style={{
@@ -78,9 +78,7 @@ export default function ProximusPlusCaseStudy() {
             color: IN2, lineHeight: 1.7, margin: 0, maxWidth: "56ch",
             marginBottom: "clamp(1.75rem, 3.5vw, 2.75rem)",
           }}>
-            Redesigning the foundations of telecom product and service management — simplifying
-            complexity, improving operational clarity, and building a platform that can evolve
-            alongside future services, technologies, and customer expectations.
+            How we are redefining product and service management for the future of Proximus+.
           </p>
 
           <div style={{
@@ -122,8 +120,33 @@ export default function ProximusPlusCaseStudy() {
           />
         </div>
 
+        {/* ── CS: Overview ─────────────────────────────────────────────────── */}
+        <section className="pcs-section" style={{ borderTop: "none", paddingTop: "clamp(3rem, 7vw, 6rem)" }}>
+          <div className="pcs-ann">
+            <div><span className="pcs-ann-lbl">Overview</span></div>
+            <div style={{ maxWidth: "62ch" }}>
+              <p style={{
+                fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
+                color: MUT, lineHeight: 1.75, margin: 0, marginBottom: "1.125rem",
+              }}>
+                I&apos;m currently contributing to the transformation of Proximus+, helping
+                redefine how product management, support, and self-service operate within a more
+                scalable ecosystem.
+              </p>
+              <p style={{
+                fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
+                color: MUT, lineHeight: 1.75, margin: 0,
+              }}>
+                The work focuses on simplifying complexity, improving operational clarity, and
+                building foundations that can evolve alongside future services, technologies,
+                and customer expectations.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── Status ───────────────────────────────────────────────────────── */}
-        <section className="pcs-section" style={{ borderTop: "none" }}>
+        <section className="pcs-section">
           <div className="pcs-ann">
             <div><span className="pcs-ann-lbl">Status</span></div>
             <div style={{ maxWidth: "52ch" }}>

@@ -18,15 +18,20 @@ const decisions = [
   {
     n: "01",
     title: "Aligning product strategy with the experience",
-    body: "Rather than framing the experience around fibre eligibility, we introduced a personalised entry point through an improved address check. This allowed users to see relevant offers from the start, eliminating disruptive product switches later in the funnel — a major source of drop-off in the legacy experience.",
+    body: "Rather than framing the experience around fibre eligibility, we introduced a personalised entry point through an improved address check. This allowed users to see relevant offers from the start, eliminating disruptive product switches later in the funnel — a major source of drop-off in the legacy experience. This ensured the experience remained aligned with business priorities while avoiding frustration for non-fibre users.",
   },
   {
     n: "02",
+    title: "Standardising and scaling the upper funnel",
+    body: "The legacy product pages were fragmented, overloaded with content, and inconsistent across journeys. We introduced a streamlined, scalable page model, removing underperforming elements and prioritising content that users engaged with most. This created a clearer path to conversion and established a reusable structure that could be scaled across product types — supporting both usability and long-term maintainability.",
+  },
+  {
+    n: "03",
     title: "Simplifying critical conversion steps",
     body: "By analysing usage patterns, we identified that over 80% of successful checkouts used itsme, Belgium's leading digital ID method. We simplified the experience by prioritising itsme as the default — redesigning the step to improve performance, clarity, and control, and enabling continuous optimisation of a previously opaque part of the journey.",
   },
   {
-    n: "03",
+    n: "04",
     title: "Enabling self-service for installation",
     body: "Installation was a major source of friction for fibre customers facing long delays and uncertainty. We introduced a flexible model allowing eligible users to choose self-installation — aligning backend logic with frontend experience to ensure options were only presented when valid, combining clearer communication with improved system logic.",
   },
@@ -174,13 +179,18 @@ export default function EShareCaseStudy() {
               </p>
               <p style={{
                 fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                color: MUT, lineHeight: 1.75, margin: 0,
+                color: MUT, lineHeight: 1.75, margin: 0, marginBottom: "1.125rem",
               }}>
                 I contributed to the redesign of the end-to-end ordering experience, focusing on
                 simplifying journeys, aligning product strategy with user expectations, and
-                addressing structural points of friction across the funnel. This led to a more
-                coherent, scalable ordering model, improving conversion, reducing reliance on
-                support channels, and repositioning digital as the primary sales channel.
+                addressing structural points of friction across the funnel.
+              </p>
+              <p style={{
+                fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
+                color: MUT, lineHeight: 1.75, margin: 0,
+              }}>
+                This led to a more coherent, scalable ordering model, improving conversion, reducing
+                reliance on support channels, and repositioning digital as the primary sales channel.
               </p>
             </div>
           </div>
@@ -196,8 +206,8 @@ export default function EShareCaseStudy() {
               lineHeight: 1.3, letterSpacing: "-0.01em",
               color: IN2, margin: 0, maxWidth: "44ch",
             }}>
-              The decline was not driven by a single issue, but by a structural mismatch between
-              digital experience, user expectations, and business strategy.
+              The decline in eShare was not driven by a single issue, but by a structural mismatch
+              between the digital experience, user expectations, and business strategy.
             </p>
           </div>
 
@@ -214,17 +224,25 @@ export default function EShareCaseStudy() {
               </p>
               <p style={{
                 fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
+                color: MUT, lineHeight: 1.75, margin: 0, marginBottom: "1.125rem",
+              }}>
+                At the same time, the product experience lacked a clear strategic focus. While
+                Proximus aimed to position itself as fibre-first, this was not effectively
+                translated into the digital journey — especially given that a large portion of
+                users were not eligible for fibre.
+              </p>
+              <p style={{
+                fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
                 color: MUT, lineHeight: 1.75, margin: 0,
                 marginBottom: "clamp(1.125rem, 2vw, 1.75rem)",
               }}>
+                Operationally, key parts of the journey were also disconnected or inefficient.
                 Critical steps such as identification and installation introduced friction,
                 suffered from technical limitations, or lacked transparency — leading to high
-                drop-off and increased support demand. Proximus&apos; fibre-first strategy was
-                also not effectively translated into the digital journey, creating a gap between
-                business priorities and the user experience.
+                drop-off and increased support demand.
               </p>
 
-              <div>
+              <div style={{ marginBottom: "clamp(1.125rem, 2vw, 1.75rem)" }}>
                 {[
                   "Digital journeys did not reflect user expectations of simplicity and self-service",
                   "Business priorities were not clearly translated into the experience",
@@ -254,6 +272,13 @@ export default function EShareCaseStudy() {
                   </div>
                 ))}
               </div>
+              <p style={{
+                fontFamily: S, fontSize: "clamp(0.875rem, 1.3vw, 0.9375rem)",
+                color: IN2, lineHeight: 1.65, margin: 0, fontStyle: "italic",
+              }}>
+                The challenge was not to optimise the checkout, but to redefine the ordering model
+                to improve conversion while aligning with both user behaviour and business strategy.
+              </p>
             </div>
           </div>
         </section>
@@ -324,7 +349,8 @@ export default function EShareCaseStudy() {
               This resulted in a redefined digital ordering model — improving conversion, reducing
               friction, and restoring the role of digital as a primary sales channel. Beyond
               performance, the initiative introduced a more collaborative governance model,
-              positioning design as a strategic partner in shaping business outcomes.
+              strengthening alignment across product, tech, and design, and positioning design as
+              a strategic partner in shaping business outcomes — not just execution.
             </p>
           </div>
 
@@ -407,13 +433,20 @@ export default function EShareCaseStudy() {
               </p>
               <p style={{
                 fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                color: MUT, lineHeight: 1.75, margin: 0,
+                color: MUT, lineHeight: 1.75, margin: 0, marginBottom: "1.125rem",
               }}>
                 What initially appeared as a conversion issue revealed deeper structural challenges
                 across product strategy, technical dependencies, and organisational ways of working.
-                Addressing these required not only design changes but closer collaboration across
-                product, tech, and business teams — ultimately positioning design as a strategic
-                partner in shaping business outcomes, not just execution.
+                Addressing these required not only design changes, but closer collaboration across
+                product, tech, and business teams.
+              </p>
+              <p style={{
+                fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
+                color: MUT, lineHeight: 1.75, margin: 0,
+              }}>
+                The complexity lay in balancing simplification with real-world constraints —
+                ensuring that the experience remained coherent for users while accommodating the
+                realities of the market and internal systems.
               </p>
             </div>
           </div>
