@@ -1,2 +1,2 @@
-export { metadata } from "./direction-e/page";
+export { generateMetadata } from "./direction-e/page";
 export { default } from "./direction-e/page";

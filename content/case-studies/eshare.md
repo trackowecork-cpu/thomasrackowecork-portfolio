@@ -1,6 +1,6 @@
 ---
 title: "Recovering Declining eShare"
-subtitle: "How we rebuilt Proximus' digital ordering model to reduce friction, restore conversion, and reposition digital as the primary sales channel."
+subtitle: "How we rebuilt the end-to-end ordering experience to reduce friction, restore conversion, and reposition digital as the primary sales channel."
 company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2022–23"

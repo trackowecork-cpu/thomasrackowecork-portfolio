@@ -1,51 +1,17 @@
-export const metadata = { title: "Thomas Rackowe Cork — Product Designer" };
-
+import { getHomepage } from "@/lib/homepage";
 import Image from "next/image";
 import { DirectionENav } from "./_components/nav";
 import { DirectionEFooter } from "./_components/footer";
 import { C, M, S, GR, BD, INK, IN2, MUT, FNT, ACC } from "./_tokens";
 
-const projects = [
-  {
-    n: "01",
-    title: "Rebuilding the Foundations of Proximus+",
-    summary:
-      "Redesigning the foundations of telecom product and service management. The work focuses on simplifying complexity, improving operational clarity, and building foundations that can evolve alongside future services, technologies, and customer expectations.",
-    company: "Proximus",
-    year: "2024–present",
-    status: "In progress",
-    href: "/direction-e/work/proximus-plus",
-  },
-  {
-    n: "02",
-    title: "Recovering Declining eShare",
-    summary:
-      "Proximus was experiencing a sustained decline in its digital sales share, alongside an increase in support calls. We redesigned the end-to-end ordering experience — simplifying journeys, addressing structural points of friction, and realigning the product experience with user behaviour and business strategy.",
-    company: "Proximus",
-    year: "2022–23",
-    href: "/direction-e/work/eshare",
-  },
-  {
-    n: "03",
-    title: "Scaling Onboarding for the eSIM Era",
-    summary:
-      "eSIM exposed a fundamental mismatch between technology and operations at Proximus. We transformed mobile onboarding from a physical, postal process into a fully digital activation system — reducing activation time from days to minutes and enabling self-service at scale.",
-    company: "Proximus",
-    year: "2023",
-    href: "/direction-e/work/esim",
-  },
-  {
-    n: "04",
-    title: "Redefining Product Strategy at Arteïa",
-    summary:
-      "Arteïa's value proposition was tied to a trend that was no longer sustainable. User research revealed that the challenge was not to improve the experience, but to redefine the product itself — repositioning around private collectors as the core audience.",
-    company: "Arteïa",
-    year: "2022",
-    href: "/direction-e/work/arteia",
-  },
-];
+export function generateMetadata() {
+  const data = getHomepage();
+  return { title: data.metaTitle };
+}
 
 export default function DirectionE3() {
+  const data = getHomepage();
+
   return (
     <>
       <style>{`
@@ -133,7 +99,7 @@ export default function DirectionE3() {
               textTransform: "uppercase", letterSpacing: "0.12em", color: FNT,
               marginBottom: "clamp(1.75rem, 3.5vw, 2.75rem)",
             }}>
-              Product Designer
+              {data.hero.label}
             </p>
 
             <h1 style={{
@@ -143,7 +109,7 @@ export default function DirectionE3() {
               color: INK, margin: 0,
               marginBottom: "clamp(2.5rem, 5vw, 4rem)",
             }}>
-              The brief is rarely the problem.
+              {data.hero.headline}
             </h1>
 
             <p style={{
@@ -151,9 +117,7 @@ export default function DirectionE3() {
               color: MUT, lineHeight: 1.82,
               maxWidth: "44ch", margin: 0,
             }}>
-              I design products, services, and systems from the point where the real challenge
-              becomes clear — questioning assumptions, rebuilding operational models, creating
-              foundations that scale.
+              {data.hero.body}
             </p>
           </div>
         </section>
@@ -162,7 +126,7 @@ export default function DirectionE3() {
         <section id="work" className="e3-section">
           <span className="e3-section-label">Selected work</span>
 
-          {projects.map(p => (
+          {data.projects.map(p => (
             <div key={p.n} className="e3-project">
               <span className="e3-pn">{p.n}</span>
 
@@ -221,8 +185,8 @@ export default function DirectionE3() {
           <div className="e3-about-flex">
             <div className="e3-about-circle">
               <Image
-                src="/assets/about-section/thomas-portrait3.png"
-                alt="Thomas Rackowe Cork"
+                src={data.about.portrait}
+                alt={data.about.portraitAlt}
                 fill
                 style={{ objectFit: "cover", objectPosition: "center center" }}
               />
@@ -237,10 +201,7 @@ export default function DirectionE3() {
                 color: IN2, lineHeight: 1.75, margin: 0,
                 maxWidth: "52ch",
               }}>
-                My path to product design ran through the contemporary art world and social
-                anthropology — both trained me to look beneath surface behaviour and understand
-                the systems, motivations, and decisions that drive outcomes. That lens is what
-                I bring to product work today.
+                {data.about.teaser}
               </p>
               <a href="/direction-e/about" className="e3-arrow">About →</a>
             </div>

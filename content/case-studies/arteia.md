@@ -1,6 +1,6 @@
 ---
 title: "Redefining Product Strategy at Arteïa"
-subtitle: "How research-led insights reshaped Arteïa into a collector-first platform built for long-term value."
+subtitle: "How research-led insights repositioned Arteïa around private collectors, shifting the product away from a declining trend toward long-term value."
 company: "Arteïa"
 role: "UX/UI Designer"
 timeframe: "2021"

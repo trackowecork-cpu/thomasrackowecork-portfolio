@@ -1,14 +1,30 @@
-export const metadata = {
-  title: "About — Thomas Rackowe Cork",
-  description:
-    "Product designer focused on shaping digital products, systems, and experiences that scale. Background in the contemporary art world and social anthropology.",
-};
-
+import { getAbout } from "@/lib/about";
 import { DirectionENav } from "../_components/nav";
 import { DirectionEFooter } from "../_components/footer";
-import { C, M, S, GR, BD, INK, IN2, MUT, FNT } from "../_tokens";
+import { C, M, S, GR, BD, INK, MUT, FNT } from "../_tokens";
+
+export function generateMetadata() {
+  const data = getAbout();
+  return { title: data.metaTitle, description: data.metaDescription };
+}
+
+function splitParagraphs(text: string) {
+  return text.trim().split(/\n\n+/).map(s => s.trim()).filter(Boolean);
+}
 
 export default function AboutPage() {
+  const data = getAbout();
+  const introParagraphs = splitParagraphs(data.introduction);
+  const bioParagraphs = splitParagraphs(data.biography);
+
+  const paraStyle = {
+    fontFamily: S,
+    fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
+    color: MUT,
+    lineHeight: 1.8,
+    margin: 0,
+  } as const;
+
   return (
     <>
       <style>{`
@@ -88,7 +104,7 @@ export default function AboutPage() {
             lineHeight: 1.1, letterSpacing: "-0.02em",
             color: INK, margin: 0,
           }}>
-            My path to product design ran through the contemporary art world and social anthropology.
+            {data.headline}
           </h1>
         </section>
 
@@ -115,87 +131,26 @@ export default function AboutPage() {
 
               {/* Introduction */}
               <div style={{ marginBottom: "1rem" }}>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0, marginBottom: "1rem",
-                }}>
-                  Before product design, I spent years in the contemporary art world. Before
-                  that, social anthropology.
-                </p>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0,
-                }}>
-                  Looking back, both were really about the same thing: understanding how people
-                  make decisions, what they value, and how systems shape behaviour.
-                </p>
+                {introParagraphs.map((chunk, i) => (
+                  <p key={i} style={{
+                    ...paraStyle,
+                    ...(i < introParagraphs.length - 1 ? { marginBottom: "1rem" } : {}),
+                  }}>
+                    {chunk}
+                  </p>
+                ))}
               </div>
 
               {/* Biography — no label, no rule, continues from introduction */}
               <div>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0, marginBottom: "1rem",
-                }}>
-                  I&apos;m a product and service designer focused on shaping digital products,
-                  systems, and experiences that scale. My work sits at the intersection of user
-                  needs, business strategy, and emerging technologies — from connected services
-                  and AI-driven experiences to complex product ecosystems.
-                </p>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0, marginBottom: "1rem",
-                }}>
-                  Before moving into design, I worked in the contemporary art world as an art
-                  advisor, researcher, and artist liaison. That experience taught me how to
-                  navigate ambiguity, align competing perspectives, and communicate complex ideas
-                  with clarity — skills that continue to shape how I collaborate across
-                  multidisciplinary teams today.
-                </p>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0, marginBottom: "1rem",
-                }}>
-                  My background in social anthropology fundamentally influences my approach to
-                  design. It trained me to look beyond surface behaviour and understand the
-                  cultural, emotional, and systemic factors that drive decision-making. Today,
-                  that translates into a research-led practice grounded in context, critical
-                  thinking, and real-world behavioural insight.
-                </p>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0, marginBottom: "1rem",
-                }}>
-                  I&apos;m particularly interested in how technology can create more intelligent,
-                  adaptive, and intuitive experiences. As products become increasingly powered by
-                  AI, automation, and connected systems, I believe the role of design is not only
-                  to simplify complexity, but to ensure technology remains meaningful, trustworthy,
-                  and aligned with real user needs.
-                </p>
-                <p style={{
-                  fontFamily: S,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
-                  color: MUT, lineHeight: 1.8,
-                  margin: 0,
-                }}>
-                  My approach combines systems thinking, research, and strategic design to turn
-                  complexity into coherent end-to-end experiences. Whether defining product
-                  ecosystems, improving service journeys, or designing scalable digital foundations,
-                  my goal is to create work that delivers long-term value — for both users and the
-                  organisations behind the products they rely on.
-                </p>
+                {bioParagraphs.map((chunk, i) => (
+                  <p key={i} style={{
+                    ...paraStyle,
+                    ...(i < bioParagraphs.length - 1 ? { marginBottom: "1rem" } : {}),
+                  }}>
+                    {chunk}
+                  </p>
+                ))}
               </div>
 
             </div>

@@ -1,6 +1,6 @@
 ---
 title: "Rebuilding the Foundations of Proximus' Mobile App"
-subtitle: "How we are redefining product and service management for the future of Proximus+."
+subtitle: "How we are rearchitecting the core of Proximus+ to reduce operational complexity and build a foundation that scales."
 company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2024–present"

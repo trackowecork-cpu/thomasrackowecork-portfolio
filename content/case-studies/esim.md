@@ -1,6 +1,6 @@
 ---
 title: "Scaling Onboarding for the eSIM Era"
-subtitle: "How we built the foundations for eSIM at Proximus and enabled digital-first onboarding at scale."
+subtitle: "How we transformed mobile onboarding from a physical process into a fully digital activation system, reducing activation time from days to minutes."
 company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2023"
