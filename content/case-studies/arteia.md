@@ -2,8 +2,8 @@
 title: "Redefining Product Strategy at Arteïa"
 subtitle: "How research-led insights reshaped Arteïa into a collector-first platform built for long-term value."
 company: "Arteïa"
-role: "Senior UX/UI & Service Designer"
-timeframe: "2022"
+role: "UX/UI Designer"
+timeframe: "2021"
 
 heroImage: "/assets/arteia-hero.png"
 heroImageAlt: "Arteïa product strategy"
