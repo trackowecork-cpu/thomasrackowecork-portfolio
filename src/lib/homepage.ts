@@ -18,7 +18,7 @@ export interface HomepageData {
   metaTitle: string
   hero: { label: string; headline: string; body: string }
   projects: HomepageProject[]
-  about: { portrait: string; portraitAlt: string; teaser: string }
+  about: { image: string; imageAlt: string; teaser: string }
 }
 
 export function getHomepage(): HomepageData {
@@ -28,6 +28,6 @@ export function getHomepage(): HomepageData {
     metaTitle: fm.metaTitle ?? 'Thomas Rackowe Cork — Product Designer',
     hero: fm.hero ?? { label: '', headline: '', body: '' },
     projects: fm.projects ?? [],
-    about: fm.about ?? { portrait: '', portraitAlt: '', teaser: '' },
+    about: fm.about ?? { image: '', imageAlt: '', teaser: '' },
   }
 }

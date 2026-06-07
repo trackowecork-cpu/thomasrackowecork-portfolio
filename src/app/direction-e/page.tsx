@@ -185,8 +185,8 @@ export default function DirectionE3() {
           <div className="e3-about-flex">
             <div className="e3-about-circle">
               <Image
-                src={data.about.portrait}
-                alt={data.about.portraitAlt}
+                src={data.about.image}
+                alt={data.about.imageAlt}
                 fill
                 style={{ objectFit: "cover", objectPosition: "center center" }}
               />

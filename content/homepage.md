@@ -34,7 +34,7 @@ projects:
     href: "/direction-e/work/arteia"
 
 about:
-  portrait: "/assets/about-section/thomas-portrait3.png"
-  portraitAlt: "Thomas Rackowe Cork"
+  image: "/assets/about-section/thomas-portrait3.png"
+  imageAlt: "Thomas Rackowe Cork"
   teaser: "I'm a product and service designer focused on the kind of work that requires more than good interfaces — defining product structures, untangling service complexity, and building foundations that hold up over time. I work best where design and strategy overlap."
 ---
