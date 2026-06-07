@@ -122,7 +122,17 @@ export default function AboutPage() {
 
             {/* Left column: portrait, then whitespace */}
             <div>
-              <div className="e3ab-portrait" />
+              {data.portraitImage ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={data.portraitImage}
+                  alt={data.portraitAlt}
+                  className="e3ab-portrait"
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                />
+              ) : (
+                <div className="e3ab-portrait" />
+              )}
             </div>
 
             {/* Right column: introduction flows directly into biography.

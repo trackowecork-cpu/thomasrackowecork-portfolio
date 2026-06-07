@@ -2,6 +2,9 @@
 metaTitle: "About — Thomas Rackowe Cork"
 metaDescription: "Product and service designer focused on product structure, service complexity, and the intersection of design and strategy.."
 
+portraitImage: "/assets/about-section/thomas-portrait3.png"
+portraitAlt: "Thomas Rackowe Cork"
+
 headline: "I'm a product and service designer focused on the problems that sit at the intersection of design, systems, and strategy."
 
 introduction: |
