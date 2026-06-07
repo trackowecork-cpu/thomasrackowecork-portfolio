@@ -210,17 +210,6 @@ export default function DirectionE3() {
 
         <DirectionEFooter />
 
-        {/* ── Version label ─────────────────────────────────────────────────── */}
-        <div style={{
-          position: "fixed", bottom: 16, right: 16, zIndex: 200,
-          background: ACC, color: GR,
-          fontFamily: M, fontSize: 10,
-          textTransform: "uppercase", letterSpacing: "0.12em",
-          padding: "8px 14px",
-        }}>
-          E.3
-        </div>
-
       </div>
     </>
   );
