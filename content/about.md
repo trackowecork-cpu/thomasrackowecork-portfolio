@@ -1,11 +1,11 @@
 ---
 metaTitle: "About — Thomas Rackowe Cork"
-metaDescription: "I'm a product and service designer who works best where design and strategy overlap."
+metaDescription: "Product and service designer focused on product structure, service complexity, and the intersection of design and strategy."
 
 portraitImage: "/assets/about-section/thomas-portrait-about.jpg"
 portraitAlt: "Thomas Rackowe Cork"
 
-headline: "I'm a product and service designer focused on the problems that sit at the intersection of design, systems, and strategy."
+headline: "I'm a product and service designer who works best where design and strategy overlap."
 
 introduction: |
   I'm a senior product and service designer focused on the kind of work that requires more than good interfaces — defining product structures, untangling service complexity, and building foundations that hold up over time. I work best where design and strategy overlap.
