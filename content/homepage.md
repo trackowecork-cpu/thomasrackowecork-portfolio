@@ -4,7 +4,7 @@ metaTitle: "Thomas Rackowe Cork — Product Designer"
 hero:
   label: "Product Designer"
   headline: "The brief is rarely the problem."
-  body: "I'm a product and service designer who works best where design and strategy overlap."
+  body: "Product and service designer focused on product structure, service complexity, and the intersection of design and strategy."
 
 projects:
   - n: "01"

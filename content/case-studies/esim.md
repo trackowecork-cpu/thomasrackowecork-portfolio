@@ -34,10 +34,16 @@ solution:
   decisions:
     - n: "01"
       title: "Digitising onboarding"
-      body: "I contributed to redefining onboarding by removing the dependency on physical delivery. We introduced a fully digital activation flow within the Proximus+ app, consolidating purchase, onboarding, and installation into a single, continuous journey — enabling customers to activate their eSIM directly, without waiting or switching channels. The experience was designed to reduce ambiguity and build trust in a process that was still unfamiliar. Clear guidance, real-time feedback, and step-by-step validation helped users complete activation independently."
+      body: "We introduced a fully digital activation flow within the Proximus+ app, consolidating purchase, onboarding, and installation into a single, continuous journey. Customers could activate their eSIM directly — without waiting or switching channels. The experience was designed to reduce ambiguity in a process that was still unfamiliar to most users, using clear guidance, real-time feedback, and step-by-step validation to help them complete activation independently."
     - n: "02"
       title: "Enabling scale and self-service"
-      body: "Once onboarding was digitised, a second limitation became clear: existing customers could not transition to eSIM without visiting a store — an approach that would not scale as physical SIM cards were being phased out. I worked with product, engineering, and stakeholders to design a fully digital SIM-to-eSIM self-service flow, enabling customers to switch directly within the app. In parallel, we collaborated with manufacturers to prepare Quick Transfer, enabling seamless device-to-device migration. Together, these initiatives established a scalable, digital-first activation system connecting onboarding, switching, and device transitions into a single, coherent model."
+      body: "Digitising onboarding revealed a second limitation: existing customers could not transition to eSIM without visiting a store — an approach that would not scale as physical SIM cards were phased out. We designed a fully digital SIM-to-eSIM switching flow within the app, and collaborated with device manufacturers to introduce Quick Transfer, enabling seamless device-to-device migration. Together, these established a scalable, digital-first activation system connecting onboarding, switching, and device transitions into a single coherent model."
+    - n: "03"
+      title: "Education and support"
+      body: "To support adoption, we built a dedicated eSIM landing page — a place for customers to understand the technology, check device compatibility before committing, and access digital support flows. Those support flows were later integrated into the Proximus virtual assistant, reducing the volume of queries reaching agents."
+    - n: "04"
+      title: "Internal enablement"
+      body: "Adoption also required preparing the people behind the product. With eSIM still unfamiliar to many customer-facing teams, we developed a training programme to ensure agents had a consistent baseline of knowledge — so customers received the same quality of support regardless of the channel they used."
 
 impact:
   intro: "The shift from physical to digital activation fundamentally changed how mobile onboarding operates at Proximus, reducing friction for both new and existing customers while enabling the organisation to scale with increasing eSIM adoption."

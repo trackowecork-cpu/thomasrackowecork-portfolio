@@ -2,7 +2,7 @@
 title: "Recovering Declining eShare"
 subtitle: "How we redesigned the end-to-end ordering experience — simplifying journeys, addressing structural points of friction, and realigning the experience with user behaviour and business strategy."
 company: "Proximus"
-role: "Senior UX/UI & Service Designer"
+role: "UX/UI & Service Designer"
 timeframe: "2022–23"
 
 heroImage: "/assets/eshare-hero.png"
