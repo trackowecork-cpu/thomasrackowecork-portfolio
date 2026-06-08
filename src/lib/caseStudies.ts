@@ -42,6 +42,14 @@ export interface Impact {
   statement: string | null
 }
 
+export interface CaseVisual {
+  src: string
+  alt?: string
+  caption?: string
+  layout?: 'full' | 'contained' | 'two-col'
+  placement?: 'after-hero' | 'after-overview' | 'after-challenge' | 'after-solution' | 'after-impact' | 'after-reflection'
+}
+
 export interface CaseStudyData {
   slug: string
   title: string
@@ -61,6 +69,7 @@ export interface CaseStudyData {
   pullQuote: string | null
   reflection: string | null
   nextProject: NextProject | null
+  visuals: CaseVisual[]
 }
 
 export function getAllSlugs(): string[] {
@@ -97,5 +106,6 @@ export function getCaseStudy(slug: string): CaseStudyData | null {
     pullQuote:       fm.pullQuote       ?? null,
     reflection:      fm.reflection      ?? null,
     nextProject:     fm.nextProject     ?? null,
+    visuals:         fm.visuals         ?? [],
   }
 }

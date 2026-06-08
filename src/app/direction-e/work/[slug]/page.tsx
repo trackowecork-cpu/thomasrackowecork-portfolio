@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import { DirectionENav } from "../../_components/nav";
 import { DirectionEFooter } from "../../_components/footer";
 import { C, M, S, GR, BD, INK, IN2, MUT, FNT, ACC } from "../../_tokens";
-import { getCaseStudy, getAllSlugs } from "@/lib/caseStudies";
+import { getCaseStudy, getAllSlugs, type CaseVisual } from "@/lib/caseStudies";
 
 export const dynamicParams = false;
 
@@ -54,6 +54,118 @@ function Prose({
           {chunk}
         </p>
       ))}
+    </>
+  );
+}
+
+// Renders visuals for a given placement slot. Returns null when the list is empty
+// so existing pages with no visuals are unaffected.
+function VisualBlock({ visuals }: { visuals: CaseVisual[] }) {
+  if (!visuals.length) return null;
+
+  // Group consecutive two-col entries into pairs; orphaned two-col falls back to contained.
+  type Item =
+    | { kind: 'single'; v: CaseVisual }
+    | { kind: 'pair'; a: CaseVisual; b: CaseVisual };
+
+  const items: Item[] = [];
+  let i = 0;
+  while (i < visuals.length) {
+    const v = visuals[i];
+    if (
+      (v.layout ?? 'contained') === 'two-col' &&
+      i + 1 < visuals.length &&
+      (visuals[i + 1].layout ?? 'contained') === 'two-col'
+    ) {
+      items.push({ kind: 'pair', a: v, b: visuals[i + 1] });
+      i += 2;
+    } else {
+      items.push({ kind: 'single', v });
+      i++;
+    }
+  }
+
+  const outerPad: CSSProperties = {
+    paddingLeft:   'clamp(1.25rem, 5vw, 5rem)',
+    paddingRight:  'clamp(1.25rem, 5vw, 5rem)',
+    paddingBottom: 'clamp(2rem, 4vw, 3rem)',
+  };
+  const captionStyle: CSSProperties = {
+    display: 'block',
+    fontFamily: M,
+    fontSize: 12,
+    color: FNT,
+    lineHeight: 1.5,
+    marginTop: '0.5rem',
+  };
+
+  return (
+    <>
+      {items.map((item, idx) => {
+        if (item.kind === 'pair') {
+          return (
+            <div key={idx} style={outerPad}>
+              <div className="cs-ann">
+                <div />
+                <div style={{ maxWidth: '62ch' }}>
+                  <div className="cs-vis-twocol">
+                    {[item.a, item.b].map((img, j) => (
+                      <div key={j}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={img.src}
+                          alt={img.alt ?? ''}
+                          style={{ display: 'block', width: '100%', height: 'auto', border: `1px solid ${BD}` }}
+                        />
+                        {img.caption && <span style={captionStyle}>{img.caption}</span>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        const { v } = item;
+        const layout = v.layout ?? 'contained';
+
+        if (layout === 'full') {
+          return (
+            <div key={idx} style={outerPad}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={v.src}
+                alt={v.alt ?? ''}
+                style={{
+                  display: 'block', width: '100%',
+                  aspectRatio: '16 / 9', objectFit: 'cover', objectPosition: 'center',
+                  filter: 'saturate(0.9) brightness(0.95)',
+                }}
+              />
+              {v.caption && <span style={captionStyle}>{v.caption}</span>}
+            </div>
+          );
+        }
+
+        // contained (default, and orphaned two-col)
+        return (
+          <div key={idx} style={outerPad}>
+            <div className="cs-ann">
+              <div />
+              <div style={{ maxWidth: '62ch' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={v.src}
+                  alt={v.alt ?? ''}
+                  style={{ display: 'block', width: '100%', height: 'auto', border: `1px solid ${BD}` }}
+                />
+                {v.caption && <span style={captionStyle}>{v.caption}</span>}
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 }
@@ -118,6 +230,14 @@ export default async function CaseStudyPage({
             grid-template-columns: clamp(120px, 15%, 180px) 1fr;
             gap: clamp(2rem, 4vw, 4rem);
           }
+        }
+        .cs-vis-twocol {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: clamp(0.75rem, 1.5vw, 1.25rem);
+        }
+        @media (min-width: 640px) {
+          .cs-vis-twocol { grid-template-columns: 1fr 1fr; }
         }
         .cs-decision {
           border-top: 1px solid ${BD};
@@ -261,6 +381,8 @@ export default async function CaseStudyPage({
           </div>
         )}
 
+        <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-hero')} />
+
         {/* ── Overview ─────────────────────────────────────────────────────── */}
         {data.overview && (
           <section
@@ -280,6 +402,8 @@ export default async function CaseStudyPage({
             </div>
           </section>
         )}
+
+        <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-overview')} />
 
         {/* ── Challenge ────────────────────────────────────────────────────── */}
         {data.challenge && (
@@ -374,6 +498,8 @@ export default async function CaseStudyPage({
           </section>
         )}
 
+        <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-challenge')} />
+
         {/* ── Solution ─────────────────────────────────────────────────────── */}
         {data.solution && (
           <section style={sectionStyle}>
@@ -420,6 +546,8 @@ export default async function CaseStudyPage({
             )}
           </section>
         )}
+
+        <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-solution')} />
 
         {/* ── Impact ───────────────────────────────────────────────────────── */}
         {data.impact && (
@@ -540,6 +668,8 @@ export default async function CaseStudyPage({
           </section>
         )}
 
+        <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-impact')} />
+
         {/* ── Reflection ───────────────────────────────────────────────────── */}
         {(data.pullQuote || data.reflection) && isFullStudy && (
           <section style={sectionStyle}>
@@ -574,6 +704,8 @@ export default async function CaseStudyPage({
             </div>
           </section>
         )}
+
+        <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-reflection')} />
 
         {/* ── Status section (in-progress / in-preparation) ────────────────── */}
         {data.status && (
