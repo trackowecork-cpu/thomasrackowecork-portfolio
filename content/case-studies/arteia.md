@@ -5,7 +5,7 @@ company: "Arteïa"
 role: "UX/UI Designer"
 timeframe: "2021"
 
-heroImage: "/assets/arteia-hero.png"
+heroImage: "/assets/case-studies/arteia/hero.png"
 heroImageAlt: "Arteïa product strategy"
 heroBackground: "#0E0D0C"
 
