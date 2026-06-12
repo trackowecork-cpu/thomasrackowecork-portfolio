@@ -5,7 +5,7 @@ company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2023"
 
-heroImage: "/assets/case-studies/esim/hero.png"
+heroImage: "/assets/case-studies/esim/eSIM_hero_v3_1.gif"
 heroImageAlt: "eSIM digital onboarding experience"
 heroBackground: "#0E0D0C"
 
@@ -70,13 +70,13 @@ reflection: |
   What we designed was not just a solution for onboarding, but a foundation for further evolution — supporting future use cases such as wearables and companion devices, where eSIM becomes the default.
 
 visuals:
-  - src: "/assets/case-studies/esim/esim_before_after_.png"
+  - src: "/assets/case-studies/esim/esim_before_after_1.png"
     alt: "eSIM journey before and after redesign"
-    layout: "contained"
+    layout: "full"
     placement: "after-challenge"
-  - src: "/assets/case-studies/esim/esim_activation_flow.png"
+  - src: "/assets/case-studies/esim/esim_activation_flow_1.png"
     alt: "eSIM activation flow"
-    layout: "contained"
+    layout: "full"
     placement: "after-solution"
 
 nextProject:
