@@ -5,7 +5,7 @@ company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2023"
 
-heroImage: "/assets/case-studies/esim/eSIM_hero_v3_1.gif"
+heroImage: "/assets/case-studies/esim/esim_hero_final_1.gif"
 heroImageAlt: "eSIM digital onboarding experience"
 heroBackground: "#0E0D0C"
 
