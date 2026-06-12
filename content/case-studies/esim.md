@@ -69,6 +69,16 @@ reflection: |
 
   What we designed was not just a solution for onboarding, but a foundation for further evolution — supporting future use cases such as wearables and companion devices, where eSIM becomes the default.
 
+visuals:
+  - src: "/assets/case-studies/esim/esim_before_after_.png"
+    alt: "eSIM journey before and after redesign"
+    layout: "contained"
+    placement: "after-challenge"
+  - src: "/assets/case-studies/esim/esim_activation_flow.png"
+    alt: "eSIM activation flow"
+    layout: "contained"
+    placement: "after-solution"
+
 nextProject:
   title: "Redefining Product Strategy at Arteïa"
   slug: "arteia"
