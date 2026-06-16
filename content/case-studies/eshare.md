@@ -3,7 +3,7 @@ title: "Recovering Declining eShare"
 subtitle: "How we redesigned the end-to-end ordering experience — simplifying journeys, addressing structural points of friction, and realigning the experience with user behaviour and business strategy."
 company: "Proximus"
 role: "UX/UI & Service Designer"
-timeframe: "2022–23"
+timeframe: "2023–25"
 
 heroImage: "/assets/case-studies/eshare/eshare-hero.png"
 heroImageAlt: "eShare digital ordering experience"
@@ -69,12 +69,18 @@ impact:
 
 pullQuote: "Design is not just about reducing friction, but about aligning systems, strategy, and experience to create meaningful, scalable impact."
 
-reflection: |
+reflection:
   This project highlighted that improving performance at scale requires more than optimising individual touchpoints — it requires rethinking the system as a whole.
 
   What initially appeared as a conversion issue revealed deeper structural challenges across product strategy, technical dependencies, and organisational ways of working. Addressing these required not only design changes, but closer collaboration across product, tech, and business teams.
 
   The complexity lay in balancing simplification with real-world constraints — ensuring that the experience remained coherent for users while accommodating the realities of the market and internal systems.
+
+visuals:
+  - src: "/assets/case-studies/eshare/eshare_false_start@2x_1.png"
+    alt: "Illustration of the eShare conversion funnel showing fibre eligibility being revealed too late in the journey"
+    layout: "full"
+    placement: "after-challenge"
 
 nextProject:
   title: "Scaling Onboarding for the eSIM Era"
