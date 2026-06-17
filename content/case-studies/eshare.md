@@ -77,7 +77,7 @@ reflection:
   The complexity lay in balancing simplification with real-world constraints — ensuring that the experience remained coherent for users while accommodating the realities of the market and internal systems.
 
 visuals:
-  - src: "/assets/case-studies/eshare/eshare_false_start@2x_1.png"
+  - src: "/assets/case-studies/eshare/eshare_Challenge.png"
     alt: "Illustration of the eShare conversion funnel showing fibre eligibility being revealed too late in the journey"
     layout: "full"
     placement: "after-challenge"
