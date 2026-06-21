@@ -5,7 +5,7 @@ company: "Proximus"
 role: "UX/UI & Service Designer"
 timeframe: "2023–25"
 
-heroImage: "/assets/case-studies/eshare/eshare_hero_warm.png"
+heroImage: "/assets/case-studies/eshare/eshare_hero_7.png"
 heroImageAlt: "eShare digital ordering experience"
 heroBackground: "#0E0D0C"
 
