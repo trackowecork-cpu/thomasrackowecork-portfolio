@@ -10,10 +10,15 @@ export interface Metric {
   note: string
 }
 
+// Visuals attached to a specific decision — same fields as CaseVisual minus placement,
+// since position is implied by the owning decision.
+export type DecisionVisual = Omit<CaseVisual, 'placement'>
+
 export interface Decision {
   n: string
   title: string
   body: string
+  visual?: DecisionVisual
 }
 
 export interface NextProject {

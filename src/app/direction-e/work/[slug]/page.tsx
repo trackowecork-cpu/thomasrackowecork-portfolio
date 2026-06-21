@@ -197,6 +197,7 @@ export default async function CaseStudyPage({
   if (!data) notFound();
 
   const isFullStudy = !data.status;
+  const hasDecisionVisuals = data.solution?.decisions.some(d => d.visual) ?? false;
 
   const sectionStyle: CSSProperties = {
     padding:
@@ -218,6 +219,17 @@ export default async function CaseStudyPage({
     color: MUT,
     lineHeight: 1.75,
     margin: 0,
+  };
+
+  const decisionTitleStyle: CSSProperties = {
+    fontFamily: C,
+    fontWeight: 500,
+    fontSize: "clamp(1.125rem, 2vw, 1.375rem)",
+    lineHeight: 1.2,
+    letterSpacing: "-0.01em",
+    color: IN2,
+    margin: 0,
+    marginBottom: "0.75rem",
   };
 
   const smallBodyStyle: CSSProperties = {
@@ -519,49 +531,75 @@ export default async function CaseStudyPage({
 
         {/* ── Solution ─────────────────────────────────────────────────────── */}
         {data.solution && (
-          <section style={sectionStyle}>
-            <div
-              className="cs-ann"
-              style={{ marginBottom: "clamp(1.75rem, 3.5vw, 3rem)" }}
-            >
-              <div>
-                <span className="cs-ann-lbl">Solution</span>
-              </div>
-              <div style={{ maxWidth: "62ch" }}>
-                <Prose text={data.solution.intro} style={bodyStyle} />
-              </div>
-            </div>
-
-            {data.solution.decisions.length > 0 && (
-              <div className="cs-ann">
-                <div />
-                <div style={{ maxWidth: "62ch" }}>
-                  {data.solution.decisions.map((d) => (
-                    <div key={d.n} className="cs-decision">
-                      <span className="cs-dn">{d.n}</span>
-                      <div>
-                        <p
-                          style={{
-                            fontFamily: C,
-                            fontWeight: 500,
-                            fontSize: "clamp(1.125rem, 2vw, 1.375rem)",
-                            lineHeight: 1.2,
-                            letterSpacing: "-0.01em",
-                            color: IN2,
-                            margin: 0,
-                            marginBottom: "0.75rem",
-                          }}
-                        >
-                          {d.title}
-                        </p>
-                        <p style={smallBodyStyle}>{d.body}</p>
+          hasDecisionVisuals ? (
+            // Decision-block mode: each decision is paired with its own visual.
+            // Decisions live outside the section so visuals can break to full width between them.
+            <>
+              <section style={sectionStyle}>
+                <div
+                  className="cs-ann"
+                  style={{ marginBottom: "clamp(1.75rem, 3.5vw, 3rem)" }}
+                >
+                  <div>
+                    <span className="cs-ann-lbl">Solution</span>
+                  </div>
+                  <div style={{ maxWidth: "62ch" }}>
+                    <Prose text={data.solution.intro} style={bodyStyle} />
+                  </div>
+                </div>
+              </section>
+              {data.solution.decisions.map((d) => (
+                <div key={d.n}>
+                  <div style={{ paddingLeft: 'clamp(1.25rem, 5vw, 5rem)', paddingRight: 'clamp(1.25rem, 5vw, 5rem)' }}>
+                    <div className="cs-ann">
+                      <div />
+                      <div style={{ maxWidth: '62ch' }}>
+                        <div className="cs-decision">
+                          <span className="cs-dn">{d.n}</span>
+                          <div>
+                            <p style={decisionTitleStyle}>{d.title}</p>
+                            <p style={smallBodyStyle}>{d.body}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  ))}
+                  </div>
+                  {d.visual && <VisualBlock visuals={[d.visual]} />}
+                </div>
+              ))}
+            </>
+          ) : (
+            // Standard mode: all decisions grouped inside the section, no inline visuals.
+            <section style={sectionStyle}>
+              <div
+                className="cs-ann"
+                style={{ marginBottom: "clamp(1.75rem, 3.5vw, 3rem)" }}
+              >
+                <div>
+                  <span className="cs-ann-lbl">Solution</span>
+                </div>
+                <div style={{ maxWidth: "62ch" }}>
+                  <Prose text={data.solution.intro} style={bodyStyle} />
                 </div>
               </div>
-            )}
-          </section>
+              {data.solution.decisions.length > 0 && (
+                <div className="cs-ann">
+                  <div />
+                  <div style={{ maxWidth: "62ch" }}>
+                    {data.solution.decisions.map((d) => (
+                      <div key={d.n} className="cs-decision">
+                        <span className="cs-dn">{d.n}</span>
+                        <div>
+                          <p style={decisionTitleStyle}>{d.title}</p>
+                          <p style={smallBodyStyle}>{d.body}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          )
         )}
 
         <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-solution')} />
