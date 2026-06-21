@@ -148,6 +148,23 @@ function VisualBlock({ visuals }: { visuals: CaseVisual[] }) {
           );
         }
 
+        if (layout === 'full-natural') {
+          return (
+            <div key={idx} style={outerPad}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={v.src}
+                alt={v.alt ?? ''}
+                style={{
+                  display: 'block', width: '100%', height: 'auto',
+                  filter: 'saturate(0.9) brightness(0.95)',
+                }}
+              />
+              {v.caption && <span style={captionStyle}>{v.caption}</span>}
+            </div>
+          );
+        }
+
         // contained (default, and orphaned two-col)
         return (
           <div key={idx} style={outerPad}>

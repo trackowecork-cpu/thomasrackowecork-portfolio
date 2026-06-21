@@ -46,7 +46,7 @@ export interface CaseVisual {
   src: string
   alt?: string
   caption?: string
-  layout?: 'full' | 'contained' | 'two-col'
+  layout?: 'full' | 'full-natural' | 'contained' | 'two-col'
   placement?: 'after-hero' | 'after-overview' | 'after-challenge' | 'after-solution' | 'after-impact' | 'after-reflection'
 }
 
