@@ -132,13 +132,24 @@ export default function DirectionE3() {
 
               <div>
                 <h2 style={{ margin: 0, marginBottom: "clamp(0.75rem, 1.5vw, 1rem)" }}>
-                  <a href={p.href} className="e3-project-title" style={{
-                    fontFamily: C, fontWeight: 400,
-                    fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-                    lineHeight: 1.2, letterSpacing: "-0.01em",
-                  }}>
-                    {p.title}
-                  </a>
+                  {p.status ? (
+                    <span style={{
+                      fontFamily: C, fontWeight: 400,
+                      fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+                      lineHeight: 1.2, letterSpacing: "-0.01em",
+                      color: INK, cursor: "default",
+                    }}>
+                      {p.title}
+                    </span>
+                  ) : (
+                    <a href={p.href} className="e3-project-title" style={{
+                      fontFamily: C, fontWeight: 400,
+                      fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+                      lineHeight: 1.2, letterSpacing: "-0.01em",
+                    }}>
+                      {p.title}
+                    </a>
+                  )}
                 </h2>
 
                 <p style={{
