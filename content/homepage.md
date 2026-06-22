@@ -11,7 +11,7 @@ projects:
     title: "Rebuilding the Foundations of Proximus+"
     summary: " Proximus+ is built on a product and service architecture that has grown too complex to scale. We are redesigning its foundations — simplifying how products are structured, managed, and surfaced — so the platform can evolve alongside future services, technologies, and customer expectations."
     company: "Proximus"
-    year: "2024–present"
+    year: "2026–present"
     status: "In progress"
     href: "/direction-e/work/proximus-plus"
   - n: "02"
