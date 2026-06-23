@@ -42,48 +42,52 @@ export default function AboutPage() {
           margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
         }
 
-        /* ── Single continuous grid ─────────────────────────────────────────
-           Used once, after the opening statement, running to the footer.
-           Portrait anchors the left column. All text flows in the right column.
-           The grid never resets — introduction and biography are one composition.
+        /* ── Portrait section ──────────────────────────────────────────────
+           Mobile: no horizontal padding — image is full viewport width.
+           Desktop: site grid padding restores — image left edge aligns with nav.
+        */
+        .e3ab-section-body {
+          border-top: 1px solid ${BD};
+          padding: clamp(3rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 5rem);
+        }
+
+        /* ── Asymmetric editorial grid ──────────────────────────────────────
+           Image ~38vw left, 64px gap, text 1fr right. Top-aligned.
         */
         .e3ab-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(2rem, 4vw, 3rem);
         }
-        @media (min-width: 640px) {
+        @media (min-width: 900px) {
           .e3ab-grid {
-            grid-template-columns: clamp(200px, 26%, 300px) 1fr;
-            gap: clamp(2.5rem, 4vw, 4rem);
+            grid-template-columns: 38vw 1fr;
             align-items: start;
+            column-gap: 4rem;
           }
         }
 
         /* ── Portrait ──────────────────────────────────────────────────────
-           Rectangular, editorial. Fills the full left column on desktop.
-           4:5 ratio gives it vertical presence without being overpowering.
-           Replace the <div> with an <img> once the photo is available:
-
-           <img
-             src="/assets/thomas.jpg"
-             alt="Thomas Rackowe Cork"
-             className="e3ab-portrait"
-             style={{ objectFit: "cover", objectPosition: "center top" }}
-           />
+           No border, no shadow. Mobile: full viewport width.
+           9:10 ratio crops tighter than 4:5 — keeps head/torso, loses ground.
         */
         .e3ab-portrait {
           display: block;
-          width: 180px;
-          aspect-ratio: 4 / 5;
-          height: auto;
-          background: #1E1C19;
-          border: 1px solid ${BD};
-          box-sizing: border-box;
+          width: 100%;
+          aspect-ratio: 9 / 10;
+          object-fit: cover;
+          object-position: center top;
         }
-        @media (min-width: 640px) {
-          .e3ab-portrait {
-            width: 100%;
+
+        /* ── Right column text ─────────────────────────────────────────────
+           Mobile: standard page padding above and on both sides.
+           Desktop: no padding — section and grid gap handle spacing.
+        */
+        .e3ab-text {
+          padding-top: clamp(2.5rem, 5vw, 3.5rem);
+        }
+        @media (min-width: 900px) {
+          .e3ab-text {
+            padding-top: 0;
           }
         }
       `}</style>
@@ -108,19 +112,14 @@ export default function AboutPage() {
           </h1>
         </section>
 
-        {/* ── Portrait + content: one unified section ────────────────────────
-            Single grid. Portrait anchors the left column, then becomes
-            structural whitespace as the content continues past it.
-            Introduction and biography are one continuous right column —
-            no additional borders, headings, or layout resets between them.
+        {/* ── Portrait + bio: asymmetric two-column grid ────────────────────
+            Mobile: image full-bleed, text below with standard padding.
+            Desktop: image left edge aligns with site nav via section padding.
         */}
-        <section style={{
-          borderTop: `1px solid ${BD}`,
-          padding: "clamp(2.75rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 5rem)",
-        }}>
+        <section className="e3ab-section-body">
           <div className="e3ab-grid">
 
-            {/* Left column: portrait, then whitespace */}
+            {/* Left column: portrait */}
             <div>
               {data.portraitImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -128,41 +127,39 @@ export default function AboutPage() {
                   src={data.portraitImage}
                   alt={data.portraitAlt}
                   className="e3ab-portrait"
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
                 />
               ) : (
-                <div className="e3ab-portrait" />
+                <div className="e3ab-portrait" style={{ background: "#1E1C19" }} />
               )}
             </div>
 
-            {/* Right column: introduction flows directly into biography.
-                Spacing alone creates the shift in rhythm — no rule, no heading. */}
-            <div style={{ maxWidth: "62ch" }}>
+            {/* Right column: introduction flows into biography */}
+            <div className="e3ab-text">
+              <div style={{ maxWidth: 560 }}>
 
-              {/* Introduction */}
-              <div style={{ marginBottom: "1rem" }}>
-                {introParagraphs.map((chunk, i) => (
-                  <p key={i} style={{
-                    ...paraStyle,
-                    ...(i < introParagraphs.length - 1 ? { marginBottom: "1rem" } : {}),
-                  }}>
-                    {chunk}
-                  </p>
-                ))}
+                <div style={{ marginBottom: "1rem" }}>
+                  {introParagraphs.map((chunk, i) => (
+                    <p key={i} style={{
+                      ...paraStyle,
+                      ...(i < introParagraphs.length - 1 ? { marginBottom: "1rem" } : {}),
+                    }}>
+                      {chunk}
+                    </p>
+                  ))}
+                </div>
+
+                <div>
+                  {bioParagraphs.map((chunk, i) => (
+                    <p key={i} style={{
+                      ...paraStyle,
+                      ...(i < bioParagraphs.length - 1 ? { marginBottom: "1rem" } : {}),
+                    }}>
+                      {chunk}
+                    </p>
+                  ))}
+                </div>
+
               </div>
-
-              {/* Biography — no label, no rule, continues from introduction */}
-              <div>
-                {bioParagraphs.map((chunk, i) => (
-                  <p key={i} style={{
-                    ...paraStyle,
-                    ...(i < bioParagraphs.length - 1 ? { marginBottom: "1rem" } : {}),
-                  }}>
-                    {chunk}
-                  </p>
-                ))}
-              </div>
-
             </div>
           </div>
         </section>
