@@ -549,7 +549,7 @@ export default async function CaseStudyPage({
                 </div>
               </section>
               {data.solution.decisions.map((d) => (
-                <div key={d.n}>
+                <div key={d.n} style={!d.visual ? { paddingBottom: 'clamp(2.75rem, 6vw, 5.5rem)' } : undefined}>
                   <div style={{ paddingLeft: 'clamp(1.25rem, 5vw, 5rem)', paddingRight: 'clamp(1.25rem, 5vw, 5rem)' }}>
                     <div className="cs-ann">
                       <div />
