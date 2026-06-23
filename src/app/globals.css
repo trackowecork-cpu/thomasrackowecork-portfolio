@@ -41,12 +41,11 @@
 
 /* ── Base ── */
 html {
-  color-scheme: light;
+  background-color: var(--color-canvas);
 }
 
 body {
-  background-color: #F5F1EC;
-  color: #1A1714;
+  background-color: var(--color-canvas);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

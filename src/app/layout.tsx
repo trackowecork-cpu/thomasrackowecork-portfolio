@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -54,10 +52,8 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${inter.variable} ${geistMono.variable} ${cormorant.variable}`}
     >
-      <body className="flex min-h-screen flex-col bg-canvas text-ink font-sans">
-        <Navigation />
+      <body className="flex min-h-screen flex-col font-sans">
         <main className="flex-1">{children}</main>
-        <Footer />
       </body>
     </html>
   );
