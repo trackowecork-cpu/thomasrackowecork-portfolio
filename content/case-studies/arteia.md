@@ -74,11 +74,7 @@ reflection: |
 
   The complexity came from challenging the original premise of the product. It required the founders to look beyond their initial vision, question the product's raison d'être, and make more fundamental decisions about its direction — reinforcing that meaningful design impact often comes from reframing the problem, not just solving it.
 
-visuals:
-  - src: "/assets/case-studies/arteia/arteia_narrative_diagram.png"
-    alt: "Realigning Arteia's strategic vision"
-    layout: "full"
-    placement: "after-challenge"
+visuals: []
 
 nextProject: null
 ---
