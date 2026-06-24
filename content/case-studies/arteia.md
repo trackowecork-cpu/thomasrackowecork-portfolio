@@ -42,9 +42,17 @@ solution:
     - n: "02"
       title: "Redefining the value model"
       body: "To ensure long-term relevance, the product was decoupled from its dependency on NFTs. Rather than being the foundation of the experience, NFTs became optional — allowing the platform to focus on more stable and enduring value. The product was reoriented toward collection management, provenance, and ongoing engagement. Research revealed that collectors' collections extend beyond contemporary art to include design objects, watches, fashion, books, and other assets — so the cataloguing model was expanded to support multiple asset types, positioning Arteïa as a holistic collection management platform."
+      visual:
+        src: "/assets/case-studies/arteia/Prod/arteia_decision_02.png"
+        alt: "Multi-asset cataloguing model"
+        layout: "full-natural"
     - n: "03"
       title: "Reorienting the experience around real-world usage"
       body: "Collectors needed to catalogue, access, and share information in real-world contexts — fairs, meetings, private viewings. The product was reoriented toward mobile and on-the-go usage, addressing a key limitation of the existing desktop-heavy experience. Key workflows were redesigned to support direct cataloguing, quick access to collection data, and document management in context. The desktop experience remained the reference platform, supporting the full depth of the product while ensuring consistency across devices."
+      visual:
+        src: "/assets/case-studies/arteia/Prod/arteia_decision_03.png"
+        alt: "Mobile-first experience for real-world usage"
+        layout: "full-natural"
 
 impact:
   intro: "This resulted in a clear repositioning of Arteïa's product direction, value model, and market focus — transforming it into a more focused and resilient platform grounded in real user needs."
