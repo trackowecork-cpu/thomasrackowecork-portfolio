@@ -30,7 +30,7 @@ projects:
     title: "Redefining Product Strategy at Arteïa"
     summary: "Arteïa's product strategy was built around NFTs at a moment when that market still seemed durable. As sentiment shifted and growth stalled, it became clear the challenge was not to improve the experience — it was to rethink who the product was actually for."
     company: "Arteïa"
-    year: "2022"
+    year: "2021"
     href: "/direction-e/work/arteia"
 
 about:
