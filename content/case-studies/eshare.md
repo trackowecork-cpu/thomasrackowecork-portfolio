@@ -15,54 +15,51 @@ inProgressBadge: false
 overview: |
   Proximus was experiencing a sustained decline in its digital sales share (eShare), alongside an increase in support calls, signalling a breakdown in the digital ordering experience. As customer expectations shifted toward seamless, self-service journeys, the existing checkout remained fragmented, inconsistent, and misaligned with both user behaviour and business goals.
 
-  I contributed to the redesign of the end-to-end ordering experience, focusing on simplifying journeys, aligning product strategy with user expectations, and addressing structural points of friction across the funnel.
+  I led the strategy and design of four core threads of the new ordering model: aligning the full funnel with Proximus's fibre-first strategy, redesigning identification around the most digital-first method, defining the patterns that let the checkout scale across product increments, and leading the self-installation initiative. This work spanned service design, product strategy, and detailed UX, in close collaboration with product, engineering, analysts, and the wider design team.
 
   This led to a more coherent, scalable ordering model, improving conversion, reducing reliance on support channels, and repositioning digital as the primary sales channel.
 
 challenge:
-  quote: "The decline in eShare was not driven by a single issue, but by a structural mismatch between the digital experience, user expectations, and business strategy."
   body: |
-    The existing ordering flows were overly complex, inconsistent, and designed around edge cases rather than the majority of users. This resulted in confusion, friction, and a high cognitive load throughout the journey.
+    The decline in eShare was not driven by a single issue, but by a structural mismatch between the digital experience, user expectations, and business strategy. The ordering flows were inconsistent across products and dense with conditional logic, producing journeys that were exhausting to move through. Most users hit the same kinds of friction in different places, depending on what they were trying to buy.
 
-    At the same time, the product experience lacked a clear strategic focus. While Proximus aimed to position itself as fibre-first, this was not effectively translated into the digital journey — especially given that a large portion of users were not eligible for fibre.
+    Fibre-first strategy was not translated into the digital journey. Users would enter the flow expecting one product and find themselves switched to another mid-funnel — a recurring source of drop-off, particularly for the large share of users who weren't fibre-eligible.
 
-    Operationally, key parts of the journey were also disconnected or inefficient. Critical steps such as identification and installation introduced friction, suffered from technical limitations, or lacked transparency — leading to high drop-off and increased support demand.
-  items:
-    - "Digital journeys did not reflect user expectations of simplicity and self-service"
-    - "Business priorities were not clearly translated into the experience"
-    - "Critical steps introduced unnecessary friction and drop-off"
+    Several critical steps in the funnel were performing poorly. Identification and installation, in particular, were among the highest sources of drop-off, friction, and support demand. The causes varied across them, and neither lent itself to straightforward optimisation.
+    
+  items: []
   statement: "The challenge was not to optimise the checkout, but to redefine the ordering model to improve conversion while aligning with both user behaviour and business strategy."
 
 solution:
   intro: |
     We aligned on transforming the ordering model, rather than continuing to optimise individual flows. The objective was to create a simpler, more coherent system that could support both conversion and long-term scalability.
-
+    
     The redesign was anchored in a clear principle: radical simplification. Rather than designing for edge cases, the focus shifted to the majority of users — removing unnecessary complexity, aligning flows with mental models, and creating a more predictable and consistent experience.
   decisions:
     - n: "01"
       title: "Aligning product strategy with the experience"
-      body: "Rather than framing the experience around fibre eligibility, we introduced a personalised entry point through an improved address check. This allowed users to see relevant offers from the start, eliminating disruptive product switches later in the funnel — a major source of drop-off in the legacy experience. This ensured the experience remained aligned with business priorities while avoiding frustration for non-fibre users."
+      body: "Rather than framing the experience around fibre eligibility, I designed a personalised entry point through a reworked address check, allowing users to see relevant offers from the start and eliminating disruptive product switches later in the funnel — a major source of drop-off in the legacy experience. This kept the experience aligned with the fibre-first strategy while avoiding the friction that had previously affected non-fibre users."
       visual:
         src: "/assets/case-studies/eshare/Alpha/eshare_decision_01.png"
         alt: "Personalised address check entry point showing relevant offers from the start"
         layout: "full-natural"
     - n: "02"
-      title: "Building a scalable design framework"
-      body: "The experience had evolved into a fragmented ecosystem, with inconsistent patterns across acquisition, checkout, and customer journeys. We introduced a unified design framework and reusable patterns, simplifying content and removing underperforming elements to create a more consistent and scalable experience. This enabled future products, offers, and services to be integrated more efficiently while improving long-term maintainability."
-      visual:
-        src: "/assets/case-studies/eshare/Alpha/eshare_decision_02.png"
-        alt: "Unified design framework showing consistent patterns across the ordering journey"
-        layout: "full-natural"
-    - n: "03"
-      title: "Simplifying critical conversion steps"
-      body: "By analysing usage patterns, we identified that over 80% of successful checkouts used itsme, Belgium's leading digital ID method. We simplified the experience by prioritising itsme as the default — redesigning the step to improve performance, clarity, and control, and enabling continuous optimisation of a previously opaque part of the journey."
+      title: "Redesigning identification around the most digital-first method"
+      body: "Analysing usage patterns showed that over 80% of successful checkouts used itsme, Belgium's leading digital ID method. I led the case for redesigning the step around itsme as the default — both as a design decision and as an organisational one, since the step had previously been built and maintained by an external vendor. Bringing the work into the internal team gave us direct control over performance and iteration. The redesigned step improved clarity and control and made what had been an opaque part of the journey continuously optimisable."
       visual:
         src: "/assets/case-studies/eshare/Alpha/eshare_decision_03.png"
         alt: "Redesigned itsme identification step with improved clarity and control"
         layout: "full-natural"
+    - n: "03"
+      title: "Building patterns that scale across products"
+      body: "The experience had evolved into a fragmented ecosystem, with inconsistent patterns across acquisition, checkout, and customer journeys. We introduced a unified design framework and a set of reusable patterns, simplifying content and removing underperforming elements based on data analysis. The framework was built to scale: the same patterns now carry packs, mobile, and standalone internet flows across both mass-market and small-enterprise customers, from upper funnel to checkout and order confirmation making future products and offers integrable without rebuilding the experience each time."
+      visual:
+        src: "/assets/case-studies/eshare/Alpha/eshare_decision_02.png"
+        alt: "Unified design framework showing consistent patterns across the ordering journey"
+        layout: "full-natural"
     - n: "04"
-      title: "Enabling self-service for installation"
-      body: "Installation was a major source of friction for fibre customers facing long delays and uncertainty. We introduced a flexible model allowing eligible users to choose self-installation — aligning backend logic with frontend experience to ensure options were only presented when valid, combining clearer communication with improved system logic."
+      title: "Leading self-service for installation"
+      body: "Installation was a major source of friction for fibre customers facing long delays and uncertainty. I initiated the work on a self-install option, opening the discussions with analysts to understand the backend logic, running workshops to align the team, and shaping how and when the option should surface so it would feel like a confident choice rather than a fallback. The resulting model only presented self-install when valid, combined clearer communication with improved system logic, and aligned with the wider operational strategy to reduce assisted-channel costs."
       visual:
         src: "/assets/case-studies/eshare/Alpha/eshare_decision_04.png"
         alt: "Self-installation flow showing eligibility-aware options and step-by-step guidance"
@@ -83,14 +80,14 @@ impact:
   items: []
   statement: "The redesign also led to a measurable reduction in support calls — a signal of clearer journeys, greater customer confidence, and reduced reliance on assisted channels."
 
-pullQuote: "Design is not just about reducing friction, but about aligning systems, strategy, and experience to create meaningful, scalable impact."
+pullQuote: "What looked like a conversion problem turned out to be a product strategy, organisational, and vendor problem. Conversion was where it showed up, not where it lived."
 
-reflection:
-  This project highlighted that improving performance at scale requires more than optimising individual touchpoints — it requires rethinking the system as a whole.
+reflection: |
+  Proximus' eShare decline read a checkout issue; the funnel was leaking, support calls were rising, and the digital channel was underperforming. Working through it surfaced a different picture. Users were being downgraded mid-flow because fibre-first strategy lived in commercial decisions but not in product structure.
 
-  What initially appeared as a conversion issue revealed deeper structural challenges across product strategy, technical dependencies, and organisational ways of working. Addressing these required not only design changes, but closer collaboration across product, tech, and business teams.
+  A critical conversion step was opaque and unimproveable because it was built and maintained by an external vendor. Installation friction was a journey design problem masquerading as a logistics one. None of these were checkout issues. They were upstream issues that the checkout was inheriting.
 
-  The complexity lay in balancing simplification with real-world constraints — ensuring that the experience remained coherent for users while accommodating the realities of the market and internal systems.
+  The project's real work was tracing the symptoms back to their sources and addressing them where they actually lived.
 
 visuals:
   - src: "/assets/case-studies/eshare/Alpha/eshare_challenge_5.png"

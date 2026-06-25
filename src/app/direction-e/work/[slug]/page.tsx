@@ -444,20 +444,22 @@ export default async function CaseStudyPage({
               <div>
                 <span className="cs-ann-lbl">Challenge</span>
               </div>
-              <p
-                style={{
-                  fontFamily: C,
-                  fontWeight: 400,
-                  fontSize: "clamp(1.25rem, 2.5vw, 1.875rem)",
-                  lineHeight: 1.3,
-                  letterSpacing: "-0.01em",
-                  color: IN2,
-                  margin: 0,
-                  maxWidth: "44ch",
-                }}
-              >
-                {data.challenge.quote}
-              </p>
+              {data.challenge.quote && (
+                <p
+                  style={{
+                    fontFamily: C,
+                    fontWeight: 400,
+                    fontSize: "clamp(1.25rem, 2.5vw, 1.875rem)",
+                    lineHeight: 1.3,
+                    letterSpacing: "-0.01em",
+                    color: IN2,
+                    margin: 0,
+                    maxWidth: "44ch",
+                  }}
+                >
+                  {data.challenge.quote}
+                </p>
+              )}
             </div>
 
             <div className="cs-ann">
@@ -469,7 +471,7 @@ export default async function CaseStudyPage({
                   gap="1.125rem"
                 />
 
-                {data.challenge.items.length > 0 && (
+                {(data.challenge.items ?? []).length > 0 && (
                   <div
                     style={{
                       marginTop: "clamp(1.125rem, 2vw, 1.75rem)",
@@ -517,6 +519,7 @@ export default async function CaseStudyPage({
                       lineHeight: 1.65,
                       color: IN2,
                       fontStyle: "italic",
+                      marginTop: "clamp(1.125rem, 2vw, 1.75rem)",
                     }}
                   >
                     {data.challenge.statement}
