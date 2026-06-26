@@ -77,6 +77,12 @@ export default function DirectionE3() {
         a.e3-arrow:hover { color: ${MUT}; }
         a.e3-email { color: ${MUT}; text-decoration: none; }
         a.e3-email:hover { color: ${IN2}; }
+
+        /* ── Hero min-height: four-step responsive scale ── */
+        .e3-hero { min-height: 52vh; }
+        @media (min-width: 640px)  { .e3-hero { min-height: 55vh; } }
+        @media (min-width: 1024px) { .e3-hero { min-height: 62vh; } }
+        @media (min-width: 1280px) { .e3-hero { min-height: 70vh; } }
       `}</style>
 
       <div className="e3">
@@ -88,8 +94,7 @@ export default function DirectionE3() {
             2-line wrap ("The brief is rarely / the problem.") at desktop.
             The h1 fills the container; body copy stays at 44ch for readability.
         */}
-        <section style={{
-          minHeight: "70vh",
+        <section className="e3-hero" style={{
           display: "flex", flexDirection: "column", justifyContent: "flex-end",
           padding: "clamp(3rem, 5vw, 4rem) clamp(1.25rem, 5vw, 5rem) clamp(3.5rem, 7vw, 5.5rem)",
         }}>
