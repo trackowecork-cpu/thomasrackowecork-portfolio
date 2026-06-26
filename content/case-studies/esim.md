@@ -3,7 +3,7 @@ title: "Scaling Onboarding for the eSIM Era"
 subtitle: "How we transformed mobile onboarding from a physical process into a fully digital activation system, reducing activation time from days to minutes."
 company: "Proximus"
 role: "UX/UI & Service Designer"
-timeframe: "2023"
+timeframe: "2022-2025"
 
 heroImage: "/assets/case-studies/esim/esim_hero_switch_.png"
 heroImageAlt: "eSIM digital onboarding experience"
