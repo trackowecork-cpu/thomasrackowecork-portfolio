@@ -60,7 +60,7 @@ export default function AboutPage() {
         }
         @media (min-width: 900px) {
           .e3ab-grid {
-            grid-template-columns: 38vw 1fr;
+            grid-template-columns: 32vw 1fr;
             align-items: start;
             column-gap: 4rem;
           }
@@ -73,9 +73,9 @@ export default function AboutPage() {
         .e3ab-portrait {
           display: block;
           width: 100%;
-          aspect-ratio: 9 / 10;
+          aspect-ratio: 4 / 5;
           object-fit: cover;
-          object-position: center top;
+          object-position: center;
         }
 
         /* ── Right column text ─────────────────────────────────────────────
@@ -88,6 +88,12 @@ export default function AboutPage() {
         @media (min-width: 900px) {
           .e3ab-text {
             padding-top: 0;
+          }
+        }
+        @media (max-width: 899px) {
+          .e3ab-portrait {
+            aspect-ratio: 3 / 4;
+            object-position: center;
           }
         }
       `}</style>
