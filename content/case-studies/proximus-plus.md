@@ -1,11 +1,11 @@
 ---
-title: "Rebuilding the Foundations of Proximus' Mobile App"
-subtitle: "How we are rearchitecting the core of Proximus+ to reduce operational complexity and build a foundation that scales."
+title: "Rebuilding the Foundations of the Proximus App"
+subtitle:
 company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2024–present"
 
-heroImage: "/assets/case-studies/proximus-plus/hero.png"
+heroImage: "/assets/case-studies/proximus-app/hero.png"
 heroImageAlt: "Proximus+ product management platform"
 heroBackground: "#0E0D0C"
 
@@ -13,9 +13,11 @@ status: "in-progress"
 inProgressBadge: true
 
 overview: |
-  I'm currently contributing to the transformation of Proximus+, helping redefine how product management, support, and self-service operate within a more scalable ecosystem.
-
-  The work focuses on simplifying complexity, improving operational clarity, and building foundations that can evolve alongside future services, technologies, and customer expectations.
+  For most customers, the Proximus app is where Proximus becomes tangible. It’s where products are managed, problems are solved, and the relationship with the company continues long after the sale.
+  
+  I’m leading the redesign of that experience. The challenge is to align customer expectations with Proximus’ wider strategic direction, replacing a fragmented experience with a coherent framework that supports product management, diagnostics, guidance, and future AI-assisted interactions. Rather than redesigning individual journeys, the work establishes a foundation that can evolve with both the business and the changing ways people manage their digital lives.
+  
+  Full case study to follow at launch — September 2026.
 
 challenge: null
 solution: null

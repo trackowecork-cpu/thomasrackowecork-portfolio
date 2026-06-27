@@ -8,8 +8,8 @@ hero:
 
 projects:
   - n: "01"
-    title: "Rebuilding the Foundations of Proximus+"
-    summary: " Proximus+ is built on a product and service architecture that has grown too complex to scale. We are redesigning its foundations — simplifying how products are structured, managed, and surfaced, so the platform can evolve alongside future services, technologies, and customer expectations."
+    title: "Rebuilding the Foundations of the Proximus App"
+    summary: "For most customers, the Proximus app is where the company becomes tangible. As Proximus repositions toward telecom-first, the product management experience underneath has to be rebuilt from the foundations up."
     company: "Proximus"
     year: "2026–present"
     status: "In progress"

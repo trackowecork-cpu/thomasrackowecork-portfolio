@@ -137,24 +137,13 @@ export default function DirectionE3() {
 
               <div>
                 <h2 style={{ margin: 0, marginBottom: "clamp(0.75rem, 1.5vw, 1rem)" }}>
-                  {p.status ? (
-                    <span style={{
-                      fontFamily: C, fontWeight: 400,
-                      fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-                      lineHeight: 1.2, letterSpacing: "-0.01em",
-                      color: INK, cursor: "default",
-                    }}>
-                      {p.title}
-                    </span>
-                  ) : (
-                    <a href={p.href} className="e3-project-title" style={{
-                      fontFamily: C, fontWeight: 400,
-                      fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-                      lineHeight: 1.2, letterSpacing: "-0.01em",
-                    }}>
-                      {p.title}
-                    </a>
-                  )}
+                  <a href={p.href} className="e3-project-title" style={{
+                    fontFamily: C, fontWeight: 400,
+                    fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+                    lineHeight: 1.2, letterSpacing: "-0.01em",
+                  }}>
+                    {p.title}
+                  </a>
                 </h2>
 
                 <p style={{
@@ -171,19 +160,16 @@ export default function DirectionE3() {
                   flexWrap: "wrap", alignItems: "baseline",
                 }}>
                   <span style={{ fontFamily: S, fontSize: 14, color: FNT }}>
-                    {p.company} · {p.year}
+                    {p.company}{p.status ? (
+                      <> · <span style={{
+                        fontFamily: M, fontSize: 11,
+                        textTransform: "uppercase", letterSpacing: "0.1em", color: ACC,
+                      }}>{p.status}</span></>
+                    ) : (
+                      ` · ${p.year}`
+                    )}
                   </span>
-                  {p.status && (
-                    <span style={{
-                      fontFamily: M, fontSize: 11,
-                      textTransform: "uppercase", letterSpacing: "0.1em", color: ACC,
-                    }}>
-                      {p.status}
-                    </span>
-                  )}
-                  {!p.status && (
-                    <a href={p.href} className="e3-arrow">View case study →</a>
-                  )}
+                  <a href={p.href} className="e3-arrow">View case study →</a>
                 </div>
               </div>
             </div>
