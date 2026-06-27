@@ -205,14 +205,6 @@ export default async function CaseStudyPage({
     borderTop: `1px solid ${BD}`,
   };
 
-  const annLblStyle: CSSProperties = {
-    fontFamily: M,
-    fontSize: 12,
-    textTransform: "uppercase",
-    letterSpacing: "0.12em",
-    color: ACC,
-  };
-
   const bodyStyle: CSSProperties = {
     fontFamily: S,
     fontSize: "clamp(0.9375rem, 1.3vw, 1rem)",
@@ -362,7 +354,6 @@ export default async function CaseStudyPage({
             {[
               ["Company", data.company],
               ["Role", data.role],
-              ["Year", data.timeframe],
             ].map(([k, v]) => (
               <div
                 key={k}
@@ -382,6 +373,18 @@ export default async function CaseStudyPage({
                 <span style={{ fontFamily: S, fontSize: 14, color: MUT }}>{v}</span>
               </div>
             ))}
+            <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
+              <span style={{ fontFamily: M, fontSize: 12, textTransform: "uppercase", letterSpacing: "0.1em", color: FNT }}>
+                Year
+              </span>
+              {data.status ? (
+                <span style={{ fontFamily: M, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", color: ACC }}>
+                  In progress
+                </span>
+              ) : (
+                <span style={{ fontFamily: S, fontSize: 14, color: MUT }}>{data.timeframe}</span>
+              )}
+            </div>
           </div>
         </section>
 
@@ -765,30 +768,6 @@ export default async function CaseStudyPage({
 
         <VisualBlock visuals={data.visuals.filter(v => v.placement === 'after-reflection')} />
 
-        {/* ── Status section (in-progress / in-preparation) ────────────────── */}
-        {data.status && (
-          <section style={{ ...sectionStyle, borderTop: "none" }}>
-            <div className="cs-ann">
-              <div>
-                <span style={annLblStyle}>Status</span>
-              </div>
-              <div style={{ maxWidth: "52ch" }}>
-                <p style={{ ...bodyStyle, marginBottom: "1.125rem" }}>
-                  {data.status === "in-progress"
-                    ? "This project is currently in progress. The work is ongoing — a full case study documenting the strategic decisions, design challenges, and outcomes will be published as the project develops."
-                    : "This case study is in preparation. Full documentation of the research, design decisions, and outcomes will be published shortly."}
-                </p>
-                <p style={{ ...bodyStyle, color: FNT }}>
-                  In the meantime, feel free to{" "}
-                  <a href="mailto:hello@thomasrackowecork.com" className="cs-email">
-                    get in touch
-                  </a>{" "}
-                  if you&apos;d like to discuss the work directly.
-                </p>
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* ── Next project / Back to work ───────────────────────────────────── */}
         {data.nextProject ? (
