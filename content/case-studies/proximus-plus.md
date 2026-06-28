@@ -5,7 +5,7 @@ company: "Proximus"
 role: "Senior UX/UI & Service Designer"
 timeframe: "2024–present"
 
-heroImage: "/assets/case-studies/proximus-app/hero.png"
+heroImage: "/assets/case-studies/proximus-app/proximus_app_hero_overlap_states_v2.png"
 heroImageAlt: "Proximus+ product management platform"
 heroBackground: "#0E0D0C"
 
