@@ -20,13 +20,13 @@ overview: |
   This led to a more coherent, scalable ordering model, improving conversion, reducing reliance on support channels, and repositioning digital as the primary sales channel.
 
 challenge:
+  quote: "The decline in eShare was not driven by a single issue, but by a structural mismatch between the digital experience, user expectations, and business strategy."
   body: |
-    The decline in eShare was not driven by a single issue, but by a structural mismatch between the digital experience, user expectations, and business strategy. The ordering flows were inconsistent across products and dense with conditional logic, producing journeys that were exhausting to move through. Most users hit the same kinds of friction in different places, depending on what they were trying to buy.
+    The ordering flows were inconsistent across products and dense with conditional logic, producing journeys that were exhausting to move through. Most users hit the same kinds of friction in different places, depending on what they were trying to buy.
 
     Fibre-first strategy was not translated into the digital journey. Users would enter the flow expecting one product and find themselves switched to another mid-funnel — a recurring source of drop-off, particularly for the large share of users who weren't fibre-eligible.
 
     Several critical steps in the funnel were performing poorly. Identification and installation, in particular, were among the highest sources of drop-off, friction, and support demand. The causes varied across them, and neither lent itself to straightforward optimisation.
-    
   items: []
   statement: "The challenge was not to optimise the checkout, but to redefine the ordering model to improve conversion while aligning with both user behaviour and business strategy."
 
