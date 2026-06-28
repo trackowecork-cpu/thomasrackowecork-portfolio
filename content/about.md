@@ -8,13 +8,14 @@ portraitAlt: "Thomas Rackowe Cork"
 headline: "I'm a product and service designer who works best where design and strategy overlap."
 
 introduction: |
-  I'm a senior product and service designer focused on the kind of work that requires more than good interfaces — defining product structures, untangling service complexity, and building foundations that hold up over time. I work best where design and strategy overlap.
+ My path into this field wasn’t traditional. I studied social anthropology and built my career in the contemporary art world, first as a researcher and later as an advisor and artist liaison for a leading gallery. Working in that environment meant balancing competing perspectives, navigating uncertainty, and building trust through thoughtful collaboration—skills that continue to shape how I work with multidisciplinary teams today.
 
 biography: |
-  I came to design through a specific route. I spent years working in the contemporary art world as an art advisor, researcher, and artist liaison — a world built around ambiguity, competing perspectives, and ideas that resist easy explanation. Running alongside that, I studied social anthropology, which gave me a lasting habit of looking past surface behaviour to understand the cultural, emotional, and systemic factors that drive decisions. 
-  
-  Both fundamentally shaped how I approach design — going deeper into the problem than the brief asks for, asking why before deciding what to build, and caring as much about how something is organised as how it looks and feels.
-  
-  I work best where design and strategy overlap, on problems complex enough to require both.
+  My studies sparked a lasting curiosity about people, behaviour, and the systems they operate within. That curiosity still underpins my approach to product and service design. I’m interested not only in what people do, but why they do it, and how user needs, business priorities, organisational realities, and technology come together to shape the experiences people have every day.
+
+  Today, I work across complex business and customer challenges, understanding the problem before defining solutions. Whether I’m improving an existing experience or shaping something new, my focus is on bringing clarity to ambiguity and turning insight into practical, scalable outcomes.
+
+  I see my role as working collaboratively to understand and define the right problems before exploring the right solutions. My approach combines research, systems thinking, critical thinking, and collaboration to create shared understanding, bring clarity to complexity, and enable better decisions that lead to meaningful impact.
+
 ---
 
