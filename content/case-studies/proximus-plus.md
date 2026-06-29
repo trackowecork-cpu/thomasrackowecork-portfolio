@@ -2,7 +2,7 @@
 title: "Rebuilding the Foundations of the Proximus App"
 subtitle:
 company: "Proximus"
-role: "Senior UX/UI & Service Designer"
+role: "UX/UI & Service Designer"
 timeframe: "2024–present"
 
 heroImage: "/assets/case-studies/proximus-app/proximus_app_hero_overlap_states_v2.png"
