@@ -40,6 +40,7 @@ export default function DirectionE3() {
           padding: clamp(2rem, 5vw, 3.75rem) 0;
           display: grid; grid-template-columns: 1fr; gap: 0.875rem;
         }
+        .e3-project:last-child { padding-bottom: 0; }
         .e3-pn { font-family: ${M}; font-size: 12px; color: ${FNT}; display: block; }
         @media (min-width: 640px) {
           .e3-project { grid-template-columns: 44px 1fr; gap: 1.5rem; align-items: start; }
