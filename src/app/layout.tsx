@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -54,6 +55,18 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen flex-col font-sans">
         <main className="flex-1">{children}</main>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BNE2CL8YBZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BNE2CL8YBZ');
+          `}
+        </Script>
       </body>
     </html>
   );
