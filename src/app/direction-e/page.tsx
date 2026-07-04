@@ -29,7 +29,7 @@ export default function DirectionE3() {
         }
         .e3-section-label {
           font-family: ${M}; font-size: 12px;
-          text-transform: uppercase; letter-spacing: 0.12em; color: ${FNT};
+          text-transform: uppercase; letter-spacing: 0.12em; color: ${ACC};
           display: block;
           margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
         }
@@ -102,7 +102,7 @@ export default function DirectionE3() {
           <div style={{ maxWidth: 960 }}>
             <p style={{
               fontFamily: M, fontSize: 12,
-              textTransform: "uppercase", letterSpacing: "0.12em", color: FNT,
+              textTransform: "uppercase", letterSpacing: "0.12em", color: ACC,
               marginBottom: "clamp(1.75rem, 3.5vw, 2.75rem)",
             }}>
               {data.hero.label}
