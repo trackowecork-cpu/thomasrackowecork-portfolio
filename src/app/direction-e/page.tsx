@@ -206,7 +206,7 @@ export default async function DirectionE3() {
               }}>
                 {data.about.teaser}
               </p>
-              <a href="/direction-e/about" className="e3-arrow">About →</a>
+              <a href="/about" className="e3-arrow">About →</a>
             </div>
           </div>
         </section>

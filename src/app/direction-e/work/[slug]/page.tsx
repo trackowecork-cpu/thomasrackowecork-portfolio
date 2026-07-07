@@ -792,7 +792,7 @@ export default async function CaseStudyPage({
               Next project
             </p>
             <a
-              href={`/direction-e/work/${data.nextProject.slug}`}
+              href={`/work/${data.nextProject.slug}`}
               className="cs-next-title"
               style={{
                 fontFamily: C,
@@ -825,7 +825,7 @@ export default async function CaseStudyPage({
             }}
           >
             <a
-              href="/direction-e#work"
+              href="/#work"
               className="cs-back"
               style={{
                 fontFamily: C,

@@ -5,7 +5,7 @@ import { C, M, S, GR, BD, INK, IN2, MUT, FNT } from "../_tokens";
 
 export function DirectionENav() {
   const path = usePathname();
-  const isAbout = path.startsWith("/direction-e/about");
+  const isAbout = path.startsWith("/about");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -110,13 +110,13 @@ export function DirectionENav() {
         {/* Desktop nav links */}
         <nav className="en-links">
           <a
-            href="/direction-e#work"
+            href="/#work"
             className={`en-link${!isAbout ? " en-active" : ""}`}
           >
             Work
           </a>
           <a
-            href="/direction-e/about"
+            href="/about"
             className={`en-link${isAbout ? " en-active" : ""}`}
           >
             About
@@ -167,14 +167,14 @@ export function DirectionENav() {
           <div className="en-menu-body">
             <nav className="en-menu-nav" aria-label="Mobile navigation">
               <a
-                href="/direction-e#work"
+                href="/#work"
                 className={`en-menu-link${!isAbout ? " en-menu-link-active" : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Work
               </a>
               <a
-                href="/direction-e/about"
+                href="/about"
                 className={`en-menu-link${isAbout ? " en-menu-link-active" : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
