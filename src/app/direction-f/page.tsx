@@ -164,7 +164,7 @@ export default function DirectionF() {
               }}>
                 {data.about.teaser}
               </p>
-              <a href="/direction-e/about" className="e3-arrow">About →</a>
+              <a href="/about" className="e3-arrow">About →</a>
             </div>
           </div>
         </section>

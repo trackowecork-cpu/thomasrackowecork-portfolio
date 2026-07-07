@@ -347,7 +347,7 @@ export default function ExperimentEditorial() {
               }}>
                 {data.about.teaser}
               </p>
-              <a href="/direction-e/about" className="exd-arrow">About →</a>
+              <a href="/about" className="exd-arrow">About →</a>
             </div>
           </div>
         </section>
