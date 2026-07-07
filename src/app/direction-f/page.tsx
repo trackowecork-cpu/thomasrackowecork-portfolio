@@ -1,41 +1,28 @@
 import { getHomepage } from "@/lib/homepage";
-import { fetchOceanWaves } from "@/lib/oceanWaves";
 import Image from "next/image";
-import { DirectionENav } from "./_components/nav";
-import { DirectionEFooter } from "./_components/footer";
-import { HeroSection } from "./_components/HeroSection";
+import { DirectionENav } from "../direction-e/_components/nav";
+import { DirectionEFooter } from "../direction-e/_components/footer";
+import { HeroSectionPills } from "./_components/HeroSectionPills";
 import { C, M, S, GR, BD, INK, IN2, MUT, FNT, ACC } from "./_tokens";
 
 export function generateMetadata() {
   const data = getHomepage();
-  return { title: data.metaTitle };
+  return { title: `${data.metaTitle} — Direction F (Pills prototype)` };
 }
 
-export default async function DirectionE3() {
+export default function DirectionF() {
   const data = getHomepage();
-  const oceanWaves = await fetchOceanWaves();
-
-  console.log(
-    "[ocean waves]",
-    oceanWaves
-      .map(
-        (w) =>
-          `${w.location}: ${w.waveHeight?.toFixed(2) ?? "–"}m / ${w.wavePeriod?.toFixed(1) ?? "–"}s → amp=${w.amp}px speed=${w.speed.toFixed(4)}`,
-      )
-      .join(" | "),
-  );
 
   return (
     <>
       <style>{`
-        .e3 {
+        .df-page {
           position: fixed; inset: 0; z-index: 100;
           overflow-y: auto; background: ${GR};
           font-family: ${S}; color: ${INK};
           -webkit-font-smoothing: antialiased;
         }
 
-        /* ── consistent section pattern ── */
         .e3-section {
           border-top: 1px solid ${BD};
           padding: clamp(3rem, 5vw, 4.5rem) clamp(1.25rem, 5vw, 5rem);
@@ -47,13 +34,11 @@ export default async function DirectionE3() {
           margin-bottom: clamp(2rem, 4vw, 3.5rem);
         }
 
-        /* ── project rows ── */
         .e3-project {
           border-top: 1px solid ${BD};
           padding: clamp(2.5rem, 5vw, 4.25rem) 0;
           display: grid; grid-template-columns: 1fr; gap: 0.875rem;
         }
-        .e3-project:first-of-type { border-top: none; }
         .e3-project:last-child { padding-bottom: 0; }
         .e3-pn { font-family: ${M}; font-size: 12px; color: ${FNT}; display: block; }
         @media (min-width: 640px) {
@@ -61,15 +46,13 @@ export default async function DirectionE3() {
           .e3-pn { padding-top: 4px; }
         }
 
-        /* ── about teaser ── */
         .e3-about-flex {
           display: flex; flex-direction: column;
           align-items: flex-start; gap: clamp(2rem, 4vw, 2.5rem);
         }
         @media (min-width: 640px) {
           .e3-about-flex {
-            flex-direction: row;
-            align-items: center;
+            flex-direction: row; align-items: center;
             gap: clamp(2.5rem, 5vw, 4rem);
           }
         }
@@ -79,10 +62,9 @@ export default async function DirectionE3() {
           border: 1px solid ${BD}; box-sizing: border-box; flex-shrink: 0;
           position: relative; overflow: hidden;
         }
-        @media (min-width: 640px) { .e3-about-circle { width: 200px; height: 200px; } }
+        @media (min-width: 640px)  { .e3-about-circle { width: 200px; height: 200px; } }
         @media (min-width: 1024px) { .e3-about-circle { width: 220px; height: 220px; } }
 
-        /* ── links ── */
         a.e3-project-title { color: ${INK}; text-decoration: none; transition: color 180ms ease; }
         a.e3-project-title:hover { color: ${ACC}; }
         a.e3-arrow {
@@ -90,44 +72,27 @@ export default async function DirectionE3() {
           font-size: 14px; font-family: ${S}; transition: color 180ms ease;
         }
         a.e3-arrow:hover { color: ${MUT}; }
-        a.e3-email { color: ${MUT}; text-decoration: none; }
-        a.e3-email:hover { color: ${IN2}; }
 
-        /* ── Hero: mobile/tablet — content-sized, no forced viewport height ── */
         .e3-hero { padding-top: 4.5rem; padding-bottom: 5rem; }
-
-        /* ── Hero: desktop — full viewport minus nav + ~80px peek ──────────────
-           min-height leaves ~80px for the "SELECTED WORK" label to peek in
-           (border 1px + section padding ~48px + label ~12px ≈ 61px ≤ 80px).
-           padding-bottom is increased vs the previous formula to give the text
-           more vertical breathing room within the canvas. */
         @media (min-width: 1024px) {
           .e3-hero {
             padding-top: clamp(3rem, 5vw, 4rem);
-            min-height: calc(100vh - 130px);
-            min-height: calc(100dvh - 130px);
-            padding-bottom: clamp(4rem, calc(58dvh - 270px), 17rem);
+            min-height: calc(100vh - 152px);
+            min-height: calc(100dvh - 152px);
+            padding-bottom: clamp(3rem, calc(54dvh - 300px), 15rem);
           }
         }
       `}</style>
 
-      <div className="e3">
-
+      <div className="df-page">
         <DirectionENav />
 
-        {/* ── Hero — typography led, full-width headline ─────────────────────
-            maxWidth: 960 on outer div gives the headline room for a natural
-            2-line wrap ("The brief is rarely / the problem.") at desktop.
-            The h1 fills the container; body copy stays at 44ch for readability.
-        */}
-        <HeroSection
+        <HeroSectionPills
           label={data.hero.label}
           headline={data.hero.headline}
           body={data.hero.body}
-          oceanData={oceanWaves.map((w) => ({ amp: w.amp, speed: w.speed }))}
         />
 
-        {/* ── Selected Work ─────────────────────────────────────────────────── */}
         <section id="work" className="e3-section">
           <span className="e3-section-label">Selected work</span>
 
@@ -176,11 +141,6 @@ export default async function DirectionE3() {
           ))}
         </section>
 
-        {/* ── About ──────────────────────────────────────────────────────────
-            The circle remains here as the only portrait element on the homepage.
-            Teaser copy foregrounds the distinctive background (art world,
-            anthropology) rather than the generic role description.
-        */}
         <section className="e3-section" style={{ paddingBottom: "clamp(3.5rem, 7vw, 6rem)" }}>
           <span className="e3-section-label">About</span>
 
@@ -190,7 +150,6 @@ export default async function DirectionE3() {
                 src={data.about.image}
                 alt={data.about.imageAlt}
                 fill
-                sizes="(min-width: 1024px) 220px, (min-width: 640px) 200px, 160px"
                 style={{ objectFit: "cover", objectPosition: "center center" }}
               />
             </div>
@@ -201,8 +160,7 @@ export default async function DirectionE3() {
             }}>
               <p style={{
                 fontFamily: S, fontSize: "clamp(0.9375rem, 1.3vw, 1.0625rem)",
-                color: IN2, lineHeight: 1.75, margin: 0,
-                maxWidth: "52ch",
+                color: IN2, lineHeight: 1.75, margin: 0, maxWidth: "52ch",
               }}>
                 {data.about.teaser}
               </p>
@@ -212,7 +170,6 @@ export default async function DirectionE3() {
         </section>
 
         <DirectionEFooter />
-
       </div>
     </>
   );
