@@ -74,7 +74,7 @@ impact:
     - value: "+15%"
       label: "Identification completion"
       note: "Drop-off at a critical step reduced"
-    - value: "+100%"
+    - value: "+76%"
       label: "Self-installation adoption"
       note: "Accelerating self-service behaviours"
   items: []
