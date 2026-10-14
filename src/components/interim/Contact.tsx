@@ -11,11 +11,11 @@ export default function Contact({ bio }: Props) {
       <style>{`body { background-color: ${bg}; }`}</style>
 
       <header className="flex items-center justify-between px-5 pb-5 pt-6 md:pt-5">
-        <Link href="/" className="text-[19px] font-bold leading-none">
+        <Link href="/" className="text-[24px] font-medium leading-none">
           Thomas Rackowe Cork
         </Link>
 
-        <Link href="/" className="hidden text-[19px] font-bold leading-none md:block">
+        <Link href="/" className="hidden text-[24px] font-medium leading-none md:block">
           Close ✕
         </Link>
 
@@ -28,14 +28,14 @@ export default function Contact({ bio }: Props) {
 
       <main className="flex flex-1 flex-col gap-12 px-5 pb-16 pt-16 md:pt-[120px] lg:flex-row lg:justify-between lg:gap-10">
         <section className="flex max-w-[680px] flex-col gap-4">
-          <h1 className="text-[18px] font-semibold">About</h1>
+          <h1 className="text-[18px] font-medium">About</h1>
           <p className="text-[24px] font-medium leading-[1.2] tracking-[-0.015em] md:text-[32px] lg:text-[40px]">
             {bio}
           </p>
         </section>
 
         <section className="flex flex-col gap-4 lg:min-w-[360px]">
-          <h2 className="text-[18px] font-semibold">Contact</h2>
+          <h2 className="text-[18px] font-medium">Contact</h2>
           <ul className="flex flex-col gap-4 md:gap-2">
             {CONTACT_LINKS.map((link) => (
               <li key={link.label} className="flex flex-col gap-1 text-[16px] md:flex-row md:gap-4 md:text-[18px]">
@@ -43,7 +43,7 @@ export default function Contact({ bio }: Props) {
                 <a
                   href={link.href}
                   {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="min-w-0 break-words font-semibold underline underline-offset-4 md:whitespace-nowrap"
+                  className="min-w-0 break-words font-medium underline underline-offset-4 md:whitespace-nowrap"
                 >
                   {link.value}
                   {link.external ? " ↗" : ""}

@@ -34,11 +34,11 @@ export default function Landing() {
       `}</style>
 
       <header className="flex items-center justify-between px-5 pb-5 pt-6 md:pt-5">
-        <Link href="/" className="text-[19px] font-bold leading-none">
+        <Link href="/" className="text-[24px] font-medium leading-none">
           Thomas Rackowe Cork
         </Link>
 
-        <Link href="/contact" className="hidden text-[19px] font-bold leading-none md:block">
+        <Link href="/contact" className="hidden text-[24px] font-medium leading-none md:block">
           Contact
         </Link>
 
@@ -52,10 +52,7 @@ export default function Landing() {
 
       <div className="flex-1" />
 
-      <div
-        className="overflow-hidden py-3 md:py-4"
-        style={{ backgroundColor: fg, color: bg }}
-      >
+      <div className="overflow-hidden pb-5 pt-3">
         <span className="sr-only">Under construction</span>
         <div className="interim-tape flex w-max" aria-hidden="true">
           {[0, 1].map((copy) => (
@@ -63,7 +60,7 @@ export default function Landing() {
               {TAPE_WORDS.map((word, i) => (
                 <span
                   key={i}
-                  className="flex items-center whitespace-nowrap text-[19px] font-bold tracking-[0.04em] md:text-[24px] lg:text-[28px]"
+                  className="flex items-center whitespace-nowrap text-[24px] font-medium tracking-[0.04em] lg:text-[28px]"
                 >
                   <span className="px-4 md:px-6">{word}</span>
                   <span className="text-[0.45em]">●</span>

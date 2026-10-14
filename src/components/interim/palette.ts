@@ -1,5 +1,5 @@
 // Colour states for the interim "under construction" landing page.
-// Route B pairs: header and tape text are 19px bold (WCAG large text),
+// Route B pairs: header and ticker text are 24px (WCAG large text at any weight),
 // so every pair clears 3:1. See Figma "Minimal 2026" → "Accessible colour pairs".
 export const COLOUR_STATES = [
   { bg: "#536f8c", fg: "#e4c39c" },
