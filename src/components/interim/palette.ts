@@ -19,4 +19,6 @@ export const CONTACT_COLOURS = COLOUR_STATES[3];
 export const CONTACT_LINKS = [
   { label: "Email", value: "hello@thomasrackowecork.com", href: "mailto:hello@thomasrackowecork.com", external: false },
   { label: "LinkedIn", value: "linkedin.com/in/thomasrackowecork", href: "https://www.linkedin.com/in/thomasrackowecork/", external: true },
+  // Opens in the browser's PDF viewer, where it can be read, saved or printed.
+  { label: "CV", value: "Download PDF", href: "/cv/Thomas-Rackowe-Cork-CV.pdf", external: true },
 ] as const;
