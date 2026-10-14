@@ -11,16 +11,16 @@ export default function Contact({ bio }: Props) {
       <style>{`body { background-color: ${bg}; }`}</style>
 
       <header className="flex items-center justify-between px-5 pb-5 pt-6 md:pt-5">
-        <Link href="/" className="text-[24px] font-medium leading-none">
+        <Link href="/" className="text-[16px] font-medium leading-none">
           Thomas Rackowe Cork
         </Link>
 
-        <Link href="/" className="hidden text-[24px] font-medium leading-none md:block">
+        <Link href="/" className="hidden text-[16px] font-medium leading-none md:block">
           Close ✕
         </Link>
 
         <Link href="/" aria-label="Close" className="-m-2 p-2 md:hidden">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
           </svg>
         </Link>
@@ -28,17 +28,17 @@ export default function Contact({ bio }: Props) {
 
       <main className="flex flex-1 flex-col gap-12 px-5 pb-16 pt-16 md:pt-[120px] lg:flex-row lg:justify-between lg:gap-10">
         <section className="flex max-w-[680px] flex-col gap-4">
-          <h1 className="text-[18px] font-medium">About</h1>
-          <p className="text-[24px] font-medium leading-[1.2] tracking-[-0.015em] md:text-[32px] lg:text-[40px]">
+          <h1 className="text-[14px] font-medium">About</h1>
+          <p className="text-[20px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[24px] lg:text-[28px]">
             {bio}
           </p>
         </section>
 
         <section className="flex flex-col gap-4 lg:min-w-[360px]">
-          <h2 className="text-[18px] font-medium">Contact</h2>
+          <h2 className="text-[14px] font-medium">Contact</h2>
           <ul className="flex flex-col gap-4 md:gap-2">
             {CONTACT_LINKS.map((link) => (
-              <li key={link.label} className="flex flex-col gap-1 text-[16px] md:flex-row md:gap-4 md:text-[18px]">
+              <li key={link.label} className="flex flex-col gap-1 text-[16px] md:flex-row md:gap-4">
                 <span className="shrink-0 font-medium opacity-80 md:w-24">{link.label}</span>
                 <a
                   href={link.href}
@@ -54,7 +54,7 @@ export default function Contact({ bio }: Props) {
         </section>
       </main>
 
-      <footer className="border-t px-5 py-5 text-[16px] font-medium" style={{ borderColor: fg }}>
+      <footer className="border-t px-5 py-5 text-[14px] font-medium" style={{ borderColor: fg }}>
         © 2026
       </footer>
     </div>

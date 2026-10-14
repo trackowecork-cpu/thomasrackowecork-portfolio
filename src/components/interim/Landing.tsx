@@ -34,16 +34,16 @@ export default function Landing() {
       `}</style>
 
       <header className="flex items-center justify-between px-5 pb-5 pt-6 md:pt-5">
-        <Link href="/" className="text-[24px] font-medium leading-none">
+        <Link href="/" className="text-[16px] font-medium leading-none">
           Thomas Rackowe Cork
         </Link>
 
-        <Link href="/contact" className="hidden text-[24px] font-medium leading-none md:block">
+        <Link href="/contact" className="hidden text-[16px] font-medium leading-none md:block">
           Contact
         </Link>
 
         <Link href="/contact" aria-label="Contact" className="-m-2 p-2 md:hidden">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
             <rect x="1" y="8" width="22" height="2" rx="1" fill="currentColor" />
             <rect x="9" y="14" width="14" height="2" rx="1" fill="currentColor" />
           </svg>
@@ -60,9 +60,9 @@ export default function Landing() {
               {TAPE_WORDS.map((word, i) => (
                 <span
                   key={i}
-                  className="flex items-center whitespace-nowrap text-[24px] font-medium tracking-[0.04em] lg:text-[28px]"
+                  className="flex items-center whitespace-nowrap text-[16px] font-medium tracking-[0.04em] lg:text-[18px]"
                 >
-                  <span className="px-4 md:px-6">{word}</span>
+                  <span className="px-3 md:px-4">{word}</span>
                   <span className="text-[0.45em]">●</span>
                 </span>
               ))}

@@ -1,12 +1,12 @@
 // Colour states for the interim "under construction" landing page.
-// Route B pairs: header and ticker text are 24px (WCAG large text at any weight),
-// so every pair clears 3:1. See Figma "Minimal 2026" → "Accessible colour pairs".
+// Text is 16-18px medium, so every pair meets WCAG AA (4.5:1).
+// See Figma "Minimal 2026" → "Accessible colour pairs" (Route A).
 export const COLOUR_STATES = [
-  { bg: "#536f8c", fg: "#e4c39c" },
-  { bg: "#5f682c", fg: "#beb2fd" },
-  { bg: "#7f747c", fg: "#85ed9f" },
+  { bg: "#3a5572", fg: "#e4c39c" },
+  { bg: "#485012", fg: "#c0b4ff" },
+  { bg: "#645961", fg: "#85ed9f" },
   { bg: "#380508", fg: "#fffefc" },
-  { bg: "#b5ae6d", fg: "#444eb0" },
+  { bg: "#b2ab6a", fg: "#2c308f" },
 ] as const;
 
 export const STATE_DURATION_MS = 2500;
