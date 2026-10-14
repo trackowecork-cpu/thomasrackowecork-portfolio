@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PageReady, TransitionLink } from "./PageTransition";
 import { CONTACT_COLOURS, CONTACT_LINKS } from "./palette";
 
@@ -35,21 +34,13 @@ export default function Contact({ bio }: Props) {
 
       <main className="flex flex-1 flex-col gap-12 px-5 pb-16 pt-16 md:pt-[120px] lg:grid lg:grid-cols-12 lg:content-start lg:gap-x-8 lg:px-8 lg:pt-[160px]">
         <section className="flex max-w-[680px] flex-col gap-4 lg:col-span-7 lg:max-w-none lg:gap-5">
-          <Image
-            src="/thomas-rackowe-cork.jpg"
-            alt="Portrait of Thomas Rackowe Cork"
-            width={480}
-            height={480}
-            priority
-            className="size-20 rounded-full object-cover md:size-24 lg:size-[120px]"
-          />
           <h1 className="text-[14px] font-medium lg:text-[16px]">About</h1>
           <p className="text-[20px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[24px] lg:text-[34px] lg:leading-[1.2]">
             {bio}
           </p>
         </section>
 
-        <section className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9 lg:gap-5 lg:pt-[140px]">
+        <section className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9 lg:gap-5">
           <h2 className="text-[14px] font-medium lg:text-[16px]">Contact</h2>
           <ul className="flex flex-col gap-4 md:gap-2 lg:gap-3">
             {CONTACT_LINKS.map((link) => (
