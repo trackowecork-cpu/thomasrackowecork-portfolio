@@ -9,7 +9,9 @@ export const COLOUR_STATES = [
   { bg: "#b2ab6a", fg: "#2c308f" },
 ] as const;
 
-export const STATE_DURATION_MS = 2500;
+// 1.2s per colour = under one change per second, far below the WCAG 2.3.1
+// limit of three flashes per second. Reduced-motion visitors get no cycling.
+export const STATE_DURATION_MS = 1200;
 
 // The contact page holds on the highest-contrast pair (17:1) so the bio reads comfortably.
 export const CONTACT_COLOURS = COLOUR_STATES[3];
