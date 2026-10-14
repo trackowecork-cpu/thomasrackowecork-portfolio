@@ -1,9 +1,10 @@
 import { PageReady, TransitionLink } from "./PageTransition";
 import { CONTACT_COLOURS, CONTACT_LINKS } from "./palette";
 
-type Props = { bio: string };
+// intro: large opening lines. body: a smaller supporting paragraph.
+type Props = { intro: string[]; body: string };
 
-export default function Contact({ bio }: Props) {
+export default function Contact({ intro, body }: Props) {
   const { bg, fg } = CONTACT_COLOURS;
 
   return (
@@ -35,8 +36,13 @@ export default function Contact({ bio }: Props) {
       <main className="flex flex-1 flex-col gap-12 px-5 pb-16 pt-16 md:pt-[120px] lg:grid lg:grid-cols-12 lg:content-start lg:gap-x-8 lg:px-8 lg:pt-[160px]">
         <section className="flex max-w-[680px] flex-col gap-4 lg:col-span-7 lg:max-w-none lg:gap-5">
           <h1 className="text-[14px] font-medium lg:text-[16px]">About</h1>
-          <p className="text-[20px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[24px] lg:text-[34px] lg:leading-[1.2]">
-            {bio}
+          <div className="flex flex-col gap-3 text-[20px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[24px] lg:gap-4 lg:text-[34px] lg:leading-[1.2]">
+            {intro.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+          <p className="mt-2 max-w-[560px] text-[16px] font-medium leading-[1.5] opacity-90 md:text-[18px] lg:mt-4 lg:text-[20px]">
+            {body}
           </p>
         </section>
 
