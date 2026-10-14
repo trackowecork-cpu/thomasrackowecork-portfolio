@@ -42,7 +42,7 @@ export default function Contact({ bio }: Props) {
 
         <section className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9 lg:gap-5">
           <h2 className="text-[14px] font-medium lg:text-[16px]">Contact</h2>
-          <ul className="flex flex-col gap-4 md:gap-2 lg:gap-3">
+          <ul className="flex flex-col gap-4 md:gap-2 lg:gap-8">
             {CONTACT_LINKS.map((link) => (
               <li key={link.label} className="flex flex-col gap-1 text-[16px] md:flex-row md:gap-4 lg:flex-col lg:gap-1 lg:text-[18px]">
                 <span className="shrink-0 font-medium opacity-80 md:w-24 lg:w-auto">{link.label}</span>
