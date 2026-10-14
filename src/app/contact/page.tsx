@@ -7,9 +7,8 @@ export const metadata: Metadata = {
 };
 
 const BIO = [
-  "Hi, I'm Thomas.",
   "I'm a product and service designer who works best where design and strategy overlap.",
-  "I see experiences as interconnected systems, not isolated screens. I love bringing people from different disciplines together and collaboratively building a shared vision and direction, testing ideas quickly, and using what we learn to move the wider vision forward.",
+  "I see experiences as interconnected systems, not isolated screens. I bring people from different disciplines together to build a shared vision, test ideas quickly, and lay solid foundations so every learning moves us forward.",
 ];
 
 export default function ContactPage() {
