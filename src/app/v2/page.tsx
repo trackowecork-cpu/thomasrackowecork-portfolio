@@ -29,7 +29,7 @@ export default function V2Page() {
       <Header />
 
       <section className="v2-hero" aria-labelledby="v2-headline">
-        <h1 id="v2-headline">I shape product experiences that turn attention → lasting momentum.</h1>
+        <h1 id="v2-headline">I shape product experiences that turn understanding into lasting impact.</h1>
       </section>
 
       <section id="work" className="v2-work" aria-labelledby="v2-work-label">
