@@ -576,33 +576,40 @@ html:not([data-theme="dark"]) .v2-only-dark {
     gap: 160px;
   }
 
-  /* Visual on cols 1–7 (minus one gutter), text on cols 9–12; every other row swaps sides. */
+  /* Visual takes 7 of 12 parts, text the other 5, with a 64px gap between them.
+     Every other row swaps sides. Text lines are capped at 560px, as on tablet. */
   .v2-project {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: 24px;
+    grid-template-columns: 7fr 5fr;
+    column-gap: 64px;
     align-items: center;
   }
 
-  .v2-project__visual {
-    grid-column: 1 / 8;
+  .v2-project:nth-child(even) {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .v2-project__visual,
+  .v2-project__text {
     grid-row: 1;
-    width: calc(100% - 24px);
+  }
+
+  .v2-project__visual {
+    grid-column: 1;
   }
 
   .v2-project__text {
-    grid-column: 9 / 13;
-    grid-row: 1;
+    grid-column: 2;
     gap: 12px;
+    max-width: 560px;
   }
 
   .v2-project:nth-child(even) .v2-project__visual {
-    grid-column: 6 / 13;
-    justify-self: end;
+    grid-column: 2;
   }
 
   .v2-project:nth-child(even) .v2-project__text {
-    grid-column: 1 / 5;
+    grid-column: 1;
   }
 
   .v2-project__text h3 {
