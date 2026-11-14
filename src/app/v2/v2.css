@@ -344,7 +344,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
   background-color: var(--v2-fg);
 }
 
-.v2-project__visual video {
+.v2-project__visual video,
+.v2-project__poster {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;

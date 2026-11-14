@@ -1,20 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { PauseIcon, PlayIcon } from "./icons";
+import { useTheme } from "./theme";
+
+/** One file for both themes, or a version per theme. */
+export type ThemedSrc = string | { light: string; dark: string };
 
 type Props = {
-  src: string;
-  poster: string;
+  src: ThemedSrc;
+  poster: ThemedSrc;
   /** Project title, used in the play/pause button label. */
   title: string;
 };
 
+const pick = (value: ThemedSrc, theme: "light" | "dark") =>
+  typeof value === "string" ? value : value[theme];
+
+const noop = () => () => {};
+
 // Muted, looping project visual.
+// - Only the video for the active theme is loaded; switching theme swaps the source.
 // - Plays only while at least half of it is on screen, so off-screen videos don't run.
 // - Visitors who ask for reduced motion see the still poster frame; they can still press play.
 // - A visible pause/play button is always available (WCAG 2.2.2 Pause, Stop, Hide).
 export default function ProjectVideo({ src, poster, title }: Props) {
+  const theme = useTheme();
+  // False during server render and hydration, true after: the theme is only known in the browser.
+  const mounted = useSyncExternalStore(noop, () => true, () => false);
+  const videoSrc = pick(src, theme);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   // Set once the visitor presses the button, so scrolling never overrides their choice.
@@ -48,7 +62,7 @@ export default function ProjectVideo({ src, poster, title }: Props) {
       observer.disconnect();
       reducedMotion.removeEventListener("change", onReducedMotionChange);
     };
-  }, []);
+  }, [mounted, videoSrc]);
 
   const toggle = () => {
     const video = videoRef.current;
@@ -64,19 +78,34 @@ export default function ProjectVideo({ src, poster, title }: Props) {
 
   return (
     <div className="v2-project__visual">
-      <video
-        ref={videoRef}
-        src={src}
-        poster={poster}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        tabIndex={-1}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-      />
+      {/* Posters for both themes; CSS shows the right one before JavaScript runs, so no flash. */}
+      {typeof poster === "string" ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="v2-project__poster" src={poster} alt="" />
+      ) : (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="v2-project__poster v2-only-light" src={poster.light} alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="v2-project__poster v2-only-dark" src={poster.dark} alt="" loading="lazy" />
+        </>
+      )}
+      {mounted && (
+        <video
+          key={videoSrc}
+          ref={videoRef}
+          src={videoSrc}
+          poster={pick(poster, theme)}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+        />
+      )}
       <button
         type="button"
         className="v2-video-button"
