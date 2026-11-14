@@ -1,0 +1,631 @@
+/*
+  v2 redesign. Values from Figma "Website v2 (revised)":
+  mobile < 768 (375 frame), tablet 768–1023 (768 frame), desktop ≥ 1024 (1200 frame).
+  Contrast (WCAG 2.2 AA): light #3C3B3B on #E4C39C 6.69:1, labels at 88% 5.16:1;
+  dark #E4C39C on #13120A 11.25:1, labels at 70% 5.99:1, divider at 45% ≈ 3.1:1.
+*/
+
+/* ── Theme tokens ── */
+html:has(.v2) {
+  --v2-bg: #e4c39c;
+  --v2-fg: #3c3b3b;
+  --v2-label-opacity: 0.88;
+  --v2-divider: #3c3b3b;
+  color-scheme: light;
+  background-color: var(--v2-bg);
+}
+
+html[data-theme="dark"]:has(.v2) {
+  --v2-bg: #13120a;
+  --v2-fg: #e4c39c;
+  --v2-label-opacity: 0.7;
+  --v2-divider: rgb(228 195 156 / 0.45);
+  color-scheme: dark;
+}
+
+/* No JavaScript at all: still follow the system setting. */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]):has(.v2) {
+    --v2-bg: #13120a;
+    --v2-fg: #e4c39c;
+    --v2-label-opacity: 0.7;
+    --v2-divider: rgb(228 195 156 / 0.45);
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.v2) {
+    scroll-behavior: smooth;
+  }
+}
+
+html:has(.v2) body {
+  background-color: var(--v2-bg);
+}
+
+html:has(.v2-menu[open]) {
+  overflow: hidden;
+}
+
+.v2 {
+  --v2-margin: 20px;
+  position: relative;
+  background-color: var(--v2-bg);
+  color: var(--v2-fg);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.v2 ::selection {
+  background-color: var(--v2-fg);
+  color: var(--v2-bg);
+}
+
+.v2 a {
+  color: inherit;
+}
+
+.v2 :focus-visible {
+  outline: 2px solid var(--v2-fg);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.v2-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .v2-only-light,
+html:not([data-theme="dark"]) .v2-only-dark {
+  display: none;
+}
+
+.v2-only-light,
+.v2-only-dark {
+  display: flex;
+}
+
+/* ── Header ── */
+.v2-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 24px var(--v2-margin) 20px;
+  background-color: var(--v2-bg);
+}
+
+.v2-header__name {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.v2-header__nav {
+  display: none;
+  align-items: center;
+  gap: 24px;
+}
+
+.v2-header__nav ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.v2-header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.v2-header__nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.v2-icon-button,
+.v2-menu-button,
+.v2-menu__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Two lines, right-aligned, 22px and 14px wide. */
+.v2-menu-button {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.v2-menu-button span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: currentColor;
+}
+
+.v2-menu-button span + span {
+  width: 14px;
+}
+
+.v2-menu__close {
+  justify-content: flex-end;
+}
+
+/* ── Mobile menu ── */
+.v2-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0 0 40px;
+  border: 0;
+  background-color: var(--v2-bg);
+  color: var(--v2-fg);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.v2-menu[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.v2-menu::backdrop {
+  background-color: var(--v2-bg);
+}
+
+.v2-menu .v2-header {
+  position: static;
+  flex-shrink: 0;
+}
+
+.v2-menu__links {
+  flex: 1;
+  padding: 32px var(--v2-margin) 0;
+}
+
+.v2-menu__links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.v2-menu__links a {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+}
+
+.v2-menu__appearance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--v2-margin) 0;
+  border-top: 1px solid var(--v2-divider);
+  font-size: 16px;
+}
+
+/* Switch: 52×32 track inside a 44px-tall tap area. Off = outlined, on = filled. */
+.v2-switch {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.v2-switch__track {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 32px;
+  border: 1px solid var(--v2-fg);
+  border-radius: 16px;
+}
+
+.v2-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 4.5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--v2-fg);
+}
+
+.v2-switch[aria-checked="true"] .v2-switch__track {
+  background-color: var(--v2-fg);
+}
+
+.v2-switch[aria-checked="true"] .v2-switch__thumb {
+  left: 23px;
+  background-color: var(--v2-bg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-switch__thumb {
+    transition: left 150ms ease;
+  }
+}
+
+/* ── Hero ── */
+.v2-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 610px;
+  padding: 100px var(--v2-margin) 40px;
+}
+
+.v2-hero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* ── Shared ── */
+.v2-label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ── Featured work ── */
+.v2-work {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 var(--v2-margin) 48px;
+}
+
+.v2-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.v2-project {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.v2-project__visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: var(--v2-fg);
+}
+
+.v2-project__visual video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Solid page-colour circle with a 1px outline so it stays visible on any video frame. */
+.v2-video-button {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--v2-fg);
+  border-radius: 50%;
+  background-color: var(--v2-bg);
+  color: var(--v2-fg);
+  cursor: pointer;
+}
+
+.v2 .v2-video-button:focus-visible {
+  outline: 2px solid var(--v2-bg);
+  box-shadow: 0 0 0 4px var(--v2-fg);
+  border-radius: 50%;
+}
+
+.v2-project__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.v2-project__text h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.v2-project__text p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* ── About + contact ── */
+.v2-info {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 48px var(--v2-margin);
+}
+
+.v2-about {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.v2-about p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.v2-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.v2-contact dl {
+  margin: 0;
+}
+
+.v2-contact__row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  min-height: 44px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.v2-contact dt {
+  flex: 0 0 96px;
+  opacity: var(--v2-label-opacity);
+}
+
+.v2-contact dd {
+  min-width: 0;
+  margin: 0;
+}
+
+/* The real email and LinkedIn URL are longer than the Figma placeholders and don't fit
+   beside a 96px label at 375 or in the 4-column desktop slot, so the label sits above
+   the value there. Tablet has room and keeps the Figma side-by-side rows. */
+@media (max-width: 767px), (min-width: 1024px) {
+  .v2-contact__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-top: 8px;
+  }
+
+  .v2-contact dt {
+    flex: none;
+  }
+}
+
+.v2-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  overflow-wrap: break-word;
+}
+
+/* ── Footer ── */
+.v2-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px var(--v2-margin);
+  border-top: 1px solid var(--v2-divider);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.v2-footer p {
+  margin: 0;
+}
+
+.v2-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.v2-footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ── Tablet (768 frame) ── */
+@media (min-width: 768px) {
+  .v2 {
+    --v2-margin: 40px;
+  }
+
+  .v2-header {
+    padding-right: calc(var(--v2-margin) - 12px);
+  }
+
+  .v2-header__nav {
+    display: flex;
+  }
+
+  .v2-menu-button,
+  .v2-menu {
+    display: none;
+  }
+
+  .v2-hero {
+    height: min(768px, 85svh);
+    min-height: 480px;
+  }
+
+  .v2-hero h1 {
+    font-size: 44px;
+    letter-spacing: -0.02em;
+  }
+
+  .v2-work {
+    padding-bottom: 64px;
+  }
+
+  .v2-projects {
+    gap: 72px;
+  }
+
+  .v2-project__text p {
+    max-width: 560px;
+  }
+
+  .v2-info {
+    padding-block: 64px;
+  }
+}
+
+/* ── Desktop (1200 frame): 12 columns, 24px gutters ── */
+@media (min-width: 1024px) {
+  .v2 {
+    --v2-margin: max(64px, (100% - 1072px) / 2);
+  }
+
+  .v2-header__name,
+  .v2-header__nav a {
+    font-size: 18px;
+  }
+
+  .v2-hero {
+    height: 600px;
+    min-height: 0;
+  }
+
+  .v2-hero h1 {
+    font-size: 60px;
+  }
+
+  .v2-work {
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 160px;
+  }
+
+  .v2-projects {
+    gap: 160px;
+  }
+
+  /* Visual on cols 1–7 (minus one gutter), text on cols 9–12; every other row swaps sides. */
+  .v2-project {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px;
+    align-items: center;
+  }
+
+  .v2-project__visual {
+    grid-column: 1 / 8;
+    grid-row: 1;
+    width: calc(100% - 24px);
+  }
+
+  .v2-project__text {
+    grid-column: 9 / 13;
+    grid-row: 1;
+    gap: 12px;
+  }
+
+  .v2-project:nth-child(even) .v2-project__visual {
+    grid-column: 6 / 13;
+    justify-self: end;
+  }
+
+  .v2-project:nth-child(even) .v2-project__text {
+    grid-column: 1 / 5;
+  }
+
+  .v2-project__text h3 {
+    font-size: 28px;
+  }
+
+  .v2-project__text p {
+    line-height: 1.6;
+  }
+
+  .v2-info {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px;
+    padding-top: 0;
+    padding-bottom: 120px;
+  }
+
+  .v2-about {
+    grid-column: 1 / 8;
+  }
+
+  .v2-about p {
+    font-size: 24px;
+  }
+
+  .v2-contact {
+    grid-column: 9 / 13;
+  }
+}
