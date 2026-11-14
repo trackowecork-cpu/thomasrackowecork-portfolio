@@ -4,7 +4,7 @@ import { CONTACT_LINKS } from "@/components/interim/palette";
 
 // Placeholder content until the real projects, copy and videos are ready.
 const PROJECTS = [
-  { title: "Project one", video: "/v2/proximus-app.mp4", poster: "/v2/proximus-app.jpg" },
+  { title: "Project one", video: "/v2/proximus-app-purple.mp4", poster: "/v2/proximus-app-purple.jpg" },
   { title: "Project two", video: "/v2/project-2.mp4", poster: "/v2/project-2.jpg" },
   { title: "Project three", video: "/v2/project-3.mp4", poster: "/v2/project-3.jpg" },
 ];
