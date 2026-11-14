@@ -408,6 +408,13 @@ html:not([data-theme="dark"]) .v2-only-dark {
   gap: 16px;
 }
 
+.v2-about__photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--v2-fg) 15%, transparent);
+}
+
 .v2-about p {
   margin: 0;
   font-size: 20px;
@@ -533,6 +540,11 @@ html:not([data-theme="dark"]) .v2-only-dark {
   .v2-info {
     padding-block: 64px;
   }
+
+  .v2-about__photo {
+    width: 96px;
+    height: 96px;
+  }
 }
 
 /* ── Desktop (1200 frame): 12 columns, 24px gutters ──
@@ -627,6 +639,11 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
   .v2-about p {
     font-size: 24px;
+  }
+
+  .v2-about__photo {
+    width: 120px;
+    height: 120px;
   }
 
   .v2-contact {

@@ -49,6 +49,8 @@ export default function V2Page() {
           <h2 id="v2-about-label" className="v2-label">
             About
           </h2>
+          {/* Placeholder until Thomas picks a photo; swap for an <img> with alt text then. */}
+          <div className="v2-about__photo" aria-hidden="true" />
           {BIO.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
