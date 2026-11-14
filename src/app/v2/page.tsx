@@ -12,8 +12,11 @@ const PROJECTS = [
 const PROJECT_TEXT =
   "Two or three sentences about this project, what you did and what the outcome was. This gives the hiring manager or design lead an idea and leaves them wanting more.";
 
-const BIO =
-  "Short bio placeholder. Two or three sentences on what you do, where you are based, and the objects, places and spaces that shape your work. A longer portfolio is on its way.";
+// Same bio as the live contact page.
+const BIO = [
+  "I'm a product and service designer who works best where design and strategy overlap.",
+  "I see experiences as interconnected systems, not isolated screens. I bring people from different disciplines together to build a shared vision, test ideas quickly, and lay solid foundations so every learning moves us forward.",
+];
 
 export default function V2Page() {
   return (
@@ -46,7 +49,9 @@ export default function V2Page() {
           <h2 id="v2-about-label" className="v2-label">
             About
           </h2>
-          <p>{BIO}</p>
+          {BIO.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </section>
 
         <section id="contact" className="v2-contact" aria-labelledby="v2-contact-label">
