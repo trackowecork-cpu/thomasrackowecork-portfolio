@@ -6,9 +6,9 @@ import { CONTACT_LINKS } from "@/components/interim/palette";
 const PROJECTS: { title: string; video: ThemedSrc; poster: ThemedSrc }[] = [
   {
     title: "Project one",
-    // A version per theme: grey sits with the sand, black with the dark background.
-    video: { light: "/v2/proximus-app-grey.mp4", dark: "/v2/proximus-app.mp4" },
-    poster: { light: "/v2/proximus-app-grey.jpg", dark: "/v2/proximus-app.jpg" },
+    // A version per theme, each on a tone of its page background.
+    video: { light: "/v2/proximus-light.mp4", dark: "/v2/proximus-dark.mp4" },
+    poster: { light: "/v2/proximus-light.jpg", dark: "/v2/proximus-dark.jpg" },
   },
   { title: "Project two", video: "/v2/project-2.mp4", poster: "/v2/project-2.jpg" },
   { title: "Project three", video: "/v2/project-3.mp4", poster: "/v2/project-3.jpg" },
