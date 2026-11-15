@@ -17,8 +17,10 @@ const PROJECTS: Project[] = [
     description:
       "As Proximus+, the app had expanded beyond telecom, gradually pushing core product management into the background. I helped shape its evolution from discovery through implementation, refocusing the experience on customers' telecom products and services. The first phase launched in September 2026, establishing a more scalable foundation for future development.",
     // A version per theme, each on a tone of its page background.
-    video: { light: "/v2/proximus-light.mp4", dark: "/v2/proximus-dark.mp4" },
-    poster: { light: "/v2/proximus-light.jpg", dark: "/v2/proximus-dark.jpg" },
+    // Trial (2026-11-15): the dark-background version in both themes. The light one is
+    // still in public/v2/proximus-light.* if Thomas wants it back.
+    video: { light: "/v2/proximus-dark.mp4", dark: "/v2/proximus-dark.mp4" },
+    poster: { light: "/v2/proximus-dark.jpg", dark: "/v2/proximus-dark.jpg" },
   },
   {
     title: "Digital Acquisition & Checkout Redesign",
