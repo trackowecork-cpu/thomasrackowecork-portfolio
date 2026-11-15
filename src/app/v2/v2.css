@@ -349,23 +349,26 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-projects {
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 24px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Each project is a tile: a slightly deeper tone of the page, with the visual
+   running edge to edge (Thomas, 2026-11-15, option C). */
 .v2-project {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: color-mix(in srgb, var(--v2-fg) 7%, var(--v2-bg));
 }
 
 .v2-project__visual {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 6px;
   background-color: var(--v2-fg);
 }
 
@@ -407,6 +410,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 24px;
 }
 
 .v2-project__text h3 {
@@ -588,7 +592,15 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-projects {
-    gap: 72px;
+    gap: 32px;
+  }
+
+  .v2-project {
+    border-radius: 24px;
+  }
+
+  .v2-project__text {
+    padding: 32px;
   }
 
   .v2-project__text h3 {
@@ -655,16 +667,15 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-projects {
-    gap: 160px;
+    gap: 40px;
   }
 
-  /* Visual left, text right, 64px apart. The text column is a little wider than before
-     (13:11) so 20px body text keeps a comfortable line length. */
+  /* Visual left (edge to edge), text right, 13:11. The visual is at least 4:3 and
+     stretches to the text's height when the text is taller. */
   .v2-project {
     display: grid;
     grid-template-columns: 13fr 11fr;
-    column-gap: 64px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .v2-project__visual,
@@ -674,12 +685,19 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
   .v2-project__visual {
     grid-column: 1;
+    aspect-ratio: auto;
+  }
+
+  .v2-project__visual::before {
+    content: "";
+    display: block;
+    padding-top: 75%;
   }
 
   .v2-project__text {
     grid-column: 2;
     gap: 20px;
-    max-width: 600px;
+    padding: 48px;
   }
 
   .v2-project__text h3 {
