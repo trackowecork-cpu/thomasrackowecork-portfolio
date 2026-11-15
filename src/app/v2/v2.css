@@ -432,12 +432,11 @@ html:not([data-theme="dark"]) .v2-only-dark {
 }
 
 .v2-project__text .v2-project__meta {
-  font-family: var(--v2-mono);
-  font-size: 13px;
-  letter-spacing: 0.01em;
+  /* Same family as the body, smaller, full colour: quiet but legible. */
+  font-size: 15px;
+  letter-spacing: 0.005em;
   font-weight: var(--v2-w-body);
   line-height: 1.5;
-  opacity: var(--v2-label-opacity);
 }
 
 /* ── About + contact ── */
@@ -608,7 +607,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-project__text .v2-project__meta {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .v2-about p {
