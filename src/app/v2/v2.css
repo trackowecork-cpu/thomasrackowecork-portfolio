@@ -637,7 +637,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
     display: grid;
     grid-template-columns: 7fr 5fr;
     column-gap: 64px;
-    align-items: center;
+    align-items: start;
   }
 
 
@@ -677,7 +677,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   /* Same pattern as the projects: visual left, text right. */
   .v2-about__body {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 64px;
   }
 
