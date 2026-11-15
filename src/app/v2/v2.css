@@ -309,15 +309,16 @@ html:not([data-theme="dark"]) .v2-only-dark {
 /* ── Shared ── */
 .v2-label {
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 /* ── Featured work ── */
 .v2-work {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   padding: 0 var(--v2-margin) 48px;
 }
 
@@ -421,7 +422,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-about {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .v2-about__body,
@@ -452,7 +453,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-contact {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 /* Grouped like the live contact page: label tight above its link (4px),
@@ -556,6 +557,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
     padding-bottom: 64px;
   }
 
+  .v2-label {
+    font-size: 24px;
+  }
+
   .v2-projects {
     gap: 72px;
   }
@@ -612,6 +617,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
     font-size: clamp(60px, 5vw, 88px);
   }
 
+  .v2-label {
+    font-size: 28px;
+  }
+
   .v2-work {
     gap: 40px;
     padding-top: 40px;
@@ -622,8 +631,8 @@ html:not([data-theme="dark"]) .v2-only-dark {
     gap: 160px;
   }
 
-  /* Visual takes 7 of 12 parts, text the other 5, with a 64px gap between them.
-     Every other row swaps sides. Text lines are capped at 560px, as on tablet. */
+  /* Visual (left) takes 7 of 12 parts, text (right) the other 5, with a 64px gap.
+     Text lines are capped at 560px, as on tablet. */
   .v2-project {
     display: grid;
     grid-template-columns: 7fr 5fr;
@@ -631,9 +640,6 @@ html:not([data-theme="dark"]) .v2-only-dark {
     align-items: center;
   }
 
-  .v2-project:nth-child(even) {
-    grid-template-columns: 5fr 7fr;
-  }
 
   .v2-project__visual,
   .v2-project__text {
@@ -650,20 +656,14 @@ html:not([data-theme="dark"]) .v2-only-dark {
     max-width: 560px;
   }
 
-  .v2-project:nth-child(even) .v2-project__visual {
-    grid-column: 2;
-  }
 
-  .v2-project:nth-child(even) .v2-project__text {
-    grid-column: 1;
-  }
 
   .v2-project__text p,
   .v2-about p {
     line-height: 1.6;
   }
 
-  /* About first (text left, photo right), Contact below. */
+  /* About first, Contact below. */
   .v2-info {
     gap: 96px;
     padding-top: 0;
@@ -671,24 +671,23 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-about {
-    gap: 24px;
+    gap: 32px;
   }
 
+  /* Same pattern as the projects: visual left, text right. */
   .v2-about__body {
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 48px;
+    align-items: center;
+    gap: 64px;
   }
 
   .v2-about__photo {
-    order: 0;
     width: 240px;
     height: 240px;
   }
 
   .v2-contact {
-    gap: 20px;
+    gap: 32px;
   }
 
   .v2-contact dl {
