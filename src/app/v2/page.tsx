@@ -19,10 +19,10 @@ const PROJECTS: Project[] = [
     // A version per theme, each on a tone of its page background.
     // Trial (2026-11-15): the dark-background version in both themes. The light one is
     // still in public/v2/proximus-light.* if Thomas wants it back.
-    // proximus-sun = dark video with drifting window light + phone shadow on the wall
-    // (render script: project files portfolio-build/v2-preview/proximus-sun-render.py).
-    video: { light: "/v2/proximus-sun.mp4", dark: "/v2/proximus-sun.mp4" },
-    poster: { light: "/v2/proximus-sun.jpg", dark: "/v2/proximus-sun.jpg" },
+    // proximus-depth = phone keyed onto an out-of-focus warm room with parallax (proximus-sun = window-light version)
+    // (render script: project files portfolio-build/v2-preview/proximus-depth-render.py).
+    video: { light: "/v2/proximus-depth.mp4", dark: "/v2/proximus-depth.mp4" },
+    poster: { light: "/v2/proximus-depth.jpg", dark: "/v2/proximus-depth.jpg" },
   },
   {
     title: "Digital Acquisition & Checkout Redesign",
