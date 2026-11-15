@@ -404,13 +404,6 @@ html:not([data-theme="dark"]) .v2-only-dark {
   line-height: 1.5;
 }
 
-/* Problem, contribution, impact: three short paragraphs. */
-.v2-project__desc {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .v2-project__heading {
   display: flex;
   flex-direction: column;
@@ -670,10 +663,6 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
   .v2-project__text h3 {
     font-size: 24px;
-  }
-
-  .v2-project__desc {
-    gap: 12px;
   }
 
   .v2-project__text p,
