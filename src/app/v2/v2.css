@@ -398,6 +398,18 @@ html:not([data-theme="dark"]) .v2-only-dark {
   line-height: 1.55;
 }
 
+.v2-project__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.v2-project__text .v2-project__meta {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: var(--v2-label-opacity);
+}
+
 /* ── About + contact ── */
 .v2-info {
   display: flex;
@@ -546,6 +558,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
   .v2-project__text p {
     max-width: 560px;
     font-size: 18px;
+  }
+
+  .v2-project__text .v2-project__meta {
+    font-size: 16px;
   }
 
   .v2-about p {
