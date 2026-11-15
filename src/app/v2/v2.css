@@ -621,10 +621,11 @@ html:not([data-theme="dark"]) .v2-only-dark {
     font-size: 28px;
   }
 
+  /* Sections sit 200px apart (more than the 160px between projects) so each reads as its own zone. */
   .v2-work {
-    gap: 40px;
-    padding-top: 40px;
-    padding-bottom: 160px;
+    gap: 48px;
+    padding-top: 80px;
+    padding-bottom: 200px;
   }
 
   .v2-projects {
@@ -665,13 +666,13 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
   /* About first, Contact below. */
   .v2-info {
-    gap: 96px;
+    gap: 200px;
     padding-top: 0;
-    padding-bottom: 120px;
+    padding-bottom: 160px;
   }
 
   .v2-about {
-    gap: 32px;
+    gap: 48px;
   }
 
   /* Same pattern as the projects: visual left, text right. */
@@ -687,7 +688,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-contact {
-    gap: 32px;
+    gap: 48px;
   }
 
   .v2-contact dl {
