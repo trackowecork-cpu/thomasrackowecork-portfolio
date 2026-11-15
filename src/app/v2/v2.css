@@ -334,7 +334,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-label {
   margin: 0;
   font-size: 24px;
-  font-weight: var(--v2-w-display);
+  font-weight: 500; /* section headings stay Medium in both themes (Thomas) */
   line-height: 1.2;
   letter-spacing: -0.015em;
 }
@@ -689,7 +689,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-project__text h3 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .v2-project__text p,
