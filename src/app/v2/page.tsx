@@ -83,11 +83,16 @@ export default function V2Page() {
           <h2 id="v2-about-label" className="v2-label">
             About
           </h2>
-          {/* Placeholder until Thomas picks a photo; swap for an <img> with alt text then. */}
-          <div className="v2-about__photo" aria-hidden="true" />
-          {BIO.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          <div className="v2-about__body">
+            <div className="v2-about__text">
+              {BIO.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            {/* Placeholder until Thomas picks a photo; swap for an <img> with alt text then.
+                Text comes first in the DOM; on smaller screens CSS shows the photo above it. */}
+            <div className="v2-about__photo" aria-hidden="true" />
+          </div>
         </section>
 
         <section id="contact" className="v2-contact" aria-labelledby="v2-contact-label">

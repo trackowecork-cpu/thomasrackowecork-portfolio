@@ -424,7 +424,16 @@ html:not([data-theme="dark"]) .v2-only-dark {
   gap: 16px;
 }
 
+.v2-about__body,
+.v2-about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .v2-about__photo {
+  order: -1;
+  flex: none;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -654,25 +663,31 @@ html:not([data-theme="dark"]) .v2-only-dark {
     line-height: 1.6;
   }
 
+  /* About first (text left, photo right), Contact below. */
   .v2-info {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: 24px;
+    gap: 96px;
     padding-top: 0;
     padding-bottom: 120px;
   }
 
   .v2-about {
-    grid-column: 1 / 8;
+    gap: 24px;
+  }
+
+  .v2-about__body {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
   }
 
   .v2-about__photo {
-    width: 120px;
-    height: 120px;
+    order: 0;
+    width: 240px;
+    height: 240px;
   }
 
   .v2-contact {
-    grid-column: 9 / 13;
     gap: 20px;
   }
 
