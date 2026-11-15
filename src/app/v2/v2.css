@@ -17,7 +17,6 @@ html:has(.v2) {
   --v2-w-display: 400;
   --v2-w-title: 500;
   --v2-w-strong: 500;
-  --v2-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
   color-scheme: light;
   background-color: var(--v2-bg);
 }
@@ -501,9 +500,6 @@ html:not([data-theme="dark"]) .v2-only-dark {
 }
 
 .v2-contact dt {
-  font-family: var(--v2-mono);
-  font-size: 14px;
-  letter-spacing: 0.01em;
   opacity: var(--v2-label-opacity);
 }
 
@@ -534,10 +530,8 @@ html:not([data-theme="dark"]) .v2-only-dark {
   justify-content: space-between;
   padding: 6px var(--v2-margin);
   border-top: 1px solid var(--v2-divider);
-  font-family: var(--v2-mono);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
-  letter-spacing: 0.01em;
 }
 
 .v2-footer p {
