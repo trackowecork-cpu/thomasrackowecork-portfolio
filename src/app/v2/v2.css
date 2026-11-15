@@ -395,7 +395,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-project__text p {
   margin: 0;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 450;
   line-height: 1.55;
 }
 
@@ -445,7 +445,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   max-width: 560px;
   margin: 0;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 450;
   line-height: 1.55;
 }
 
