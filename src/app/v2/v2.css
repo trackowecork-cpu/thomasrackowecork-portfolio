@@ -307,9 +307,14 @@ html:not([data-theme="dark"]) .v2-only-dark {
 }
 
 /* ── Shared ── */
+/* Type scale (about 1.2 between steps):
+   mobile  15 meta · 17 body · 20 title · 24 section
+   tablet  16 · 18 · 22 · 28
+   desktop 16 · 20 · 24 · 32
+   Body is Regular at 1.5 line height everywhere; size, not weight, gives it presence. */
 .v2-label {
   margin: 0;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -396,7 +401,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   margin: 0;
   font-size: 17px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .v2-project__heading {
@@ -447,7 +452,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   margin: 0;
   font-size: 17px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .v2-contact {
@@ -558,7 +563,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-label {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .v2-projects {
@@ -618,7 +623,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-label {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   /* Sections sit 200px apart (more than the 160px between projects) so each reads as its own zone. */
@@ -632,11 +637,11 @@ html:not([data-theme="dark"]) .v2-only-dark {
     gap: 160px;
   }
 
-  /* Visual (left) takes 7 of 12 parts, text (right) the other 5, with a 64px gap.
-     Text lines are capped at 560px, as on tablet. */
+  /* Visual left, text right, 64px apart. The text column is a little wider than before
+     (13:11) so 20px body text keeps a comfortable line length. */
   .v2-project {
     display: grid;
-    grid-template-columns: 7fr 5fr;
+    grid-template-columns: 13fr 11fr;
     column-gap: 64px;
     align-items: start;
   }
@@ -653,13 +658,17 @@ html:not([data-theme="dark"]) .v2-only-dark {
   .v2-project__text {
     grid-column: 2;
     gap: 20px;
-    max-width: 560px;
+    max-width: 600px;
+  }
+
+  .v2-project__text h3 {
+    font-size: 24px;
   }
 
   .v2-project__text p,
   .v2-about p {
-    font-weight: 425;
-    line-height: 1.6;
+    max-width: 600px;
+    font-size: 20px;
   }
 
   /* About first, Contact below. */
@@ -691,5 +700,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
   .v2-contact dl {
     gap: 32px;
+  }
+
+  .v2-contact__row {
+    font-size: 18px;
+    line-height: 28px;
   }
 }
