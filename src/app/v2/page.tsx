@@ -34,9 +34,9 @@ const PROJECTS: Project[] = [
     meta: "Proximus, 2023–2025",
     description:
       "As device manufacturers moved towards eSIM-only phones, Proximus's activation model remained dependent on physical processes. I contributed to the eSIM strategy and roadmap alongside external vendors and Apple, leading the design of digital onboarding and activation across Proximus's channels. Activation went from days to minutes, establishing scalable foundations for future devices and services.",
-    // Draft: campaign billboard with a handheld drift, slow push and a passing car blur.
-    video: "/v2/esim-billboard.mp4",
-    poster: "/v2/esim-billboard.jpg",
+    // Draft: activation flow on a phone, with the campaign billboard and traffic blurred behind.
+    video: "/v2/esim-flow.mp4",
+    poster: "/v2/esim-flow.jpg",
   },
   {
     title: "Art Collection Management Platform Redesign",
