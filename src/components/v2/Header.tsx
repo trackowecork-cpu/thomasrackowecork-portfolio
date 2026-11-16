@@ -10,7 +10,12 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
-export default function Header() {
+type Props = {
+  /** Path of the homepage when the header sits on another page (e.g. a case study), so links go back to its sections. */
+  home?: string;
+};
+
+export default function Header({ home = "" }: Props) {
   const theme = useTheme();
   const isDark = theme === "dark";
   const menuRef = useRef<HTMLDialogElement>(null);
@@ -31,7 +36,7 @@ export default function Header() {
 
   return (
     <header className="v2-header">
-      <a href="#top" className="v2-header__name">
+      <a href={home || "#top"} className="v2-header__name">
         Thomas Cork
       </a>
 
@@ -39,7 +44,7 @@ export default function Header() {
         <ul>
           {LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
+              <a href={home + link.href}>{link.label}</a>
             </li>
           ))}
         </ul>
@@ -73,7 +78,7 @@ export default function Header() {
 
       <dialog ref={menuRef} id={menuId} className="v2-menu" aria-label="Menu">
         <div className="v2-header">
-          <a href="#top" className="v2-header__name" onClick={closeMenu}>
+          <a href={home || "#top"} className="v2-header__name" onClick={closeMenu}>
             Thomas Cork
           </a>
           <button type="button" className="v2-menu__close" onClick={closeMenu} aria-label="Close menu">
@@ -85,7 +90,7 @@ export default function Header() {
           <ul>
             {LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} onClick={closeMenu}>
+                <a href={home + link.href} onClick={closeMenu}>
                   {link.label}
                 </a>
               </li>
