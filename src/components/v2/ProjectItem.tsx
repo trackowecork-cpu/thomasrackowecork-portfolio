@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
-import { CloseIcon } from "./icons";
 import ProjectVideo, { type ThemedSrc } from "./ProjectVideo";
 
 const VT_NAME = "v2-project-visual";
@@ -90,6 +89,9 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
       // close button after a tap, screen readers start at the title, and Tab reaches Close.
       titleRef.current?.focus({ preventScroll: true });
     });
+    // Give the panel its own history entry, so the browser's back button (and swipe back on
+    // phones) closes it just like the Back button does.
+    window.history.pushState({ ...window.history.state, v2Panel: true }, "");
     if (!morphed) dialog.classList.remove("is-morph");
   };
 
@@ -121,20 +123,34 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
     window.setTimeout(done, 700);
   };
 
-  // Escape uses the same animated close.
+  // Back button and Escape step back through history; the popstate below does the closing.
+  const back = () => {
+    if (window.history.state?.v2Panel) window.history.back();
+    else close();
+  };
+
   const closeRef = useRef(close);
+  const backRef = useRef(back);
   useEffect(() => {
     closeRef.current = close;
+    backRef.current = back;
   });
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
     const onCancel = (event: Event) => {
       event.preventDefault();
-      closeRef.current();
+      backRef.current();
+    };
+    const onPopState = () => {
+      if (dialog.open) closeRef.current();
     };
     dialog.addEventListener("cancel", onCancel);
-    return () => dialog.removeEventListener("cancel", onCancel);
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      dialog.removeEventListener("cancel", onCancel);
+      window.removeEventListener("popstate", onPopState);
+    };
   }, []);
 
   return (
@@ -149,8 +165,8 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
 
       <dialog ref={dialogRef} className="v2-panel" aria-labelledby={titleId}>
         <div className="v2-panel__bar">
-          <button type="button" className="v2-panel__close" onClick={close} aria-label="Close project">
-            <CloseIcon />
+          <button type="button" className="v2-panel__back" onClick={back}>
+            <span aria-hidden="true">←</span> Back
           </button>
         </div>
 
