@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
-import { CloseIcon, PauseIcon, PlayIcon } from "./icons";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { PauseIcon, PlayIcon } from "./icons";
 import { useTheme } from "./theme";
 
 /** One file for both themes, or a version per theme. */
@@ -12,8 +12,8 @@ type Props = {
   poster: ThemedSrc;
   /** Project title, used in the play/pause button label. */
   title: string;
-  /** Short project summary. When set, clicking the visual reveals it over the image. */
-  info?: string;
+  /** When set, the whole visual is a button that opens the project panel. */
+  onOpen?: () => void;
 };
 
 const pick = (value: ThemedSrc, theme: "light" | "dark") =>
@@ -26,20 +26,7 @@ const noop = () => () => {};
 // - Plays only while at least half of it is on screen, so off-screen videos don't run.
 // - Visitors who ask for reduced motion see the still poster frame; they can still press play.
 // - A visible pause/play button is always available (WCAG 2.2.2 Pause, Stop, Hide).
-export default function ProjectVideo({ src, poster, title, info }: Props) {
-  const [infoOpen, setInfoOpen] = useState(false);
-  const infoId = useId();
-  const openRef = useRef<HTMLButtonElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
-  // Move focus into the summary when it opens and back to the visual when it closes.
-  const firstRender = useRef(true);
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-    (infoOpen ? closeRef : openRef).current?.focus();
-  }, [infoOpen]);
+export default function ProjectVideo({ src, poster, title, onOpen }: Props) {
   const theme = useTheme();
   // False during server render and hydration, true after: the theme is only known in the browser.
   const mounted = useSyncExternalStore(noop, () => true, () => false);
@@ -92,7 +79,7 @@ export default function ProjectVideo({ src, poster, title, info }: Props) {
   };
 
   return (
-    <div className={`v2-project__visual${infoOpen ? " is-info-open" : ""}`}>
+    <div className="v2-project__visual">
       {/* Posters for both themes; CSS shows the right one before JavaScript runs, so no flash. */}
       {typeof poster === "string" ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -121,37 +108,11 @@ export default function ProjectVideo({ src, poster, title, info }: Props) {
           onPause={() => setPlaying(false)}
         />
       )}
-      {info && (
-        <>
-          {/* The whole visual is the button that reveals the summary. */}
-          <button
-            ref={openRef}
-            type="button"
-            className="v2-summary-open"
-            aria-expanded={infoOpen}
-            aria-controls={infoId}
-            onClick={() => setInfoOpen(true)}
-          >
-            <span className="v2-visually-hidden">About this project: {title}</span>
-          </button>
-          <div
-            id={infoId}
-            className="v2-summary"
-            hidden={!infoOpen}
-            onKeyDown={(event) => event.key === "Escape" && setInfoOpen(false)}
-          >
-            <p>{info}</p>
-            <button
-              ref={closeRef}
-              type="button"
-              className="v2-summary-close"
-              onClick={() => setInfoOpen(false)}
-              aria-label={`Close summary: ${title}`}
-            >
-              <CloseIcon size={20} />
-            </button>
-          </div>
-        </>
+      {onOpen && (
+        // The whole visual opens the project panel; the pause button sits above it.
+        <button type="button" className="v2-visual-open" aria-haspopup="dialog" onClick={onOpen}>
+          <span className="v2-visually-hidden">About this project: {title}</span>
+        </button>
       )}
       <button
         type="button"

@@ -1,5 +1,6 @@
 import Header from "@/components/v2/Header";
-import ProjectVideo, { type ThemedSrc } from "@/components/v2/ProjectVideo";
+import ProjectItem from "@/components/v2/ProjectItem";
+import type { ThemedSrc } from "@/components/v2/ProjectVideo";
 import { CONTACT_LINKS } from "@/components/interim/palette";
 
 type Project = {
@@ -82,16 +83,7 @@ export default function V2Page() {
               key={project.title}
               className="v2-project v2-project--min"
             >
-              <ProjectVideo
-                src={project.video}
-                poster={project.poster}
-                title={project.title}
-                info={project.description}
-              />
-              <div className="v2-min__caption">
-                <h3>{project.title}</h3>
-                <p className="v2-project__meta">{project.meta}</p>
-              </div>
+              <ProjectItem {...project} />
             </li>
           ))}
         </ul>
