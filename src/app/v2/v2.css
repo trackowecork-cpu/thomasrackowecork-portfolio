@@ -1490,3 +1490,11 @@ html[data-v2-panel="close"]::view-transition-new(root) {
     margin-top: 160px;
   }
 }
+
+/* The visual always spans the full column so its edges line up with the caption
+   (Thomas, 2026-11-16). On short screens the height cap crops the frame a little
+   (object-fit: cover) instead of narrowing the visual. */
+.v2-project--min .v2-project__visual,
+.v2-panel__visual .v2-project__visual {
+  width: 100%;
+}
