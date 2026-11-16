@@ -1793,3 +1793,38 @@ html[data-v2-panel="close"]::view-transition-new(root) {
     margin-top: -6px;
   }
 }
+
+/* More room between Back and the project (Thomas, 2026-11-17): the bar matches the
+   site header's height so Back sits where the name sits on the homepage. */
+.v2-panel__bar {
+  min-height: 76px;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.v2-panel__inner {
+  padding-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .v2-panel__bar {
+    min-height: 100px;
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+
+  .v2-panel__inner {
+    padding-top: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-panel__inner {
+    padding-top: 48px;
+  }
+
+  .v2-panel__text {
+    top: 116px;
+  }
+}
