@@ -196,39 +196,48 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
           </button>
         </div>
 
+        {/* Desktop: text on the left stays in view while the visuals scroll on the right
+            (Thomas, 2026-11-17; reference workbytomorrow.com). Phones and tablets: one column,
+            visual first. */}
         <div className="v2-panel__inner">
-          <div ref={panelVisualRef} className="v2-panel__visual">
-            <ProjectVideo src={video} poster={poster} title={title} />
-          </div>
-          <div className="v2-min__caption v2-panel__caption">
-            <h2 id={titleId} ref={titleRef} tabIndex={-1}>{title}</h2>
-            <p className="v2-project__meta">{meta}</p>
-          </div>
-          {/* Structure (Thomas, 2026-11-16): one-line summary, then Problem / My contribution / Impact.
-              Placeholder copy; the old one-paragraph description stays in the data for reference. */}
-          <div className="v2-panel__story">
-            <p className="v2-panel__summary">{LOREM.summary}</p>
-            <dl className="v2-panel__sections">
-              <div>
-                <dt>Problem</dt>
-                <dd>{LOREM.problem}</dd>
-              </div>
-              <div>
-                <dt>My contribution</dt>
-                <dd>{LOREM.contribution}</dd>
-              </div>
-              <div>
-                <dt>Impact</dt>
-                <dd>{LOREM.impact}</dd>
-              </div>
-            </dl>
+          <div className="v2-panel__text">
+            <div className="v2-min__caption v2-panel__caption">
+              <h2 id={titleId} ref={titleRef} tabIndex={-1}>
+                {title}
+              </h2>
+              <p className="v2-project__meta">{meta}</p>
+            </div>
+            {/* Structure (Thomas, 2026-11-16): one-line summary, then Problem / My contribution / Impact.
+                Placeholder copy; the old one-paragraph description stays in the data for reference. */}
+            <div className="v2-panel__story">
+              <p className="v2-panel__summary">{LOREM.summary}</p>
+              <dl className="v2-panel__sections">
+                <div>
+                  <dt>Problem</dt>
+                  <dd>{LOREM.problem}</dd>
+                </div>
+                <div>
+                  <dt>My contribution</dt>
+                  <dd>{LOREM.contribution}</dd>
+                </div>
+                <div>
+                  <dt>Impact</dt>
+                  <dd>{LOREM.impact}</dd>
+                </div>
+              </dl>
+            </div>
           </div>
 
-          {/* Image placeholders: final designs and process artefacts will go here. */}
-          <div className="v2-panel__gallery" aria-hidden="true">
-            <div className="v2-panel__frame v2-panel__frame--wide" />
-            <div className="v2-panel__frame" />
-            <div className="v2-panel__frame" />
+          <div className="v2-panel__media">
+            <div ref={panelVisualRef} className="v2-panel__visual">
+              <ProjectVideo src={video} poster={poster} title={title} />
+            </div>
+            {/* Image placeholders: final designs and process artefacts will go here. */}
+            <div className="v2-panel__gallery" aria-hidden="true">
+              <div className="v2-panel__frame v2-panel__frame--wide" />
+              <div className="v2-panel__frame" />
+              <div className="v2-panel__frame" />
+            </div>
           </div>
         </div>
       </dialog>
