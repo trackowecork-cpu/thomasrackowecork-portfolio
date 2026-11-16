@@ -192,7 +192,7 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
       <dialog ref={dialogRef} className="v2-panel" aria-labelledby={titleId}>
         <div className="v2-panel__bar">
           <button type="button" className="v2-panel__back" onClick={back}>
-            <span aria-hidden="true">←</span> Back
+            Back
           </button>
         </div>
 
