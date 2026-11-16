@@ -1034,6 +1034,8 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
 html:has(.v2-panel[open]) {
   overflow: hidden;
+  /* Paint the reserved scrollbar space in the panel colour too. */
+  background-color: var(--v2-fg);
 }
 
 /* Keep the scrollbar's space reserved so locking scroll doesn't shift the page sideways. */
@@ -1489,4 +1491,132 @@ html[data-v2-panel="close"]::view-transition-new(root) {
 .v2-project--min .v2-project__visual,
 .v2-panel__visual .v2-project__visual {
   width: 100%;
+}
+
+/* Panel story: summary line, then Problem / My contribution / Impact (Thomas, 2026-11-16).
+   Desktop: label in the left columns, text on the right, like an editorial spec sheet.
+   Sizes stay below the project title (22/24/28). */
+.v2-panel__story {
+  margin-top: 40px;
+}
+
+.v2-panel__summary {
+  max-width: 760px;
+  margin: 0;
+  font-size: 19px;
+  font-weight: var(--v2-p-title);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.v2-panel__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 40px 0 0;
+}
+
+.v2-panel__sections dt {
+  margin-bottom: 8px;
+  font-size: 15px;
+  opacity: var(--v2-label-opacity);
+}
+
+.v2-panel__sections dd {
+  max-width: 640px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: var(--v2-p-text);
+  line-height: 1.5;
+}
+
+.v2-panel__figure {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 32px;
+  font-weight: var(--v2-p-title);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-panel[open] .v2-panel__story {
+    animation: v2-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+  }
+
+  .v2-panel.is-closing .v2-panel__story {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .v2-panel__story {
+    margin-top: 56px;
+  }
+
+  .v2-panel__summary {
+    font-size: 21px;
+  }
+
+  .v2-panel__sections {
+    gap: 40px;
+    margin-top: 56px;
+  }
+
+  .v2-panel__sections div {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    column-gap: 32px;
+  }
+
+  .v2-panel__sections dt {
+    margin: 0;
+    padding-top: 3px;
+    font-size: 16px;
+  }
+
+  .v2-panel__sections dd {
+    font-size: 18px;
+  }
+
+  .v2-panel__figure {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-panel__story {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 32px;
+    margin-top: 72px;
+  }
+
+  .v2-panel__summary {
+    grid-column: 1 / span 8;
+    font-size: 24px;
+  }
+
+  .v2-panel__sections {
+    grid-column: 1 / -1;
+    gap: 48px;
+    margin-top: 72px;
+  }
+
+  .v2-panel__sections div {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .v2-panel__sections dt {
+    grid-column: 1 / span 3;
+  }
+
+  .v2-panel__sections dd {
+    grid-column: 4 / span 6;
+    font-size: 19px;
+  }
+
+  .v2-panel__figure {
+    font-size: 40px;
+  }
 }
