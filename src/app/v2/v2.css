@@ -746,3 +746,74 @@ html:not([data-theme="dark"]) .v2-only-dark {
     line-height: 28px;
   }
 }
+
+/* ── Option 8 · Full-bleed feature (branch claude/v2-full-bleed) ──
+   The visual runs edge to edge across the screen; the text sits in a narrow
+   centred column below. No tiles. */
+.v2-project--bleed {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border-radius: 0;
+  background: none;
+}
+
+.v2-project--bleed .v2-project__visual {
+  width: calc(100% + 2 * var(--v2-margin));
+  margin-inline: calc(-1 * var(--v2-margin));
+  border-radius: 0;
+}
+
+.v2-project--bleed .v2-project__visual::before {
+  display: none;
+}
+
+.v2-project--bleed .v2-video-button {
+  right: var(--v2-margin);
+  bottom: 16px;
+}
+
+.v2-project--bleed .v2-project__text {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+  padding: 28px 0 0;
+}
+
+.v2-projects--bleed {
+  gap: 80px;
+}
+
+@media (min-width: 768px) {
+  .v2-project--bleed .v2-project__visual {
+    aspect-ratio: 16 / 9;
+  }
+
+  .v2-project--bleed .v2-project__text {
+    padding-top: 40px;
+  }
+
+  .v2-projects--bleed {
+    gap: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-project--bleed {
+    display: flex;
+  }
+
+  .v2-project--bleed .v2-project__visual {
+    aspect-ratio: 16 / 9;
+    max-height: 82vh;
+  }
+
+  .v2-project--bleed .v2-project__text {
+    max-width: 680px;
+    padding: 48px 0 0;
+  }
+
+  .v2-projects--bleed {
+    gap: 160px;
+  }
+}
