@@ -834,3 +834,25 @@ html:not([data-theme="dark"]) .v2-only-dark {
     font-size: 17px;
   }
 }
+
+/* Variant: one large visual per row (branch claude/v2-minimal-home-single). */
+@media (min-width: 768px) {
+  .v2-projects--min {
+    grid-template-columns: 1fr;
+    gap: 96px;
+  }
+
+  .v2-project--min .v2-project__visual {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-projects--min {
+    gap: 120px;
+  }
+
+  .v2-project--min .v2-project__visual {
+    aspect-ratio: 16 / 9;
+  }
+}
