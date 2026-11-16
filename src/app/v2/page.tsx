@@ -21,8 +21,9 @@ const PROJECTS: Project[] = [
     // still in public/v2/proximus-light.* if Thomas wants it back.
     // proximus-depth = phone keyed onto an out-of-focus warm room with parallax (proximus-sun = window-light version)
     // (render script: project files portfolio-build/v2-preview/proximus-depth-render.py).
-    video: { light: "/v2/proximus-depth.mp4", dark: "/v2/proximus-depth.mp4" },
-    poster: { light: "/v2/proximus-depth.jpg", dark: "/v2/proximus-depth.jpg" },
+    // proximus-wide = 16:9 render: same phone at full source height, room extended at the sides (less zoomed in).
+    video: { light: "/v2/proximus-wide.mp4", dark: "/v2/proximus-wide.mp4" },
+    poster: { light: "/v2/proximus-wide.jpg", dark: "/v2/proximus-wide.jpg" },
   },
   {
     title: "Digital Acquisition & Checkout Redesign",

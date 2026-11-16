@@ -332,8 +332,8 @@ html:not([data-theme="dark"]) .v2-only-dark {
    Body is Regular at 1.5 line height everywhere; size, not weight, gives it presence. */
 .v2-label {
   margin: 0;
-  font-size: 24px;
-  font-weight: 500; /* section headings stay Medium in both themes (Thomas) */
+  font-size: 16px;
+  font-weight: var(--v2-w-body); /* same size and weight as the header links (Thomas, 2026-11-16) */
   line-height: 1.2;
   letter-spacing: -0.015em;
 }
@@ -588,7 +588,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-label {
-    font-size: 28px;
+    font-size: 16px;
   }
 
   .v2-projects {
@@ -656,7 +656,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-label {
-    font-size: 32px;
+    font-size: 18px;
   }
 
   /* Sections sit 200px apart (more than the 160px between projects) so each reads as its own zone. */
@@ -854,5 +854,53 @@ html:not([data-theme="dark"]) .v2-only-dark {
 
   .v2-project--min .v2-project__visual {
     aspect-ratio: 16 / 9;
+  }
+}
+
+/* Refinements (Thomas, 2026-11-16): softer corners, larger title, gentle hover zoom,
+   square on mobile so wide visuals aren't cropped as hard. */
+.v2-project--min .v2-project__visual {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+}
+
+.v2-project--min .v2-project__visual video,
+.v2-project--min .v2-project__poster {
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-project--min:hover .v2-project__visual video,
+  .v2-project--min:hover .v2-project__poster {
+    transform: scale(1.02);
+  }
+}
+
+.v2-min__caption h3 {
+  font-size: 19px;
+}
+
+@media (min-width: 768px) {
+  .v2-project--min .v2-project__visual {
+    aspect-ratio: 3 / 2;
+    border-radius: 16px;
+  }
+
+  .v2-min__caption h3 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-project--min .v2-project__visual {
+    aspect-ratio: 16 / 9;
+  }
+
+  .v2-min__caption {
+    padding-top: 20px;
+  }
+
+  .v2-min__caption h3 {
+    font-size: 24px;
   }
 }
