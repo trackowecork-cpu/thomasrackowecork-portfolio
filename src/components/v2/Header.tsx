@@ -6,7 +6,7 @@ import { setTheme, useTheme } from "./theme";
 
 const LINKS = [
   { label: "Work", href: "#work" },
-  { label: "About me", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
