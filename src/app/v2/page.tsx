@@ -92,7 +92,7 @@ export default function V2Page() {
       <div className="v2-info">
         <section id="about" className="v2-about" aria-labelledby="v2-about-label">
           <h2 id="v2-about-label" className="v2-label">
-            About
+            About me
           </h2>
           <div className="v2-about__body">
             <div className="v2-about__text">

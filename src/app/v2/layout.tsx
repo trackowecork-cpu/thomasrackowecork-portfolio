@@ -5,7 +5,7 @@ import "./v2.css";
 // Preview of the v2 redesign (Figma "Minimal-2026" → "Website v2 (revised)").
 // Lives at /v2 so the live homepage is untouched; kept out of search results.
 export const metadata: Metadata = {
-  title: "Thomas Cork — Product Designer (v2 preview)",
+  title: "Thomas Rackowe Cork — Product Designer (v2 preview)",
   robots: { index: false, follow: false },
 };
 

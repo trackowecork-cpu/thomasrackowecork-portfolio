@@ -6,7 +6,7 @@ import { setTheme, useTheme } from "./theme";
 
 const LINKS = [
   { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
+  { label: "About me", href: "#about" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -62,7 +62,7 @@ export default function Header({ home = "" }: Props) {
   return (
     <header className={`v2-header v2-site-header${hidden ? " is-hidden" : ""}`}>
       <a href={home || "#top"} className="v2-header__name">
-        Thomas Cork
+        Thomas Rackowe Cork
       </a>
 
       <nav aria-label="Main" className="v2-header__nav">
@@ -104,7 +104,7 @@ export default function Header({ home = "" }: Props) {
       <dialog ref={menuRef} id={menuId} className="v2-menu" aria-label="Menu">
         <div className="v2-header">
           <a href={home || "#top"} className="v2-header__name" onClick={closeMenu}>
-            Thomas Cork
+            Thomas Rackowe Cork
           </a>
           <button type="button" className="v2-menu__close" onClick={closeMenu} aria-label="Close menu">
             <CloseIcon />

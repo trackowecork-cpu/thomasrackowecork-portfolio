@@ -9,7 +9,7 @@ import ProjectVideo from "@/components/v2/ProjectVideo";
 // ALL COPY BELOW IS PLACEHOLDER until Thomas writes the real case study.
 
 export const metadata: Metadata = {
-  title: "Digital eSIM Onboarding & Activation — Thomas Cork (v2 preview)",
+  title: "Digital eSIM Onboarding & Activation — Thomas Rackowe Cork (v2 preview)",
   robots: { index: false, follow: false },
 };
 
