@@ -145,9 +145,35 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
     const onPopState = () => {
       if (dialog.open) closeRef.current();
     };
+    // Same as the site header: the Back bar hides while scrolling down, returns on scroll up.
+    const bar = dialog.querySelector<HTMLElement>(".v2-panel__bar");
+    let lastY = 0;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = dialog.scrollTop;
+      const delta = y - lastY;
+      if (y < 80 || delta < -6) bar?.classList.remove("is-hidden");
+      else if (delta > 6) bar?.classList.add("is-hidden");
+      if (Math.abs(delta) > 6 || y < 80) lastY = y;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    const onClose = () => {
+      bar?.classList.remove("is-hidden");
+      lastY = 0;
+    };
+    dialog.addEventListener("scroll", onScroll, { passive: true });
+    dialog.addEventListener("close", onClose);
     dialog.addEventListener("cancel", onCancel);
     window.addEventListener("popstate", onPopState);
     return () => {
+      dialog.removeEventListener("scroll", onScroll);
+      dialog.removeEventListener("close", onClose);
       dialog.removeEventListener("cancel", onCancel);
       window.removeEventListener("popstate", onPopState);
     };
