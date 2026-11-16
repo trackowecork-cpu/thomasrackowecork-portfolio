@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Header from "@/components/v2/Header";
 import ProjectVideo, { type ThemedSrc } from "@/components/v2/ProjectVideo";
 import { CONTACT_LINKS } from "@/components/interim/palette";
@@ -9,8 +8,6 @@ type Project = {
   description: string;
   video: ThemedSrc;
   poster: ThemedSrc;
-  /** Case study page, once it exists. */
-  href?: string;
 };
 
 const placeholder = (n: number) => ({
@@ -49,7 +46,6 @@ const PROJECTS: Project[] = [
     // Draft: billboard intro, activation flow on a phone over it, then the billboard reads "100% digital" (intro: "From days to minutes").
     video: "/v2/esim-flow.mp4",
     poster: "/v2/esim-flow.jpg",
-    href: "/v2/work/esim",
   },
   {
     title: "Art Collection Management Platform Redesign",
@@ -84,12 +80,16 @@ export default function V2Page() {
           {PROJECTS.map((project) => (
             <li
               key={project.title}
-              className={`v2-project v2-project--min${project.href ? " v2-project--link" : ""}`}
+              className="v2-project v2-project--min"
             >
-              <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
+              <ProjectVideo
+                src={project.video}
+                poster={project.poster}
+                title={project.title}
+                info={project.description}
+              />
               <div className="v2-min__caption">
-                {/* The title link stretches over the whole project, so the visual is clickable too. */}
-                <h3>{project.href ? <Link href={project.href}>{project.title}</Link> : project.title}</h3>
+                <h3>{project.title}</h3>
                 <p className="v2-project__meta">{project.meta}</p>
               </div>
             </li>

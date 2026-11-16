@@ -978,41 +978,120 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 }
 
-/* Homepage: projects with a case study are links. The title link stretches over the
-   whole project; the video's pause button sits above it so it stays pressable. */
-.v2-project--link {
-  position: relative;
-}
-
-.v2-project--link h3 a {
-  text-decoration: none;
-}
-
-.v2-project--link h3 a::after {
-  content: "";
+/* Homepage: clicking a visual reveals the project summary over it (Thomas, 2026-11-16).
+   The layer is the page colour at 88%, blurred, so text stays at least 5:1 over any frame. */
+.v2-summary-open {
   position: absolute;
   inset: 0;
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
 
-.v2-project--link h3 a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+.v2 .v2-summary-open:focus-visible {
+  outline-offset: -4px;
+  border-radius: inherit;
 }
 
-.v2-project--link .v2-video-button {
+.v2-project__visual .v2-video-button {
   z-index: 2;
 }
 
-.v2 .v2-project--link h3 a:focus-visible {
-  outline: none;
+.v2-summary {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  background-color: color-mix(in srgb, var(--v2-bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  color: var(--v2-fg);
 }
 
-.v2 .v2-project--link h3 a:focus-visible::after {
-  outline: 2px solid var(--v2-fg);
-  outline-offset: 4px;
-  border-radius: 16px;
+.v2-summary[hidden] {
+  display: none;
+}
+
+.v2-summary p {
+  max-width: 620px;
+  margin: 0;
+  padding-right: 32px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.v2-summary-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.v2-project__visual.is-info-open video,
+.v2-project__visual.is-info-open .v2-project__poster {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-summary:not([hidden]) {
+    animation: v2-summary-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  @keyframes v2-summary-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .v2-summary {
+    padding: 40px;
+  }
+
+  .v2-summary p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .v2-summary-close {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-summary {
+    padding: clamp(48px, 5vw, 72px);
+  }
+
+  .v2-summary p {
+    max-width: 720px;
+    font-size: clamp(20px, 1.6vw, 24px);
+    font-weight: var(--v2-w-display);
+    letter-spacing: -0.01em;
+  }
+
+  .v2-summary-close {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 /* ── Case study page (Thomas, 2026-11-16; reference: workbytomorrow.com/work/highres) ──
