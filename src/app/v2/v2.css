@@ -746,3 +746,78 @@ html:not([data-theme="dark"]) .v2-only-dark {
     line-height: 28px;
   }
 }
+
+/* ── Option 7 · Two-up grid (branch claude/v2-two-up-grid) ──
+   No tiles: visuals in a 2×2 grid, title and company under each, then the description. */
+.v2-project--plain {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border-radius: 0;
+  background: none;
+}
+
+.v2-project--plain .v2-project__visual {
+  border-radius: 4px;
+}
+
+.v2-project--plain .v2-project__visual::before {
+  display: none;
+}
+
+.v2-project--plain .v2-project__text {
+  gap: 12px;
+  padding: 16px 0 0;
+}
+
+.v2-project--plain .v2-project__text h3 {
+  font-size: 18px;
+}
+
+.v2-project--plain .v2-project__text p:not(.v2-project__meta) {
+  font-size: 16px;
+}
+
+.v2-projects--grid {
+  gap: 56px;
+}
+
+@media (min-width: 768px) {
+  .v2-projects--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px 32px;
+  }
+
+  .v2-project--plain .v2-project__text p:not(.v2-project__meta) {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-projects--grid {
+    gap: 96px 48px;
+  }
+
+  .v2-project--plain {
+    display: flex;
+  }
+
+  .v2-project--plain .v2-project__visual {
+    aspect-ratio: 4 / 3;
+  }
+
+  .v2-project--plain .v2-project__text {
+    gap: 14px;
+    padding: 20px 0 0;
+    max-width: 560px;
+  }
+
+  .v2-project--plain .v2-project__text h3 {
+    font-size: 20px;
+  }
+
+  .v2-project--plain .v2-project__text p:not(.v2-project__meta) {
+    font-size: 17px;
+  }
+}
