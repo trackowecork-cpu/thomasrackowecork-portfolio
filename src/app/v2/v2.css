@@ -1625,3 +1625,19 @@ html[data-v2-panel="close"]::view-transition-new(root) {
     margin-top: 120px;
   }
 }
+
+/* Site header stays at the top: hides while scrolling down, returns on scroll up.
+   Keyboard focus inside it always brings it back. */
+.v2-site-header {
+  position: fixed;
+}
+
+.v2-site-header.is-hidden:not(:focus-within) {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-site-header {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

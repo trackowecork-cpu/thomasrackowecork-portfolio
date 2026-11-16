@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { CloseIcon, MoonIcon, SunIcon } from "./icons";
 import { setTheme, useTheme } from "./theme";
 
@@ -26,6 +26,31 @@ export default function Header({ home = "" }: Props) {
   const closeMenu = () => menuRef.current?.close();
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
+  // Hide the header while scrolling down, bring it back as soon as the visitor scrolls up
+  // (Thomas, 2026-11-16). Always shown near the top of the page.
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const delta = y - lastY;
+      if (y < 100) setHidden(false);
+      else if (delta > 6) setHidden(true);
+      else if (delta < -6) setHidden(false);
+      if (Math.abs(delta) > 6 || y < 100) lastY = y;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // The full-screen menu only exists on phones; close it if the window grows past that.
   useEffect(() => {
     const wide = window.matchMedia("(min-width: 768px)");
@@ -35,7 +60,7 @@ export default function Header({ home = "" }: Props) {
   }, []);
 
   return (
-    <header className="v2-header">
+    <header className={`v2-header v2-site-header${hidden ? " is-hidden" : ""}`}>
       <a href={home || "#top"} className="v2-header__name">
         Thomas Cork
       </a>
