@@ -910,15 +910,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
    - projects closer together
    - gentle snap: each project fits the screen and scrolling settles on the next one
      (proximity, not mandatory, and off for reduced motion). */
-@media (prefers-reduced-motion: no-preference) {
-  html:has(.v2-projects--min) {
-    scroll-snap-type: y proximity;
-  }
-
-  .v2-project--min {
-    scroll-snap-align: center;
-  }
-}
+/* Scroll snap removed (Thomas, 2026-11-16). */
 
 .v2-project--min .v2-project__visual {
   max-height: calc(100svh - 140px);
