@@ -856,3 +856,113 @@ html:not([data-theme="dark"]) .v2-only-dark {
     aspect-ratio: 16 / 9;
   }
 }
+
+/* ── Cinematic overlay homepage (branch claude/v2-overlay-home) ──
+   One large still per project; title and company/year sit on the image over a
+   dark fade, so they stay readable on any frame (white on the fade, 4.5:1+). */
+.v2-projects--cine {
+  gap: 24px;
+}
+
+.v2-cine {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  background-color: var(--v2-fg);
+}
+
+.v2-cine__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.v2-cine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.82) 0%, rgb(0 0 0 / 0.6) 28%, rgb(0 0 0 / 0) 60%);
+  pointer-events: none;
+}
+
+.v2-cine__caption {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px;
+  color: #fff;
+}
+
+.v2-cine__caption h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.v2-cine__caption p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-cine:hover .v2-cine__img {
+    transform: scale(1.02);
+  }
+}
+
+@media (min-width: 768px) {
+  .v2-projects--cine {
+    gap: 32px;
+  }
+
+  .v2-cine {
+    aspect-ratio: 3 / 2;
+    border-radius: 16px;
+  }
+
+  .v2-cine__caption {
+    padding: 32px;
+  }
+
+  .v2-cine__caption h3 {
+    font-size: 28px;
+  }
+
+  .v2-cine__caption p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-projects--cine {
+    gap: 40px;
+  }
+
+  .v2-cine {
+    aspect-ratio: 16 / 9;
+  }
+
+  .v2-cine__caption {
+    padding: 40px 48px;
+  }
+
+  .v2-cine__caption h3 {
+    font-size: 32px;
+  }
+
+  .v2-cine__caption p {
+    font-size: 17px;
+  }
+}

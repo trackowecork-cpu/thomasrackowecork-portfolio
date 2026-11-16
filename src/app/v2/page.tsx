@@ -1,5 +1,5 @@
 import Header from "@/components/v2/Header";
-import ProjectVideo, { type ThemedSrc } from "@/components/v2/ProjectVideo";
+import { type ThemedSrc } from "@/components/v2/ProjectVideo";
 import { CONTACT_LINKS } from "@/components/interim/palette";
 
 type Project = { title: string; meta: string; description: string; video: ThemedSrc; poster: ThemedSrc };
@@ -69,13 +69,24 @@ export default function V2Page() {
           Featured work
         </h2>
         {/* Minimal homepage: visual + title + company/year. Descriptions move to each case study page. */}
-        <ul className="v2-projects v2-projects--min">
+        {/* Cinematic homepage: one large still per project, title + company/year layered on it. */}
+        <ul className="v2-projects v2-projects--cine">
           {PROJECTS.map((project) => (
-            <li key={project.title} className="v2-project v2-project--min">
-              <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
-              <div className="v2-min__caption">
+            <li key={project.title} className="v2-cine">
+              {typeof project.poster === "string" ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="v2-cine__img" src={project.poster} alt="" />
+              ) : (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="v2-cine__img v2-only-light" src={project.poster.light} alt="" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="v2-cine__img v2-only-dark" src={project.poster.dark} alt="" loading="lazy" />
+                </>
+              )}
+              <div className="v2-cine__caption">
                 <h3>{project.title}</h3>
-                <p className="v2-project__meta">{project.meta}</p>
+                <p>{project.meta}</p>
               </div>
             </li>
           ))}
