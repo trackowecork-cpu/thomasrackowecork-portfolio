@@ -68,16 +68,14 @@ export default function V2Page() {
         <h2 id="v2-work-label" className="v2-label">
           Featured work
         </h2>
-        <ul className="v2-projects">
+        {/* Minimal homepage: visual + title + company/year. Descriptions move to each case study page. */}
+        <ul className="v2-projects v2-projects--min">
           {PROJECTS.map((project) => (
-            <li key={project.title} className="v2-project">
+            <li key={project.title} className="v2-project v2-project--min">
               <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
-              <div className="v2-project__text">
-                <div className="v2-project__heading">
-                  <h3>{project.title}</h3>
-                  <p className="v2-project__meta">{project.meta}</p>
-                </div>
-                <p>{project.description}</p>
+              <div className="v2-min__caption">
+                <h3>{project.title}</h3>
+                <p className="v2-project__meta">{project.meta}</p>
               </div>
             </li>
           ))}

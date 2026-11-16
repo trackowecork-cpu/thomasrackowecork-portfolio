@@ -746,3 +746,91 @@ html:not([data-theme="dark"]) .v2-only-dark {
     line-height: 28px;
   }
 }
+
+/* ── Minimal homepage (branch claude/v2-minimal-home) ──
+   Large visuals two across with a short caption, no tiles, no descriptions. */
+.v2-projects--min {
+  gap: 48px;
+}
+
+.v2-project--min {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: visible;
+  border-radius: 0;
+  background: none;
+}
+
+.v2-project--min .v2-project__visual {
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
+}
+
+.v2-project--min .v2-project__visual::before {
+  display: none;
+}
+
+.v2-min__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 14px;
+}
+
+.v2-min__caption h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: var(--v2-w-title);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.v2-min__caption .v2-project__meta {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: var(--v2-label-opacity);
+}
+
+@media (min-width: 768px) {
+  .v2-projects--min {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px 24px;
+  }
+
+  .v2-min__caption h3 {
+    font-size: 18px;
+  }
+
+  .v2-min__caption .v2-project__meta {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-projects--min {
+    gap: 80px 32px;
+  }
+
+  .v2-project--min {
+    display: flex;
+  }
+
+  .v2-project--min .v2-project__visual {
+    aspect-ratio: 1 / 1;
+  }
+
+  .v2-min__caption {
+    padding-top: 18px;
+  }
+
+  .v2-min__caption h3 {
+    font-size: 20px;
+  }
+
+  .v2-min__caption .v2-project__meta {
+    font-size: 17px;
+  }
+}
