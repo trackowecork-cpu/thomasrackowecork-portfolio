@@ -45,7 +45,6 @@ const LOREM = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus. Maecenas faucibus mollis interdum, nulla vitae elit libero, a pharetra augue.",
   contribution:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum, vestibulum id ligula porta felis euismod semper.",
-  impactFigure: "+00%",
   impact: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.",
 };
 
@@ -178,12 +177,16 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
               </div>
               <div>
                 <dt>Impact</dt>
-                <dd>
-                  <span className="v2-panel__figure">{LOREM.impactFigure}</span>
-                  {LOREM.impact}
-                </dd>
+                <dd>{LOREM.impact}</dd>
               </div>
             </dl>
+          </div>
+
+          {/* Image placeholders: final designs and process artefacts will go here. */}
+          <div className="v2-panel__gallery" aria-hidden="true">
+            <div className="v2-panel__frame v2-panel__frame--wide" />
+            <div className="v2-panel__frame" />
+            <div className="v2-panel__frame" />
           </div>
         </div>
       </dialog>
