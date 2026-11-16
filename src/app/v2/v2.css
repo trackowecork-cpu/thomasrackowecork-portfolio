@@ -904,3 +904,76 @@ html:not([data-theme="dark"]) .v2-only-dark {
     font-size: 24px;
   }
 }
+
+/* Featured work, round 3 (Thomas, 2026-11-16):
+   - caption reads like film credits: title left, company + year right, similar size
+   - projects closer together
+   - gentle snap: each project fits the screen and scrolling settles on the next one
+     (proximity, not mandatory, and off for reduced motion). */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.v2-projects--min) {
+    scroll-snap-type: y proximity;
+  }
+
+  .v2-project--min {
+    scroll-snap-align: center;
+  }
+}
+
+.v2-project--min .v2-project__visual {
+  max-height: calc(100svh - 140px);
+}
+
+.v2-min__caption {
+  padding-top: 14px;
+}
+
+.v2-min__caption h3 {
+  font-size: 17px;
+}
+
+.v2-min__caption .v2-project__meta {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .v2-projects--min {
+    gap: 56px;
+  }
+
+  .v2-min__caption {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    column-gap: 24px;
+    row-gap: 2px;
+    padding-top: 16px;
+  }
+
+  .v2-min__caption h3 {
+    font-size: 18px;
+  }
+
+  .v2-min__caption .v2-project__meta {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-projects--min {
+    gap: 64px;
+  }
+
+  .v2-min__caption {
+    padding-top: 18px;
+  }
+
+  .v2-min__caption h3 {
+    font-size: 20px;
+  }
+
+  .v2-min__caption .v2-project__meta {
+    font-size: 17px;
+  }
+}
