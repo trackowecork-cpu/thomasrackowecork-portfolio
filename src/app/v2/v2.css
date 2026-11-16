@@ -746,3 +746,101 @@ html:not([data-theme="dark"]) .v2-only-dark {
     line-height: 28px;
   }
 }
+
+/* ── Option 4 · Gallery caption (branch claude/v2-gallery-caption) ──
+   No tile: a large visual with a small caption under it, like an art book;
+   the description sits in a narrow column beside it (below on mobile). */
+.v2-project--gallery {
+  display: grid;
+  grid-template-areas: "visual" "caption" "desc";
+  gap: 0;
+  overflow: visible;
+  border-radius: 0;
+  background: none;
+}
+
+.v2-project--gallery .v2-project__visual {
+  grid-area: visual;
+  border-radius: 4px;
+}
+
+.v2-gallery__caption {
+  grid-area: caption;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 14px;
+}
+
+.v2-gallery__caption h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: var(--v2-w-title);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.v2-gallery__caption .v2-project__meta {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: var(--v2-label-opacity);
+}
+
+.v2-gallery__desc {
+  grid-area: desc;
+  margin: 24px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.v2-projects:has(.v2-project--gallery) {
+  gap: 72px;
+}
+
+@media (min-width: 768px) {
+  .v2-projects:has(.v2-project--gallery) {
+    gap: 112px;
+  }
+
+  .v2-gallery__caption h3 {
+    font-size: 18px;
+  }
+
+  .v2-gallery__desc {
+    max-width: 560px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-projects:has(.v2-project--gallery) {
+    gap: 160px;
+  }
+
+  .v2-project--gallery {
+    grid-template-columns: 8fr 4fr;
+    grid-template-areas: "visual desc" "caption desc";
+    grid-template-rows: auto 1fr;
+    column-gap: 64px;
+    align-items: start;
+  }
+
+  .v2-project--gallery .v2-project__visual {
+    aspect-ratio: 4 / 3;
+  }
+
+  .v2-project--gallery .v2-project__visual::before {
+    display: none;
+  }
+
+  .v2-gallery__caption {
+    padding-top: 16px;
+  }
+
+  .v2-gallery__desc {
+    margin: 0;
+    font-size: 18px;
+    align-self: start;
+  }
+}

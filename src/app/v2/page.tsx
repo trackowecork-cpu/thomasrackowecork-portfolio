@@ -70,15 +70,13 @@ export default function V2Page() {
         </h2>
         <ul className="v2-projects">
           {PROJECTS.map((project) => (
-            <li key={project.title} className="v2-project">
+            <li key={project.title} className="v2-project v2-project--gallery">
               <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
-              <div className="v2-project__text">
-                <div className="v2-project__heading">
-                  <h3>{project.title}</h3>
-                  <p className="v2-project__meta">{project.meta}</p>
-                </div>
-                <p>{project.description}</p>
+              <div className="v2-gallery__caption">
+                <h3>{project.title}</h3>
+                <p className="v2-project__meta">{project.meta}</p>
               </div>
+              <p className="v2-gallery__desc">{project.description}</p>
             </li>
           ))}
         </ul>
