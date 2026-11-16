@@ -993,6 +993,44 @@ html:not([data-theme="dark"]) .v2-only-dark {
   cursor: pointer;
 }
 
+/* Mouse users: the label replaces the cursor over the visual. */
+@media (hover: hover) and (pointer: fine) {
+  .v2-visual-open {
+    cursor: none;
+  }
+}
+
+.v2-view-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background-color: var(--v2-bg);
+  color: var(--v2-fg);
+  font-size: 14px;
+  font-weight: var(--v2-w-title);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.v2-view-cursor.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2-view-cursor {
+    transition:
+      opacity 0.2s ease,
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
 .v2 .v2-visual-open:focus-visible {
   outline-offset: -4px;
   border-radius: inherit;
@@ -1067,33 +1105,27 @@ html:has(.v2-panel[open]) {
 
 .v2-panel__bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px calc(var(--v2-margin) - 12px) 10px var(--v2-margin);
+  justify-content: flex-end;
+  padding: 14px calc(var(--v2-margin) - 12px) 6px;
 }
 
-.v2-panel__name {
-  font-size: 16px;
-  font-weight: var(--v2-w-title);
-}
-
+/* Same quiet 44px icon button as the mobile menu's close. */
 .v2-panel__close {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 0 12px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 0;
+  border-radius: 50%;
   background: none;
   color: inherit;
-  font: inherit;
-  font-size: 16px;
   cursor: pointer;
 }
 
-.v2-panel__close:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.v2 .v2-panel__caption h2:focus {
+  outline: none;
 }
 
 /* The panel repeats the clicked visual and its caption at the top (the visual grows into
@@ -1110,21 +1142,36 @@ html:has(.v2-panel[open]) {
   border-radius: 12px;
 }
 
+/* The panel flips the theme colours, so it also flips the weight compensation:
+   light text on dark (light theme) a touch lighter, dark text on light a touch heavier. */
+.v2-panel {
+  --v2-p-title: 450;
+  --v2-p-text: 400;
+}
+
+html[data-theme="dark"] .v2-panel {
+  --v2-p-title: 500;
+  --v2-p-text: 450;
+}
+
 .v2-panel__caption h2 {
   margin: 0;
-  font-size: 17px;
-  font-weight: var(--v2-w-title);
-  line-height: 1.35;
-  letter-spacing: -0.005em;
+  font-size: 22px;
+  font-weight: var(--v2-p-title);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.v2-panel__caption .v2-project__meta {
+  margin-top: 4px;
 }
 
 .v2-panel__text {
-  max-width: 760px;
-  margin: 40px 0 0;
-  font-size: 20px;
-  font-weight: var(--v2-w-display);
-  line-height: 1.35;
-  letter-spacing: -0.01em;
+  max-width: 640px;
+  margin: 32px 0 0;
+  font-size: 17px;
+  font-weight: var(--v2-p-text);
+  line-height: 1.5;
 }
 
 ::view-transition-group(v2-project-visual) {
@@ -1152,21 +1199,16 @@ html:has(.v2-panel[open]) {
   }
 
   .v2-panel__caption h2 {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .v2-panel__text {
-    margin-top: 64px;
-    font-size: 24px;
+    margin-top: 48px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  .v2-panel__name,
-  .v2-panel__close {
-    font-size: 18px;
-  }
-
   .v2-panel__inner {
     padding-bottom: 120px;
   }
@@ -1176,13 +1218,12 @@ html:has(.v2-panel[open]) {
   }
 
   .v2-panel__caption h2 {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .v2-panel__text {
-    margin-top: 96px;
-    font-size: 28px;
-    line-height: 1.3;
+    margin-top: 56px;
+    font-size: 20px;
   }
 }
 

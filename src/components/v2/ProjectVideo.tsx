@@ -66,6 +66,49 @@ export default function ProjectVideo({ src, poster, title, onOpen }: Props) {
     };
   }, [mounted, videoSrc]);
 
+  // "View project" label that follows the mouse with a little easing (none with reduced motion).
+  const cursorRef = useRef<HTMLSpanElement>(null);
+  const target = useRef({ x: 0, y: 0 });
+  const current = useRef({ x: 0, y: 0 });
+  const frame = useRef(0);
+
+  const place = () => {
+    const el = cursorRef.current;
+    if (el) el.style.translate = `${current.current.x}px ${current.current.y}px`;
+  };
+
+  const follow = () => {
+    const ease = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 0.22;
+    current.current.x += (target.current.x - current.current.x) * ease;
+    current.current.y += (target.current.y - current.current.y) * ease;
+    place();
+    const settled =
+      Math.abs(target.current.x - current.current.x) < 0.1 && Math.abs(target.current.y - current.current.y) < 0.1;
+    frame.current = settled ? 0 : requestAnimationFrame(follow);
+  };
+
+  const moveCursor = (event: React.PointerEvent) => {
+    if (event.pointerType !== "mouse") return;
+    target.current = { x: event.clientX, y: event.clientY };
+    if (!frame.current) frame.current = requestAnimationFrame(follow);
+  };
+
+  const showCursor = (event: React.PointerEvent) => {
+    if (event.pointerType !== "mouse") return;
+    target.current = { x: event.clientX, y: event.clientY };
+    current.current = { ...target.current };
+    place();
+    cursorRef.current?.classList.add("is-visible");
+  };
+
+  const hideCursor = () => {
+    cursorRef.current?.classList.remove("is-visible");
+    cancelAnimationFrame(frame.current);
+    frame.current = 0;
+  };
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+
   const toggle = () => {
     const video = videoRef.current;
     if (!video) return;
@@ -110,9 +153,23 @@ export default function ProjectVideo({ src, poster, title, onOpen }: Props) {
       )}
       {onOpen && (
         // The whole visual opens the project panel; the pause button sits above it.
-        <button type="button" className="v2-visual-open" aria-haspopup="dialog" onClick={onOpen}>
-          <span className="v2-visually-hidden">About this project: {title}</span>
+        // With a mouse, a "View project" label follows the pointer in place of the cursor.
+        <button
+          type="button"
+          className="v2-visual-open"
+          aria-haspopup="dialog"
+          onClick={onOpen}
+          onPointerEnter={showCursor}
+          onPointerMove={moveCursor}
+          onPointerLeave={hideCursor}
+        >
+          <span className="v2-visually-hidden">View project: {title}</span>
         </button>
+      )}
+      {onOpen && (
+        <span ref={cursorRef} className="v2-view-cursor" aria-hidden="true">
+          View project
+        </span>
       )}
       <button
         type="button"

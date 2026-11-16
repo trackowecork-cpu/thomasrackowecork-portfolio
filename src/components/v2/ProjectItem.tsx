@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { CloseIcon } from "./icons";
 import ProjectVideo, { type ThemedSrc } from "./ProjectVideo";
 
 const VT_NAME = "v2-project-visual";
@@ -51,6 +52,7 @@ export default function ProjectItem({ title, meta, description, video, poster }:
   const tileRef = useRef<HTMLDivElement>(null);
   const panelVisualRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   const visualIn = (el: HTMLElement | null) => el?.querySelector<HTMLElement>(".v2-project__visual") ?? null;
 
@@ -69,6 +71,9 @@ export default function ProjectItem({ title, meta, description, video, poster }:
       dialog.classList.toggle("is-morph", true);
       dialog.showModal();
       dialog.scrollTop = 0;
+      // Focus the project title rather than the close button: no focus ring flashes on the
+      // close button after a tap, screen readers start at the title, and Tab reaches Close.
+      titleRef.current?.focus({ preventScroll: true });
     });
     if (!morphed) dialog.classList.remove("is-morph");
   };
@@ -129,9 +134,8 @@ export default function ProjectItem({ title, meta, description, video, poster }:
 
       <dialog ref={dialogRef} className="v2-panel" aria-labelledby={titleId}>
         <div className="v2-panel__bar">
-          <span className="v2-panel__name">Thomas Cork</span>
-          <button type="button" className="v2-panel__close" onClick={close}>
-            Close <span aria-hidden="true">✕</span>
+          <button type="button" className="v2-panel__close" onClick={close} aria-label="Close project">
+            <CloseIcon />
           </button>
         </div>
 
@@ -140,7 +144,7 @@ export default function ProjectItem({ title, meta, description, video, poster }:
             <ProjectVideo src={video} poster={poster} title={title} />
           </div>
           <div className="v2-min__caption v2-panel__caption">
-            <h2 id={titleId}>{title}</h2>
+            <h2 id={titleId} ref={titleRef} tabIndex={-1}>{title}</h2>
             <p className="v2-project__meta">{meta}</p>
           </div>
           <p className="v2-panel__text">{description}</p>
