@@ -1044,6 +1044,11 @@ html:has(.v2-panel[open]) {
   overflow: hidden;
 }
 
+/* Keep the scrollbar's space reserved so locking scroll doesn't shift the page sideways. */
+html:has(.v2-projects--min) {
+  scrollbar-gutter: stable;
+}
+
 .v2-panel {
   position: fixed;
   inset: 0;
@@ -1083,11 +1088,11 @@ html:has(.v2-panel[open]) {
 
 @media (prefers-reduced-motion: no-preference) {
   .v2-panel[open]:not(.is-morph) {
-    animation: v2-panel-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: v2-panel-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .v2-panel.is-closing {
-    animation: v2-panel-out 0.4s cubic-bezier(0.64, 0, 0.78, 0) both;
+    animation: v2-panel-out 0.55s cubic-bezier(0.64, 0, 0.35, 1) both;
   }
 
   @keyframes v2-panel-in {
@@ -1174,14 +1179,91 @@ html[data-theme="dark"] .v2-panel {
   line-height: 1.5;
 }
 
+/* Open / close choreography (Thomas, 2026-11-16: smoother and a little slower).
+   Opening: the page stays put, the visual glides into place, the panel colour fades in
+   behind it, then the title and text rise in once the visual has nearly landed.
+   Closing: the reverse, with the panel fading away over the page. */
 ::view-transition-group(v2-project-visual) {
-  animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-duration: 0.9s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.35s;
+::view-transition-image-pair(v2-project-visual) {
+  isolation: auto;
+}
+
+::view-transition-old(v2-project-visual),
+::view-transition-new(v2-project-visual) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(v2-project-visual) {
+  display: none;
+}
+
+html[data-v2-panel="open"]::view-transition-old(root) {
+  animation: none;
+}
+
+html[data-v2-panel="open"]::view-transition-new(root) {
+  animation: v2-fade-in 0.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+}
+
+html[data-v2-panel="close"]::view-transition-old(root) {
+  z-index: 1;
+  animation: v2-fade-out 0.55s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both;
+}
+
+html[data-v2-panel="close"]::view-transition-new(root) {
+  animation: none;
+}
+
+@keyframes v2-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes v2-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* The panel's words arrive after the visual. */
+@media (prefers-reduced-motion: no-preference) {
+  .v2-panel[open] .v2-panel__caption,
+  .v2-panel[open] .v2-panel__text,
+  .v2-panel[open] .v2-panel__bar {
+    animation: v2-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .v2-panel[open] .v2-panel__caption {
+    animation-delay: 0.45s;
+  }
+
+  .v2-panel[open] .v2-panel__text {
+    animation-delay: 0.55s;
+  }
+
+  .v2-panel[open] .v2-panel__bar {
+    animation-name: v2-fade-in;
+    animation-delay: 0.4s;
+  }
+
+  .v2-panel.is-closing .v2-panel__caption,
+  .v2-panel.is-closing .v2-panel__text,
+  .v2-panel.is-closing .v2-panel__bar {
+    animation: none;
+  }
+}
+
+@keyframes v2-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
 }
 
 @media (min-width: 768px) {

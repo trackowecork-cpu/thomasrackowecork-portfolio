@@ -17,11 +17,14 @@ const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)"
  * - Others: the panel slides in from the right, like the live site's Contact page.
  * - Reduced motion: instant.
  */
-function morph(from: HTMLElement | null, to: HTMLElement | null, update: () => void) {
+function morph(direction: "open" | "close", from: HTMLElement | null, to: HTMLElement | null, update: () => void) {
   if (reducedMotion() || !hasViewTransitions() || !from || !to) {
     update();
     return false;
   }
+  // Lets the CSS give opening and closing their own choreography.
+  const root = document.documentElement;
+  root.dataset.v2Panel = direction;
   from.style.viewTransitionName = VT_NAME;
   const transition = document.startViewTransition(() => {
     from.style.viewTransitionName = "";
@@ -30,6 +33,7 @@ function morph(from: HTMLElement | null, to: HTMLElement | null, update: () => v
   });
   transition.finished.finally(() => {
     to.style.viewTransitionName = "";
+    delete root.dataset.v2Panel;
   });
   return true;
 }
@@ -66,7 +70,7 @@ export default function ProjectItem({ title, meta, description, video, poster }:
   const open = () => {
     const dialog = dialogRef.current;
     if (!dialog) return;
-    const morphed = morph(visualIn(tileRef.current), visualIn(panelVisualRef.current), () => {
+    const morphed = morph("open", visualIn(tileRef.current), visualIn(panelVisualRef.current), () => {
       syncVideo(tileRef.current, panelVisualRef.current);
       dialog.classList.toggle("is-morph", true);
       dialog.showModal();
@@ -82,7 +86,7 @@ export default function ProjectItem({ title, meta, description, video, poster }:
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (hasViewTransitions() && !reducedMotion()) {
-      morph(visualIn(panelVisualRef.current), visualIn(tileRef.current), () => {
+      morph("close", visualIn(panelVisualRef.current), visualIn(tileRef.current), () => {
         syncVideo(panelVisualRef.current, tileRef.current);
         dialog.close();
       });
@@ -103,7 +107,7 @@ export default function ProjectItem({ title, meta, description, video, poster }:
     };
     dialog.classList.add("is-closing");
     dialog.addEventListener("animationend", done, { once: true });
-    window.setTimeout(done, 500);
+    window.setTimeout(done, 700);
   };
 
   // Escape uses the same animated close.
