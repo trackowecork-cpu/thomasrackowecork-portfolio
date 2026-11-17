@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { THEME_INIT_SCRIPT } from "@/components/v2/theme";
 import "./v2.css";
 
 // Preview of the v2 redesign (Figma "Minimal-2026" → "Website v2 (revised)").
@@ -12,7 +11,8 @@ export const metadata: Metadata = {
 export default function V2Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      {/* Dark only (Thomas, 2026-11-17): one theme, set before first paint. */}
+      <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.dataset.theme="dark";' }} />
       <div className="v2" id="top">
         {children}
       </div>

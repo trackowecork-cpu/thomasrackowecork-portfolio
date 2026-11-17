@@ -1828,3 +1828,50 @@ html[data-v2-panel="close"]::view-transition-new(root) {
     top: 116px;
   }
 }
+
+/* ═══ Dark only (Thomas, 2026-11-17; branch claude/v2-dark-only) ═══
+   One theme: warm off-white text on a soft black. The project panel is the same palette
+   on a slightly lifted surface instead of inverted colours. */
+html:has(.v2),
+html[data-theme="dark"]:has(.v2),
+html:not([data-theme]):has(.v2) {
+  --v2-bg: #121211;
+  --v2-fg: #ece8e1;
+  --v2-panel-bg: #1d1d1b;
+  --v2-label-opacity: 0.68;
+  --v2-divider: rgb(236 232 225 / 0.45);
+  --v2-w-body: 360;
+  --v2-w-display: 330;
+  --v2-w-title: 450;
+  --v2-w-strong: 450;
+  color-scheme: dark;
+}
+
+.v2-panel,
+html[data-theme="dark"] .v2-panel {
+  --v2-p-title: 450;
+  --v2-p-text: 380;
+  background-color: var(--v2-panel-bg);
+  color: var(--v2-fg);
+}
+
+.v2-panel__bar {
+  background-color: var(--v2-panel-bg);
+}
+
+html:has(.v2-panel[open]) {
+  background-color: var(--v2-panel-bg);
+}
+
+.v2-panel ::selection {
+  background-color: var(--v2-fg);
+  color: var(--v2-bg);
+}
+
+.v2 .v2-panel :focus-visible {
+  outline-color: var(--v2-fg);
+}
+
+.v2-panel__frame {
+  background-color: color-mix(in srgb, var(--v2-fg) 7%, var(--v2-panel-bg));
+}

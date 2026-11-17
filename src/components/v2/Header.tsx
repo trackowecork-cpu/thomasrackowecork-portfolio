@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { CloseIcon, MoonIcon, SunIcon } from "./icons";
-import { setTheme, useTheme } from "./theme";
+import { CloseIcon } from "./icons";
 
 const LINKS = [
   { label: "Work", href: "#work" },
@@ -16,15 +15,11 @@ type Props = {
 };
 
 export default function Header({ home = "" }: Props) {
-  const theme = useTheme();
-  const isDark = theme === "dark";
   const menuRef = useRef<HTMLDialogElement>(null);
   const menuId = useId();
-  const switchLabelId = useId();
 
   const openMenu = () => menuRef.current?.showModal();
   const closeMenu = () => menuRef.current?.close();
-  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   // Hide the header while scrolling down, bring it back as soon as the visitor scrolls up
   // (Thomas, 2026-11-16). Always shown near the top of the page.
@@ -73,20 +68,6 @@ export default function Header({ home = "" }: Props) {
             </li>
           ))}
         </ul>
-        <button
-          type="button"
-          className="v2-icon-button"
-          onClick={toggleTheme}
-          aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {/* Both icons render; CSS shows the right one before JavaScript loads. */}
-          <span className="v2-only-light">
-            <MoonIcon />
-          </span>
-          <span className="v2-only-dark">
-            <SunIcon />
-          </span>
-        </button>
       </nav>
 
       <button
@@ -123,21 +104,6 @@ export default function Header({ home = "" }: Props) {
           </ul>
         </nav>
 
-        <div className="v2-menu__appearance">
-          <span id={switchLabelId}>Dark mode</span>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={isDark}
-            aria-labelledby={switchLabelId}
-            className="v2-switch"
-            onClick={toggleTheme}
-          >
-            <span className="v2-switch__track" aria-hidden="true">
-              <span className="v2-switch__thumb" />
-            </span>
-          </button>
-        </div>
       </dialog>
     </header>
   );
