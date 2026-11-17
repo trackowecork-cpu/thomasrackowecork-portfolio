@@ -1875,3 +1875,11 @@ html:has(.v2-panel[open]) {
 .v2-panel__frame {
   background-color: color-mix(in srgb, var(--v2-fg) 7%, var(--v2-panel-bg));
 }
+
+/* Mobile visuals 4:3 (Thomas, 2026-11-17): square cropped the landscape visuals (eSIM) too hard. */
+@media (max-width: 767px) {
+  .v2-project--min .v2-project__visual,
+  .v2-panel__visual .v2-project__visual {
+    aspect-ratio: 4 / 3;
+  }
+}
