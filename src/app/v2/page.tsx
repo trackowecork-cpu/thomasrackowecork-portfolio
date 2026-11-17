@@ -48,6 +48,21 @@ const PROJECTS: Project[] = [
     // Draft: billboard intro, activation flow on a phone over it, then the billboard reads "100% digital" (intro: "From days to minutes").
     video: "/v2/esim-flow.mp4",
     poster: "/v2/esim-flow.jpg",
+    // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
+    story: {
+      summary:
+        "The move to eSIM was not driven by customers, but by device manufacturers. Proximus had to make mobile connectivity fully digital, and fast.",
+      problem: [
+        "eSIM promised instant connection, yet Proximus still relied on physical processes. New customers had to wait for a paper QR code by post, while existing customers had to visit a store to switch to an eSIM. Both undermined the fully digital nature of eSIM technology and created friction for customers. Meanwhile, Apple and other manufacturers progressively rolled out eSIM-only devices. The pace was set externally, and Proximus was not ready.",
+      ],
+      contribution: [
+        "I began with the foundations. With product and engineering, I mapped the backend and provisioning systems to understand how a manual, physical process could become a digital one. On that basis, I designed a fully digital onboarding experience across the online sales flows, and a native activation journey in the Proximus app. Clear guidance and real-time feedback built trust in a process that was still unfamiliar.",
+        "I designed the activation flow as a reusable foundation. This allowed me to extend it to a native SIM-to-eSIM swap, so existing customers no longer needed a store. When manufacturers introduced Quick Transfer, I adapted the relevant Proximus touchpoints to support it, so that statuses and next steps remained clear for customers throughout.",
+      ],
+      impact: [
+        "Onboarding and activation time fell from days to minutes, with no reliance on a physical SIM card. Proximus then became the first Belgian operator to launch Quick Transfer, with over 14,000 eSIM activations in the first month. What began as an onboarding fix made Proximus a pioneer of eSIM in Belgium, with the foundations to harness the technology to its full potential.",
+      ],
+    },
   },
   {
     title: "Art Collection Management Platform Redesign",
