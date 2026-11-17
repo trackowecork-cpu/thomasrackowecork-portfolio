@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
     ...placeholder(2),
   },
   {
-    title: "Digital eSIM Onboarding & Activation",
+    title: "A scalable activation model for eSIM",
     meta: "Proximus, 2023–2025",
     description:
       "As device manufacturers moved towards eSIM-only phones, Proximus's activation model remained dependent on physical processes. I contributed to the eSIM strategy and roadmap alongside external vendors and Apple, leading the design of digital onboarding and activation across Proximus's channels. Activation went from days to minutes, establishing scalable foundations for future devices and services.",
@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
     },
   },
   {
-    title: "Art Collection Management Platform Redesign",
+    title: "Product strategy for an art platform in transition",
     meta: "Arteïa, 2021",
     description:
       "Arteïa's ambition to serve the entire art market had left its collection management platform without a clear primary audience. Research revealed an opportunity to refocus the experience around private collectors and their everyday needs. I contributed to this repositioning, redesigning key workflows and extending the desktop-centric platform into mobile experiences suited to real-world collection management.",
