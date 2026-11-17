@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
         "I designed the activation flow as a reusable foundation. This allowed me to extend it to a native SIM-to-eSIM swap, so existing customers no longer needed a store. When manufacturers introduced Quick Transfer, I adapted the relevant Proximus touchpoints to support it, so that statuses and next steps remained clear for customers throughout.",
       ],
       impact: [
-        "Onboarding and activation time fell from days to minutes, with no reliance on a physical SIM card. Proximus then became the first Belgian operator to launch Quick Transfer, with over 14,000 eSIM activations in the first month. What began as an onboarding fix made Proximus a pioneer of eSIM in Belgium, with the foundations to harness the technology to its full potential.",
+        "Onboarding and activation time fell from days to minutes, with no reliance on a physical SIM card. As manufacturers like Apple redefined how people set up and connect their devices, Proximus customers could follow that shift without friction. Proximus also became the first Belgian operator to launch Quick Transfer, with over 14,000 eSIM activations in the first month. Above all, the work established reusable foundations, which paved the way for Proximus to extend the experience as customer needs and industry standards evolve.",
       ],
     },
   },
