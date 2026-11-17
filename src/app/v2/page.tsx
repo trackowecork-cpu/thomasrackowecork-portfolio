@@ -1,5 +1,5 @@
 import Header from "@/components/v2/Header";
-import ProjectItem from "@/components/v2/ProjectItem";
+import ProjectItem, { type ProjectStory } from "@/components/v2/ProjectItem";
 import type { ThemedSrc } from "@/components/v2/ProjectVideo";
 import { CONTACT_LINKS } from "@/components/interim/palette";
 
@@ -9,6 +9,7 @@ type Project = {
   description: string;
   video: ThemedSrc;
   poster: ThemedSrc;
+  story?: ProjectStory;
 };
 
 const placeholder = (n: number) => ({
@@ -54,6 +55,21 @@ const PROJECTS: Project[] = [
     description:
       "Arteïa's ambition to serve the entire art market had left its collection management platform without a clear primary audience. Research revealed an opportunity to refocus the experience around private collectors and their everyday needs. I contributed to this repositioning, redesigning key workflows and extending the desktop-centric platform into mobile experiences suited to real-world collection management.",
     ...placeholder(4),
+    // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
+    story: {
+      summary:
+        "Arteïa was built around the NFT boom. When the market shifted, the challenge was no longer the improvement of the product, but its redefinition.",
+      problem: [
+        "Arteïa had tried to be everything to everyone. It addressed galleries, artists and collectors alike, and anchored much of its value in NFTs just as interest declined. The result was a product without a clear audience or a durable reason to exist.",
+      ],
+      contribution: [
+        "I joined as a UX/UI designer to extend core features. Twenty exploratory interviews quickly reframed that brief. Artists saw little need for the platform, and galleries lacked the operational basics to adopt it. Collectors, however, already relied on it, and they made up 75% of the customer base. The evidence pointed to one conclusion: the product had to be built around them.",
+        "I translated this into a roadmap within the current architecture, shaped by two needs. Collectors wanted a single record of everything they own, from art to watches, cars and books, so I redesigned the catalogue around multiple categories. They also needed key information at hand, for insurance, documentation or quick reference, so I designed the foundations of the Arteïa mobile app around their needs, with desktop as the reference platform.",
+      ],
+      impact: [
+        "Arteïa did not abandon NFTs or digital authentication. It did, however, gain what it had lacked: a defined core audience, an evidence-based roadmap, and a clear vision of the platform as a home for an entire collection.",
+      ],
+    },
   },
 ];
 

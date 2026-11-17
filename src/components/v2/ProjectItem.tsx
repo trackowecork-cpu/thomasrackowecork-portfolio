@@ -37,14 +37,28 @@ function morph(direction: "open" | "close", from: HTMLElement | null, to: HTMLEl
   return true;
 }
 
-// Placeholder until Thomas writes each project's summary, problem, contribution and impact.
-const LOREM = {
+/** A project's panel copy. Each section is one or more paragraphs. */
+export type ProjectStory = {
+  summary: string;
+  problem: string[];
+  contribution: string[];
+  impact: string[];
+};
+
+// Placeholder for projects whose copy Thomas hasn't written yet.
+const LOREM_TEXT = {
   summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
   problem:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus. Maecenas faucibus mollis interdum, nulla vitae elit libero, a pharetra augue.",
   contribution:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum, vestibulum id ligula porta felis euismod semper.",
   impact: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.",
+};
+const LOREM: ProjectStory = {
+  summary: LOREM_TEXT.summary,
+  problem: [LOREM_TEXT.problem],
+  contribution: [LOREM_TEXT.contribution],
+  impact: [LOREM_TEXT.impact],
 };
 
 type Props = {
@@ -55,13 +69,15 @@ type Props = {
   description?: string;
   video: ThemedSrc;
   poster: ThemedSrc;
+  /** Panel copy; lorem ipsum until written. */
+  story?: ProjectStory;
 };
 
 // One featured project: the visual with its caption, and a full-screen panel with the
 // project's information (Thomas, 2026-11-16). The panel repeats the visual and caption at the
 // top so it's clear which project it belongs to. Native <dialog>: focus stays inside, Escape
 // closes, and focus returns to the visual afterwards.
-export default function ProjectItem({ title, meta, video, poster }: Props) {
+export default function ProjectItem({ title, meta, video, poster, story = LOREM }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const tileRef = useRef<HTMLDivElement>(null);
   const panelVisualRef = useRef<HTMLDivElement>(null);
@@ -210,19 +226,31 @@ export default function ProjectItem({ title, meta, video, poster }: Props) {
             {/* Structure (Thomas, 2026-11-16): one-line summary, then Problem / My contribution / Impact.
                 Placeholder copy; the old one-paragraph description stays in the data for reference. */}
             <div className="v2-panel__story">
-              <p className="v2-panel__summary">{LOREM.summary}</p>
+              <p className="v2-panel__summary">{story.summary}</p>
               <dl className="v2-panel__sections">
                 <div>
                   <dt>Problem</dt>
-                  <dd>{LOREM.problem}</dd>
+                  <dd>
+                    {story.problem.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </dd>
                 </div>
                 <div>
                   <dt>My contribution</dt>
-                  <dd>{LOREM.contribution}</dd>
+                  <dd>
+                    {story.contribution.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </dd>
                 </div>
                 <div>
                   <dt>Impact</dt>
-                  <dd>{LOREM.impact}</dd>
+                  <dd>
+                    {story.impact.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </dd>
                 </div>
               </dl>
             </div>
