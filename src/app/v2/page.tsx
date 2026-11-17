@@ -63,7 +63,7 @@ const PROJECTS: Project[] = [
         "Arteïa had tried to be everything to everyone. It addressed galleries, artists and collectors alike, and anchored much of its value in NFTs just as interest declined. The result was a product without a clear audience or a durable reason to exist.",
       ],
       contribution: [
-        "I joined as a UX/UI designer to extend core features. However, exploratory interviews to understand what users valued and what was missing soon challenged that brief. Artists saw little need for the platform, and galleries lacked the operational basics to adopt it. Collectors, however, already relied on it and made up 75% of customers. The product had to be built around them.",
+        "I joined as a UX/UI designer to extend core features. However, exploratory interviews to understand what users valued and what was missing soon challenged that brief. Artists saw little need for the platform, and galleries lacked the operational basics to adopt it. Collectors, by contrast, already relied on it and made up 75% of customers. The product had to be built around them.",
         "I translated this into a roadmap within the current architecture. I redesigned the catalogue around multiple categories, so collectors could keep a single record of everything they own, from art to watches, cars and books. I also designed the foundations of the Arteïa mobile app to put key information at hand, with desktop as the reference platform.",
       ],
       impact: [
