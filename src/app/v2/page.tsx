@@ -39,6 +39,23 @@ const PROJECTS: Project[] = [
     description:
       "Proximus was losing digital sales while support calls climbed. The checkout took the blame, but the problems ran deeper: fragmented acquisition journeys, an external identification process, and lengthy fibre installations. I redesigned core acquisition journeys around how customers discover, choose, and order products. Completed orders increased by 17% and self-installation by 76%.",
     ...placeholder(2),
+    // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
+    story: {
+      summary:
+        "Proximus was losing ground online: its digital sales share fell while support calls rose. The challenge was not to optimise the checkout, but to redefine how customers order.",
+      problem: [
+        "The decline had no single cause. Ordering flows were complex and inconsistent, designed around edge cases rather than the majority of customers. Proximus positioned itself as fibre-first, yet many customers were not eligible for fibre and only discovered this late in the journey. Key steps such as identification and installation added friction and offered little transparency. The result was high drop-off and greater demand on support.",
+      ],
+      contribution: [
+        "As a lead designer on this project, I owned the acquisition flows, from product pages to order completion. With cross-functional teams, I anchored the redesign in one principle: radical simplification for the majority of customers.",
+        "The first priority was relevance. I led the redesign of the address check, so customers saw only the offers available at their address from the start. This translated the fibre-first strategy into the journey without frustration for those outside fibre coverage, and removed a major source of late drop-off. Product pages followed the same logic, with a reusable model that put the most-used content first.",
+        "Two moments still stalled many orders. The first was identification, which customers had to complete before an order went through. The step was clumsy on mobile and gave little visibility into where people dropped out. Yet over 80% of completed orders relied on one method: itsme, Belgium's leading digital identity app. That data, together with user insights and its stronger security, made a clear case for itsme as the default. I then redesigned the identification step with the itsme and security teams, and aligned it with the rest of the flow.",
+        "The second moment was the installation step, where customers chose how their new internet connection would be set up. Most waited for a technician, which often meant long delays, at a cost to them and to Proximus. With engineering, I reconfigured the logic behind self-installation and integrated it into the checkout for eligible customers, with guidance that made it a confident choice: a faster route that also supported the company's aim to reduce operational resources.",
+      ],
+      impact: [
+        "Completed orders rose by 17% and identification completion by 15%. Self-installation adoption doubled, and support calls fell significantly. Beyond the numbers, digital regained its role as a primary sales channel, and design became a strategic partner across product and tech.",
+      ],
+    },
   },
   {
     title: "A scalable activation model for eSIM",
