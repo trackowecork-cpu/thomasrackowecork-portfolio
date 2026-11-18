@@ -210,10 +210,11 @@ const PROJECTS: Project[] = [
   },
 ];
 
-// Same bio as the live contact page.
+// Placeholder bio (Thomas, 2026-11-18): lorem ipsum, about 150 words in three short paragraphs, until the real copy.
 const BIO = [
-  "I'm a product and service designer who works best where design and strategy overlap.",
-  "I see experiences as interconnected systems, not isolated screens. I bring people from different disciplines together to build a shared vision, test ideas quickly, and lay solid foundations so every learning moves us forward.",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla, vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis, cum sociis natoque penatibus et magnis dis parturient montes.",
+  "Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum, sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod, donec sed odio dui.",
+  "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
 ];
 
 export default function V2Page() {

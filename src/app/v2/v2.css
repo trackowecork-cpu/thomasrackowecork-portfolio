@@ -466,8 +466,8 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-about__photo {
   order: -1;
   flex: none;
-  width: 80px;
-  height: 80px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background-color: color-mix(in srgb, var(--v2-fg) 15%, transparent);
 }
@@ -625,8 +625,8 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-about__photo {
-    width: 96px;
-    height: 96px;
+    width: 240px;
+    height: 240px;
   }
 }
 
@@ -721,16 +721,33 @@ html:not([data-theme="dark"]) .v2-only-dark {
     gap: 48px;
   }
 
-  /* Same pattern as the projects: visual left, text right. */
+  /* Large photo left, text right, spanning the page margins (Thomas, 2026-11-18). Five of
+     twelve columns for the photo, the rest for the text, which sits centred on the photo. */
   .v2-about__body {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 64px;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    align-items: center;
+    gap: clamp(48px, 6vw, 120px);
   }
 
   .v2-about__photo {
-    width: 240px;
-    height: 240px;
+    order: 0;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .v2-about__text {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 20px;
+  }
+
+  .v2-about p {
+    max-width: 640px;
   }
 
   .v2-contact {
