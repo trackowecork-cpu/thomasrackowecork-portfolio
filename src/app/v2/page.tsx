@@ -69,13 +69,14 @@ const PROJECTS: Project[] = [
       },
       {
         src: "/v2/eshare-id-before.jpg",
-        alt: "The old identification step on mobile, annotated: managed outside Proximus as a third-party iframe in the checkout, with around 35% drop-off, and methods listed as equals with none recommended.",
-        caption: "Before: a third-party identification step, managed outside Proximus, with around 35% drop-off.",
-      },
-      {
-        src: "/v2/eshare-id-after.jpg",
-        alt: "The new identification step on mobile, annotated: itsme as the default, recommended up front, and a store as the fallback for users without itsme.",
-        caption: "After: itsme became the default, with a store as the fallback.",
+        alt: "Before: the old identification step on mobile, annotated: managed outside Proximus as a third-party iframe in the checkout, with around 35% drop-off, and methods listed as equals with none recommended.",
+        caption: "Identification before and after: a third-party step with around 35% drop-off became an itsme-first step, with a store as the fallback.",
+        also: [
+          {
+            src: "/v2/eshare-id-after.jpg",
+            alt: "After: the new identification step on mobile, annotated: itsme as the default, recommended up front, and a store as the fallback for users without itsme.",
+          },
+        ],
       },
       {
         src: "/v2/eshare-self-install.jpg",

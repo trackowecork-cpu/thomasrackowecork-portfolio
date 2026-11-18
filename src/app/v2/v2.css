@@ -1918,6 +1918,11 @@ html:has(.v2-panel[open]) {
   border-radius: 12px;
 }
 
+/* A stacked pair (before/after) reads as one figure with one caption. */
+.v2-panel__still img + img {
+  margin-top: 8px;
+}
+
 .v2-panel__still figcaption {
   margin-top: 12px;
   font-size: 15px;

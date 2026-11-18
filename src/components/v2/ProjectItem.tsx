@@ -54,6 +54,8 @@ export type ProjectStill = {
   wide?: boolean;
   /** A moving still (the panel's closing loop); `src` is then its poster. */
   video?: string;
+  /** Further images stacked under this one, sharing its caption (e.g. a before/after pair). */
+  also?: { src: string; alt: string }[];
 };
 
 /** A project's panel copy. Each section is one or more paragraphs. */
@@ -325,6 +327,16 @@ export default function ProjectItem({
                         sizes="(min-width: 1024px) 60vw, 100vw"
                       />
                     )}
+                    {still.also?.map((img) => (
+                      <Image
+                        key={img.src}
+                        src={img.src}
+                        alt={img.alt}
+                        width={1920}
+                        height={1080}
+                        sizes="(min-width: 1024px) 60vw, 100vw"
+                      />
+                    ))}
                     <figcaption className="v2-project__meta">
                       {still.caption}
                     </figcaption>
