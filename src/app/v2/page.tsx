@@ -45,9 +45,15 @@ const PROJECTS: Project[] = [
         caption: "The starting point: Proximus+ had grown into a super-app, where lifestyle services crowded out product management.",
       },
       {
-        src: "/v2/proximus-concepts.jpg",
-        alt: "Concept 1 and Concept 2 side by side, two early product overview concepts in Dutch, each surfacing product status and smart tips with a clear action.",
+        src: "/v2/proximus-concepts-2.jpg",
+        alt: "Two early product overview concepts in Dutch side by side, each surfacing product status and smart tips with a clear action.",
         caption: "Two of the first concepts tested with users.",
+      },
+      {
+        src: "/v2/proximus-resolution.jpg",
+        video: "/v2/proximus-resolution.mp4",
+        alt: "On a soft blue field, the products overview flags that the internet is down. A tap on Resolve issue leads through checking the cables and the box screen to a confirmation that the connection is restored, and the overview returns with no issues detected.",
+        caption: "When something breaks, the app flags it and guides users step by step to a fix.",
       },
     ],
     // Final panel copy (Thomas, 2026-11-18). Keep verbatim.
