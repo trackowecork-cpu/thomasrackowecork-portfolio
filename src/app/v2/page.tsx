@@ -36,6 +36,20 @@ const PROJECTS: Project[] = [
     // version is still in public/v2/proximus-wide.* to compare.
     video: { light: "/v2/proximus-graphic-3.mp4", dark: "/v2/proximus-graphic-3.mp4" },
     poster: { light: "/v2/proximus-graphic-3.jpg", dark: "/v2/proximus-graphic-3.jpg" },
+    // Panel stills (render: project files portfolio-build/proximus-loop/proximus-stills.py).
+    // The Proximus+ screens are not Thomas's work: context only, never beside his concepts.
+    stills: [
+      {
+        src: "/v2/proximus-context.jpg",
+        alt: "Two screens of the former Proximus+ app: a home screen led by location, weather and greetings, and a Discover section promoting home, neighbourhood and mobility services.",
+        caption: "The starting point: Proximus+ had grown into a super-app, where lifestyle services crowded out product management.",
+      },
+      {
+        src: "/v2/proximus-concepts.jpg",
+        alt: "Concept 1 and Concept 2 side by side, two early product overview concepts in Dutch, each surfacing product status and smart tips with a clear action.",
+        caption: "Two of the first concepts tested with users.",
+      },
+    ],
     // Final panel copy (Thomas, 2026-11-18). Keep verbatim.
     story: {
       summary:
