@@ -85,11 +85,6 @@ const PROJECTS: Project[] = [
         alt: "The installation method step with self-install preselected as the fastest method. Learn how easy it is opens a side panel explaining self-install: set up in 30 minutes, delivered by bpost in 2–3 business days, with an instruction video and support, then the panel closes.",
         caption: "Self-installation became a confident choice inside the checkout.",
       },
-      {
-        src: "/v2/eshare-impact.jpg",
-        alt: "Impact: completed orders up 17%, identification completion up 15%, self-installation adoption doubled.",
-        caption: "Results after launch.",
-      },
     ],
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
