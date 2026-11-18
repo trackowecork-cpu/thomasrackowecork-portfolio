@@ -1568,16 +1568,19 @@ html[data-v2-panel="close"]::view-transition-new(root) {
 
 @media (prefers-reduced-motion: no-preference) {
   .v2-panel[open] .v2-panel__story,
-  .v2-panel[open] .v2-panel__gallery {
+  .v2-panel[open] .v2-panel__gallery,
+  .v2-panel[open] .v2-panel__stills {
     animation: v2-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
   }
 
-  .v2-panel[open] .v2-panel__gallery {
+  .v2-panel[open] .v2-panel__gallery,
+  .v2-panel[open] .v2-panel__stills {
     animation-delay: 0.65s;
   }
 
   .v2-panel.is-closing .v2-panel__story,
-  .v2-panel.is-closing .v2-panel__gallery {
+  .v2-panel.is-closing .v2-panel__gallery,
+  .v2-panel.is-closing .v2-panel__stills {
     animation: none;
   }
 }
@@ -1690,7 +1693,8 @@ html[data-v2-panel="close"]::view-transition-new(root) {
   order: 3;
 }
 
-.v2-panel__gallery {
+.v2-panel__gallery,
+.v2-panel__stills {
   order: 4;
 }
 
@@ -1891,4 +1895,58 @@ html:has(.v2-panel[open]) {
 
 .v2-panel__sections dd p + p {
   margin-top: 0.75em;
+}
+
+/* Panel process stills (Thomas, 2026-11-18): same shape and corners as the opening visual,
+   no borders; 4:3 on phones like the visuals. */
+.v2-panel__stills {
+  display: grid;
+  gap: 40px;
+  margin-top: 56px;
+}
+
+.v2-panel__still {
+  margin: 0;
+}
+
+.v2-panel__still img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.v2-panel__still figcaption {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: var(--v2-label-opacity);
+}
+
+@media (min-width: 768px) {
+  .v2-panel__stills {
+    gap: 56px;
+    margin-top: 80px;
+  }
+
+  .v2-panel__still img {
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+  }
+
+  .v2-panel__still figcaption {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-panel__stills {
+    margin-top: 120px;
+  }
+
+  .v2-panel__still figcaption {
+    font-size: 17px;
+  }
 }

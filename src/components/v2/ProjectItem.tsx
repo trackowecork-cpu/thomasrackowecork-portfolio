@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useRef } from "react";
 import ProjectVideo, { type ThemedSrc } from "./ProjectVideo";
 
@@ -37,6 +38,9 @@ function morph(direction: "open" | "close", from: HTMLElement | null, to: HTMLEl
   return true;
 }
 
+/** A still in the panel, below the opening visual (Problem → Contribution → Impact). */
+export type ProjectStill = { src: string; alt: string; caption: string };
+
 /** A project's panel copy. Each section is one or more paragraphs. */
 export type ProjectStory = {
   summary: string;
@@ -71,13 +75,15 @@ type Props = {
   poster: ThemedSrc;
   /** Panel copy; lorem ipsum until written. */
   story?: ProjectStory;
+  /** Panel stills; placeholders until made. */
+  stills?: ProjectStill[];
 };
 
 // One featured project: the visual with its caption, and a full-screen panel with the
 // project's information (Thomas, 2026-11-16). The panel repeats the visual and caption at the
 // top so it's clear which project it belongs to. Native <dialog>: focus stays inside, Escape
 // closes, and focus returns to the visual afterwards.
-export default function ProjectItem({ title, meta, video, poster, story = LOREM }: Props) {
+export default function ProjectItem({ title, meta, video, poster, story = LOREM, stills = [] }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const tileRef = useRef<HTMLDivElement>(null);
   const panelVisualRef = useRef<HTMLDivElement>(null);
@@ -260,12 +266,30 @@ export default function ProjectItem({ title, meta, video, poster, story = LOREM 
             <div ref={panelVisualRef} className="v2-panel__visual">
               <ProjectVideo src={video} poster={poster} title={title} />
             </div>
-            {/* Image placeholders: final designs and process artefacts will go here. */}
-            <div className="v2-panel__gallery" aria-hidden="true">
-              <div className="v2-panel__frame v2-panel__frame--wide" />
-              <div className="v2-panel__frame" />
-              <div className="v2-panel__frame" />
-            </div>
+            {/* Process stills (Thomas, 2026-11-18): only the opening visual moves. Projects
+                without stills yet keep the placeholder frames. */}
+            {stills.length > 0 ? (
+              <div className="v2-panel__stills">
+                {stills.map((still) => (
+                  <figure key={still.src} className="v2-panel__still">
+                    <Image
+                      src={still.src}
+                      alt={still.alt}
+                      width={1920}
+                      height={1080}
+                      sizes="(min-width: 1024px) 60vw, 100vw"
+                    />
+                    <figcaption className="v2-project__meta">{still.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            ) : (
+              <div className="v2-panel__gallery" aria-hidden="true">
+                <div className="v2-panel__frame v2-panel__frame--wide" />
+                <div className="v2-panel__frame" />
+                <div className="v2-panel__frame" />
+              </div>
+            )}
           </div>
         </div>
       </dialog>

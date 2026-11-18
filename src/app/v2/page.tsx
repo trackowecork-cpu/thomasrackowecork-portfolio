@@ -1,5 +1,5 @@
 import Header from "@/components/v2/Header";
-import ProjectItem, { type ProjectStory } from "@/components/v2/ProjectItem";
+import ProjectItem, { type ProjectStill, type ProjectStory } from "@/components/v2/ProjectItem";
 import type { ThemedSrc } from "@/components/v2/ProjectVideo";
 import { CONTACT_LINKS } from "@/components/interim/palette";
 
@@ -10,6 +10,7 @@ type Project = {
   video: ThemedSrc;
   poster: ThemedSrc;
   story?: ProjectStory;
+  stills?: ProjectStill[];
 };
 
 const placeholder = (n: number) => ({
@@ -82,6 +83,19 @@ const PROJECTS: Project[] = [
     // Art-directed take 1 (2026-11-18): top-down unboxing, phone runs the activation flow (render: project files portfolio-build/v2-preview/esim-unbox-render.py). Previous billboard loop: esim-flow.*
     video: "/v2/esim-unbox-4.mp4",
     poster: "/v2/esim-unbox-4.jpg",
+    // Panel stills (render scripts: project files portfolio-build/esim-panel/). Codes on the card are dummies.
+    stills: [
+      {
+        src: "/v2/esim-qr-card.jpg",
+        alt: "A Proximus eSIM activation card with a QR code, lying on an opened envelope on a wooden table.",
+        caption: "Before: new customers waited for a QR code card by post.",
+      },
+      {
+        src: "/v2/esim-blueprint.jpg",
+        alt: "The service blueprint for ordering and activating an eSIM, with a close-up of the eSIM installation stage.",
+        caption: "The service blueprint mapped each step from order to an active eSIM.",
+      },
+    ],
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
       summary:
