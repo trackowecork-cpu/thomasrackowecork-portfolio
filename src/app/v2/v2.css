@@ -747,10 +747,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
     gap: 20px;
   }
 
-  /* 24px on desktop so the column fills the width at about 75 characters a line (Thomas, 2026-11-18). */
+  /* Back to the 20px body size (Thomas, 2026-11-19); capped so lines stay around 75 characters. */
   .v2-about p {
-    max-width: 920px;
-    font-size: 24px;
+    max-width: 720px;
+    font-size: 20px;
   }
 
   .v2-contact {
