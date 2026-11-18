@@ -86,18 +86,19 @@ const PROJECTS: Project[] = [
     // Panel stills (render scripts: project files portfolio-build/esim-panel/). Codes on the card are dummies.
     stills: [
       {
-        src: "/v2/esim-qr-card.jpg",
-        alt: "A Proximus eSIM activation card with a QR code, lying on an opened envelope on a wooden table.",
+        src: "/v2/esim-qr-card-2.jpg",
+        alt: "Both sides of the old Proximus eSIM card: setup steps on the front, and a QR code with activation codes on the back.",
         caption: "Before: new customers waited for a QR code card by post.",
       },
       {
-        src: "/v2/esim-blueprint.jpg",
-        alt: "The service blueprint for ordering and activating an eSIM, with a close-up of the eSIM installation stage.",
+        src: "/v2/esim-blueprint-2.jpg",
+        alt: "The full service blueprint for ordering and activating an eSIM, from product page to eSIM installed.",
         caption: "The service blueprint mapped each step from order to an active eSIM.",
+        wide: true,
       },
       {
-        src: "/v2/esim-education.jpg",
-        alt: "A laptop showing the Proximus eSIM page, with a device compatibility check that confirms an iPhone 14 supports eSIM.",
+        src: "/v2/esim-education-2.jpg",
+        alt: "Two screens from the Proximus eSIM page: the introduction, and a device compatibility check that confirms an iPhone 14 supports eSIM.",
         caption: "The eSIM page explained the technology and let customers check their device first.",
       },
     ],

@@ -6,9 +6,11 @@ import ProjectVideo, { type ThemedSrc } from "./ProjectVideo";
 
 const VT_NAME = "v2-project-visual";
 
-const hasViewTransitions = () => typeof document !== "undefined" && "startViewTransition" in document;
+const hasViewTransitions = () =>
+  typeof document !== "undefined" && "startViewTransition" in document;
 
-const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotion = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
  * Open or close the panel so the visual visibly travels between the homepage and the panel.
@@ -17,7 +19,12 @@ const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)"
  * - Others: the panel slides in from the right, like the live site's Contact page.
  * - Reduced motion: instant.
  */
-function morph(direction: "open" | "close", from: HTMLElement | null, to: HTMLElement | null, update: () => void) {
+function morph(
+  direction: "open" | "close",
+  from: HTMLElement | null,
+  to: HTMLElement | null,
+  update: () => void,
+) {
   if (reducedMotion() || !hasViewTransitions() || !from || !to) {
     update();
     return false;
@@ -39,7 +46,13 @@ function morph(direction: "open" | "close", from: HTMLElement | null, to: HTMLEl
 }
 
 /** A still in the panel, below the opening visual (Problem → Contribution → Impact). */
-export type ProjectStill = { src: string; alt: string; caption: string };
+export type ProjectStill = {
+  src: string;
+  alt: string;
+  caption: string;
+  /** Keep 16:9 on phones too, for artefacts that can't be cropped (e.g. the whole blueprint). */
+  wide?: boolean;
+};
 
 /** A project's panel copy. Each section is one or more paragraphs. */
 export type ProjectStory = {
@@ -51,12 +64,14 @@ export type ProjectStory = {
 
 // Placeholder for projects whose copy Thomas hasn't written yet.
 const LOREM_TEXT = {
-  summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+  summary:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
   problem:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus. Maecenas faucibus mollis interdum, nulla vitae elit libero, a pharetra augue.",
   contribution:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum, vestibulum id ligula porta felis euismod semper.",
-  impact: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.",
+  impact:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.",
 };
 const LOREM: ProjectStory = {
   summary: LOREM_TEXT.summary,
@@ -83,14 +98,22 @@ type Props = {
 // project's information (Thomas, 2026-11-16). The panel repeats the visual and caption at the
 // top so it's clear which project it belongs to. Native <dialog>: focus stays inside, Escape
 // closes, and focus returns to the visual afterwards.
-export default function ProjectItem({ title, meta, video, poster, story = LOREM, stills = [] }: Props) {
+export default function ProjectItem({
+  title,
+  meta,
+  video,
+  poster,
+  story = LOREM,
+  stills = [],
+}: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const tileRef = useRef<HTMLDivElement>(null);
   const panelVisualRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  const visualIn = (el: HTMLElement | null) => el?.querySelector<HTMLElement>(".v2-project__visual") ?? null;
+  const visualIn = (el: HTMLElement | null) =>
+    el?.querySelector<HTMLElement>(".v2-project__visual") ?? null;
 
   // Keep the two copies of the video on the same frame, so the hand-over is seamless.
   const syncVideo = (from: HTMLElement | null, to: HTMLElement | null) => {
@@ -102,15 +125,20 @@ export default function ProjectItem({ title, meta, video, poster, story = LOREM,
   const open = () => {
     const dialog = dialogRef.current;
     if (!dialog) return;
-    const morphed = morph("open", visualIn(tileRef.current), visualIn(panelVisualRef.current), () => {
-      syncVideo(tileRef.current, panelVisualRef.current);
-      dialog.classList.toggle("is-morph", true);
-      dialog.showModal();
-      dialog.scrollTop = 0;
-      // Focus the project title rather than the close button: no focus ring flashes on the
-      // close button after a tap, screen readers start at the title, and Tab reaches Close.
-      titleRef.current?.focus({ preventScroll: true });
-    });
+    const morphed = morph(
+      "open",
+      visualIn(tileRef.current),
+      visualIn(panelVisualRef.current),
+      () => {
+        syncVideo(tileRef.current, panelVisualRef.current);
+        dialog.classList.toggle("is-morph", true);
+        dialog.showModal();
+        dialog.scrollTop = 0;
+        // Focus the project title rather than the close button: no focus ring flashes on the
+        // close button after a tap, screen readers start at the title, and Tab reaches Close.
+        titleRef.current?.focus({ preventScroll: true });
+      },
+    );
     // Give the panel its own history entry, so the browser's back button (and swipe back on
     // phones) closes it just like the Back button does.
     window.history.pushState({ ...window.history.state, v2Panel: true }, "");
@@ -121,10 +149,15 @@ export default function ProjectItem({ title, meta, video, poster, story = LOREM,
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (hasViewTransitions() && !reducedMotion()) {
-      morph("close", visualIn(panelVisualRef.current), visualIn(tileRef.current), () => {
-        syncVideo(panelVisualRef.current, tileRef.current);
-        dialog.close();
-      });
+      morph(
+        "close",
+        visualIn(panelVisualRef.current),
+        visualIn(tileRef.current),
+        () => {
+          syncVideo(panelVisualRef.current, tileRef.current);
+          dialog.close();
+        },
+      );
       return;
     }
     syncVideo(panelVisualRef.current, tileRef.current);
@@ -271,7 +304,14 @@ export default function ProjectItem({ title, meta, video, poster, story = LOREM,
             {stills.length > 0 ? (
               <div className="v2-panel__stills">
                 {stills.map((still) => (
-                  <figure key={still.src} className="v2-panel__still">
+                  <figure
+                    key={still.src}
+                    className={
+                      still.wide
+                        ? "v2-panel__still v2-panel__still--wide"
+                        : "v2-panel__still"
+                    }
+                  >
                     <Image
                       src={still.src}
                       alt={still.alt}
@@ -279,7 +319,9 @@ export default function ProjectItem({ title, meta, video, poster, story = LOREM,
                       height={1080}
                       sizes="(min-width: 1024px) 60vw, 100vw"
                     />
-                    <figcaption className="v2-project__meta">{still.caption}</figcaption>
+                    <figcaption className="v2-project__meta">
+                      {still.caption}
+                    </figcaption>
                   </figure>
                 ))}
               </div>
