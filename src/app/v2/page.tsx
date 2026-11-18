@@ -63,9 +63,10 @@ const PROJECTS: Project[] = [
     // Panel stills (render: project files portfolio-build/eshare-stills.py).
     stills: [
       {
-        src: "/v2/eshare-address.jpg",
-        alt: "The redesigned address check confirming fibre at the customer's address, followed by only the packs available there.",
-        caption: "The address check came first, so customers only saw offers available at their address.",
+        src: "/v2/eshare-address-card.jpg",
+        video: "/v2/eshare-address-card.mp4",
+        alt: "From a pack's Check availability button, a panel opens, the address is entered and checked, and the panel confirms fibre is available at that address.",
+        caption: "Customers could check their address straight from a pack, and see what was available to them before choosing.",
       },
       {
         src: "/v2/eshare-id-before.jpg",
