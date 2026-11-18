@@ -52,6 +52,8 @@ export type ProjectStill = {
   caption: string;
   /** Keep 16:9 on phones too, for artefacts that can't be cropped (e.g. the whole blueprint). */
   wide?: boolean;
+  /** A moving still (the panel's closing loop); `src` is then its poster. */
+  video?: string;
 };
 
 /** A project's panel copy. Each section is one or more paragraphs. */
@@ -312,13 +314,17 @@ export default function ProjectItem({
                         : "v2-panel__still"
                     }
                   >
-                    <Image
-                      src={still.src}
-                      alt={still.alt}
-                      width={1920}
-                      height={1080}
-                      sizes="(min-width: 1024px) 60vw, 100vw"
-                    />
+                    {still.video ? (
+                      <ProjectVideo src={still.video} poster={still.src} title={still.alt} />
+                    ) : (
+                      <Image
+                        src={still.src}
+                        alt={still.alt}
+                        width={1920}
+                        height={1080}
+                        sizes="(min-width: 1024px) 60vw, 100vw"
+                      />
+                    )}
                     <figcaption className="v2-project__meta">
                       {still.caption}
                     </figcaption>

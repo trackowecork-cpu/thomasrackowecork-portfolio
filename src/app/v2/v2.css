@@ -1954,3 +1954,16 @@ html:has(.v2-panel[open]) {
 .v2-panel__still--wide img {
   aspect-ratio: 16 / 9;
 }
+
+/* The panel's closing loop sits among the stills with their shape. */
+.v2-panel__still .v2-project__visual {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+}
+
+@media (min-width: 768px) {
+  .v2-panel__still .v2-project__visual {
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+  }
+}
