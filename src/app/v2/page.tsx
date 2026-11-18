@@ -56,7 +56,10 @@ const PROJECTS: Project[] = [
     meta: "Proximus, 2024–2025",
     description:
       "Proximus was losing digital sales while support calls climbed. The checkout took the blame, but the problems ran deeper: fragmented acquisition journeys, an external identification process, and lengthy fibre installations. I redesigned core acquisition journeys around how customers discover, choose, and order products. Completed orders increased by 17% and self-installation by 76%.",
-    ...placeholder(2),
+    // Homepage loop (2026-11-18): graphic laptop on coral, address autocompletes, fast-forward to confirmation.
+    // Render: project files portfolio-build/eshare-render.py
+    video: "/v2/eshare-laptop.mp4",
+    poster: "/v2/eshare-laptop.jpg",
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
       summary:
