@@ -31,8 +31,11 @@ const PROJECTS: Project[] = [
     // proximus-depth = phone keyed onto an out-of-focus warm room with parallax (proximus-sun = window-light version)
     // (render script: project files portfolio-build/v2-preview/proximus-depth-render.py).
     // proximus-wide = 16:9 render: same phone at full source height, room extended at the sides (less zoomed in).
-    video: { light: "/v2/proximus-wide.mp4", dark: "/v2/proximus-wide.mp4" },
-    poster: { light: "/v2/proximus-wide.jpg", dark: "/v2/proximus-wide.jpg" },
+    // Trial (2026-11-18): graphic version, whole phone on a sea-glass field, to sit with the eSIM and eShare
+    // loops (render: project files portfolio-build/proximus-loop/proximus-graphic.py). The warm room
+    // version is still in public/v2/proximus-wide.* to compare.
+    video: { light: "/v2/proximus-graphic.mp4", dark: "/v2/proximus-graphic.mp4" },
+    poster: { light: "/v2/proximus-graphic.jpg", dark: "/v2/proximus-graphic.jpg" },
     // Final panel copy (Thomas, 2026-11-18). Keep verbatim.
     story: {
       summary:
