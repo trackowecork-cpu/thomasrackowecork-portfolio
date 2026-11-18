@@ -40,8 +40,8 @@ const PROJECTS: Project[] = [
     // The Proximus+ screens are not Thomas's work: context only, never beside his concepts.
     stills: [
       {
-        src: "/v2/proximus-objectives-2.jpg",
-        alt: "Three workshop frames on a soft green field, filled with sticky notes and headed Upselling / Conversion, Troubleshooting and Usage, each listing the objectives that define success for that pillar.",
+        src: "/v2/proximus-objectives-3.jpg",
+        alt: "Three workshop frames on a neutral grey field, filled with sticky notes and headed Upselling / Conversion, Troubleshooting and Usage, each listing the objectives that define success for that pillar.",
         caption: "Before any design, we defined what success meant for each pillar of the app: conversion, troubleshooting and usage.",
       },
       {
