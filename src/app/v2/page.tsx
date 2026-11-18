@@ -68,9 +68,10 @@ const PROJECTS: Project[] = [
         caption: "The address check came first, so customers only saw offers available at their address.",
       },
       {
-        src: "/v2/eshare-identification.jpg",
-        alt: "Identification on mobile, before and after: a list of equal methods became an itsme-first step with a store fallback.",
-        caption: "Identification before and after: itsme became the default, with a store as the fallback.",
+        src: "/v2/eshare-identification-2.jpg",
+        alt: "Identification before and after. Before: a desktop step listing three equal methods inside a third-party iframe managed outside Proximus, with around 35% drop-off. After: an itsme-first mobile step with a store as the fallback.",
+        caption: "Identification before and after: a third-party step with around 35% drop-off became an itsme-first step, with a store as the fallback.",
+        wide: true,
       },
       {
         src: "/v2/eshare-self-install.jpg",
