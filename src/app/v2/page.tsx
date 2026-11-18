@@ -103,7 +103,7 @@ const PROJECTS: Project[] = [
       },
       {
         src: "/v2/esim-swap.jpg",
-        video: "/v2/esim-swap.mp4",
+        video: "/v2/esim-swap-2.mp4",
         alt: "SIM-to-eSIM swap in the Proximus app",
         caption: "The SIM-to-eSIM swap hands over to the same activation flow.",
       },
