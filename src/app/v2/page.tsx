@@ -180,10 +180,10 @@ const PROJECTS: Project[] = [
     meta: "Arteïa, 2021",
     description:
       "Arteïa's ambition to serve the entire art market had left its collection management platform without a clear primary audience. Research revealed an opportunity to refocus the experience around private collectors and their everyday needs. I contributed to this repositioning, redesigning key workflows and extending the desktop-centric platform into mobile experiences suited to real-world collection management.",
-    // Opening loop (Thomas, 2026-11-18): tablet on a warm stone field, overview -> collection -> overview
+    // Opening loop (Thomas, 2026-11-18): tablet in landscape on a warm stone field, overview -> collection -> overview
     // (render: project files portfolio-build/arteia/arteia-loop.py). Few sources exist, so visuals stay limited.
-    video: { light: "/v2/arteia-tablet.mp4", dark: "/v2/arteia-tablet.mp4" },
-    poster: { light: "/v2/arteia-tablet.jpg", dark: "/v2/arteia-tablet.jpg" },
+    video: { light: "/v2/arteia-tablet-2.mp4", dark: "/v2/arteia-tablet-2.mp4" },
+    poster: { light: "/v2/arteia-tablet-2.jpg", dark: "/v2/arteia-tablet-2.jpg" },
     // Panel still (render: portfolio-build/arteia/arteia-stills.py); avatar photo replaced by an initial.
     stills: [
       {
