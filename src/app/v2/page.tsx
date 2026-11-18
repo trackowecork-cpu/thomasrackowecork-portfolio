@@ -40,9 +40,9 @@ const PROJECTS: Project[] = [
     // The Proximus+ screens are not Thomas's work: context only, never beside his concepts.
     stills: [
       {
-        src: "/v2/proximus-context.jpg",
-        alt: "Two screens of the former Proximus+ app: a home screen led by location, weather and greetings, and a Discover section promoting home, neighbourhood and mobility services.",
-        caption: "The starting point: Proximus+ had grown into a super-app, where lifestyle services crowded out product management.",
+        src: "/v2/proximus-objectives.jpg",
+        alt: "A workshop board on a soft green field, with three columns of sticky notes headed Upselling / Conversion, Troubleshooting and Usage, each listing the objectives that define success for that pillar.",
+        caption: "Before any design, we defined what success meant for each pillar of the app: conversion, troubleshooting and usage.",
       },
       {
         src: "/v2/proximus-concepts-2.jpg",
