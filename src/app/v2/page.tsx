@@ -45,9 +45,9 @@ const PROJECTS: Project[] = [
         caption: "Before any design, we defined what success meant for each pillar of the app: conversion, troubleshooting and usage.",
       },
       {
-        src: "/v2/proximus-concepts-2.jpg",
-        alt: "Two early product overview concepts in Dutch side by side, each surfacing product status and smart tips with a clear action.",
-        caption: "Two of the first concepts tested with users.",
+        src: "/v2/proximus-concept-board.jpg",
+        alt: "A section of a concept workshop board: Concept 1 and Concept 2 as product overview screens, with annotations on component structure, proactive messages, a diagnose centre and filtering, team votes, and feedback sticky notes.",
+        caption: "The first concepts, explored and challenged with the team before testing with users.",
       },
       {
         src: "/v2/proximus-resolution.jpg",
