@@ -210,11 +210,11 @@ const PROJECTS: Project[] = [
   },
 ];
 
-// Placeholder bio (Thomas, 2026-11-18): lorem ipsum, about 150 words in three short paragraphs, until the real copy.
+// Bio (Thomas, 2026-11-19). Keep verbatim.
 const BIO = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla, vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis, cum sociis natoque penatibus et magnis dis parturient montes.",
-  "Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum, nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum, sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod, donec sed odio dui.",
-  "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
+  "I took the scenic route into design. First social anthropology, then the contemporary art world, where I worked as a researcher, advisor and artist liaison for a leading gallery. Few things prepare you for stakeholder management quite like a room full of artists or collectors.",
+  "Along the way, I picked up a habit I never shook: asking why people do what they do. It’s still the first question I bring to every product and service I design.",
+  "I bring people from different disciplines together around a shared vision, test ideas early, and lay foundations that let every learning move us forward. Colleagues call me “the demystifier of the difficult”. I’ll take it.",
 ];
 
 export default function V2Page() {
