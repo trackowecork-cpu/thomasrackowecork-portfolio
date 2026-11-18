@@ -95,6 +95,11 @@ const PROJECTS: Project[] = [
         alt: "The service blueprint for ordering and activating an eSIM, with a close-up of the eSIM installation stage.",
         caption: "The service blueprint mapped each step from order to an active eSIM.",
       },
+      {
+        src: "/v2/esim-education.jpg",
+        alt: "A laptop showing the Proximus eSIM page, with a device compatibility check that confirms an iPhone 14 supports eSIM.",
+        caption: "The eSIM page explained the technology and let customers check their device first.",
+      },
     ],
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
