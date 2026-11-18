@@ -34,8 +34,8 @@ const PROJECTS: Project[] = [
     // Trial (2026-11-18): graphic version, whole phone on a sea-glass field, to sit with the eSIM and eShare
     // loops (render: project files portfolio-build/proximus-loop/proximus-graphic.py). The warm room
     // version is still in public/v2/proximus-wide.* to compare.
-    video: { light: "/v2/proximus-graphic-2.mp4", dark: "/v2/proximus-graphic-2.mp4" },
-    poster: { light: "/v2/proximus-graphic-2.jpg", dark: "/v2/proximus-graphic-2.jpg" },
+    video: { light: "/v2/proximus-graphic-3.mp4", dark: "/v2/proximus-graphic-3.mp4" },
+    poster: { light: "/v2/proximus-graphic-3.jpg", dark: "/v2/proximus-graphic-3.jpg" },
     // Final panel copy (Thomas, 2026-11-18). Keep verbatim.
     story: {
       summary:
