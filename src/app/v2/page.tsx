@@ -68,6 +68,11 @@ const PROJECTS: Project[] = [
         caption: "The address check came first, so customers only saw offers available at their address.",
       },
       {
+        src: "/v2/eshare-identification.jpg",
+        alt: "Identification on mobile, before and after: a list of equal methods became an itsme-first step with a store fallback.",
+        caption: "Identification before and after: itsme became the default, with a store as the fallback.",
+      },
+      {
         src: "/v2/eshare-self-install.jpg",
         alt: "The checkout step for choosing an installation method, with self-install selected and marked as the fastest method.",
         caption: "Self-installation became a confident choice inside the checkout.",
