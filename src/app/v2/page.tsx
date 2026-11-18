@@ -214,7 +214,7 @@ const PROJECTS: Project[] = [
 const BIO = [
   "I took the scenic route into design. First social anthropology, then the contemporary art world, where I worked as a researcher, advisor and artist liaison for a leading gallery. Few things prepare you for stakeholder management quite like a room full of artists or collectors.",
   "Along the way, I picked up a habit I never shook: asking why people do what they do. It’s still the first question I bring to every product and service I design.",
-  "I bring people from different disciplines together around a shared vision, test ideas early, and lay foundations that let every learning move us forward. Colleagues call me “the demystifier of the difficult”. I’ll take it.",
+  "I do my best work in cross-functional teams, where different perspectives and expertise meet and make an impact. I believe you get out what you put in, so I put in a lot. Colleagues call me “the demystifier of the difficult”. I’ll take it.",
 ];
 
 export default function V2Page() {
