@@ -60,6 +60,24 @@ const PROJECTS: Project[] = [
     // Render: project files portfolio-build/eshare-render.py
     video: "/v2/eshare-laptop-3.mp4",
     poster: "/v2/eshare-laptop-3.jpg",
+    // Panel stills (render: project files portfolio-build/eshare-stills.py).
+    stills: [
+      {
+        src: "/v2/eshare-address.jpg",
+        alt: "The redesigned address check confirming fibre at the customer's address, followed by only the packs available there.",
+        caption: "The address check came first, so customers only saw offers available at their address.",
+      },
+      {
+        src: "/v2/eshare-self-install.jpg",
+        alt: "The checkout step for choosing an installation method, with self-install selected and marked as the fastest method.",
+        caption: "Self-installation became a confident choice inside the checkout.",
+      },
+      {
+        src: "/v2/eshare-impact.jpg",
+        alt: "Impact: completed orders up 17%, identification completion up 15%, self-installation adoption doubled.",
+        caption: "Results after launch.",
+      },
+    ],
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
       summary:
