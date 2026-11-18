@@ -80,8 +80,9 @@ const PROJECTS: Project[] = [
         ],
       },
       {
-        src: "/v2/eshare-self-install.jpg",
-        alt: "The checkout step for choosing an installation method, with self-install selected and marked as the fastest method.",
+        src: "/v2/eshare-install.jpg",
+        video: "/v2/eshare-install.mp4",
+        alt: "The installation method step with self-install preselected as the fastest method. Learn how easy it is opens a side panel explaining self-install: set up in 30 minutes, delivered by bpost in 2–3 business days, with an instruction video and support, then the panel closes.",
         caption: "Self-installation became a confident choice inside the checkout.",
       },
       {
