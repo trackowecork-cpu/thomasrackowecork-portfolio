@@ -13,12 +13,6 @@ type Project = {
   stills?: ProjectStill[];
 };
 
-const placeholder = (n: number) => ({
-  video: { light: `/v2/placeholder-${n}-light.mp4`, dark: `/v2/placeholder-${n}-dark.mp4` },
-  poster: { light: `/v2/placeholder-${n}-light.jpg`, dark: `/v2/placeholder-${n}-dark.jpg` },
-});
-
-// Projects 2–4 use tone-on-tone placeholders until their visuals are ready.
 const PROJECTS: Project[] = [
   {
     title: "A service-first foundation for Proximus' app",
@@ -186,7 +180,18 @@ const PROJECTS: Project[] = [
     meta: "Arteïa, 2021",
     description:
       "Arteïa's ambition to serve the entire art market had left its collection management platform without a clear primary audience. Research revealed an opportunity to refocus the experience around private collectors and their everyday needs. I contributed to this repositioning, redesigning key workflows and extending the desktop-centric platform into mobile experiences suited to real-world collection management.",
-    ...placeholder(4),
+    // Opening loop (Thomas, 2026-11-18): tablet on a warm stone field, overview -> collection -> overview
+    // (render: project files portfolio-build/arteia/arteia-loop.py). Few sources exist, so visuals stay limited.
+    video: { light: "/v2/arteia-tablet.mp4", dark: "/v2/arteia-tablet.mp4" },
+    poster: { light: "/v2/arteia-tablet.jpg", dark: "/v2/arteia-tablet.jpg" },
+    // Panel still (render: portfolio-build/arteia/arteia-stills.py); avatar photo replaced by an initial.
+    stills: [
+      {
+        src: "/v2/arteia-mobile.jpg",
+        alt: "Two Arteïa mobile screens on a soft olive field: an overview with the total collection value, growth chart and quick actions, and a collection grid filtered by category, with a painting, a watch, a handbag and a book.",
+        caption: "The foundations of the mobile app: the collection's value at a glance, and every category, from art to watches, in one record.",
+      },
+    ],
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
       summary:
