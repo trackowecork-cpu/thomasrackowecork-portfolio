@@ -79,9 +79,9 @@ const PROJECTS: Project[] = [
     meta: "Proximus, 2023–2025",
     description:
       "As device manufacturers moved towards eSIM-only phones, Proximus's activation model remained dependent on physical processes. I contributed to the eSIM strategy and roadmap alongside external vendors and Apple, leading the design of digital onboarding and activation across Proximus's channels. Activation went from days to minutes, establishing scalable foundations for future devices and services.",
-    // Draft: billboard intro, activation flow on a phone over it, then the billboard reads "100% digital" (intro: "From days to minutes").
-    video: "/v2/esim-flow.mp4",
-    poster: "/v2/esim-flow.jpg",
+    // Art-directed take 1 (2026-11-18): top-down unboxing, phone runs the activation flow (render: project files portfolio-build/v2-preview/esim-unbox-render.py). Previous billboard loop: esim-flow.*
+    video: "/v2/esim-unbox.mp4",
+    poster: "/v2/esim-unbox.jpg",
     // Final panel copy (Thomas, 2026-11-17). Keep verbatim.
     story: {
       summary:
