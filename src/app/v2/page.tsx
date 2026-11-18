@@ -20,7 +20,7 @@ const placeholder = (n: number) => ({
 // Projects 2–4 use tone-on-tone placeholders until their visuals are ready.
 const PROJECTS: Project[] = [
   {
-    title: "Telecom App Redesign",
+    title: "A service-first foundation for Proximus' app",
     meta: "Proximus, 2026",
     description:
       "As Proximus+, the app had expanded beyond telecom, gradually pushing core product management into the background. I helped shape its evolution from discovery through implementation, refocusing the experience on customers' telecom products and services. The first phase launched in September 2026, establishing a more scalable foundation for future development.",
@@ -32,6 +32,23 @@ const PROJECTS: Project[] = [
     // proximus-wide = 16:9 render: same phone at full source height, room extended at the sides (less zoomed in).
     video: { light: "/v2/proximus-wide.mp4", dark: "/v2/proximus-wide.mp4" },
     poster: { light: "/v2/proximus-wide.jpg", dark: "/v2/proximus-wide.jpg" },
+    // Final panel copy (Thomas, 2026-11-18). Keep verbatim.
+    story: {
+      summary:
+        "Proximus' app had grown into a super-app, and its core value had blurred along the way. This project refocused it on what users needed most: reassurance that everything works, and the confidence to act when it doesn't.",
+      problem: [
+        "Proximus' app had expanded into a super-app, with services well beyond telecom. In the process, its core relationship with users had blurred. Engagement declined, product-related support demand grew, and in-app conversion fell short of business targets. Testing the live app revealed why: information and actions were fragmented, and the commercial strategy had taken precedence over user needs. Over time, users had stopped seeing the app as a place where anything useful could be done. The challenge was not to redesign a tab, but to redefine how users interact with Proximus: how they manage their products and services, and what they expect from their app.",
+      ],
+      contribution: [
+        "As a lead designer, I worked closely with engineering and cross-functional partners. I began by aligning the team on objectives and success metrics, so that design decisions rested on evidence rather than opinion.",
+        "Two rounds of concept testing revealed a clear priority: before anything else, users wanted to know that their services were working. I repositioned the product experience around that need, turning a passive list of links into a real-time health overview. Together with engineering, we redefined the logic behind statuses, issues and recommendations across every product. Informed by research, I shaped a prioritisation model that brings only actionable issues to the surface, each paired with a clear path to resolution. No alert leaves users at a dead end.",
+        "To make this sustainable, I introduced a consistent page architecture across all products, designed as control panels rather than storefronts. It gave users a predictable way to manage their services and gave Proximus a framework that can scale as its portfolio evolves.",
+      ],
+      impact: [
+        "This first phase laid the foundations, in both experience and technology, with the app now rebuilt in React Native. Product and service management follows a user-validated hierarchy, in which usage and status lead and commercial content plays a supporting role. The new experience is live across every product, with TV now fully native.",
+        "Its broader value lies in the model itself: a shared logic for status, actions and communication that absorbs new products without added complexity. The work continues, moving from reassurance towards proactive, personalised support, with agentic capabilities now in development.",
+      ],
+    },
   },
   {
     title: "Digital Acquisition & Checkout Redesign",
