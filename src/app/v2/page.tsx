@@ -55,6 +55,11 @@ const PROJECTS: Project[] = [
         alt: "On a soft blue field, the products overview flags that the internet is down. A tap on Resolve issue leads through checking the cables and the box screen to a confirmation that the connection is restored, and the overview returns with no issues detected.",
         caption: "When something breaks, the app flags it and guides users step by step to a fix.",
       },
+      {
+        src: "/v2/proximus-pages.jpg",
+        alt: "Four product pages floating side by side on a soft lilac field: Internet and Wi-Fi with Share Wi-Fi, Connected devices, network health and usage; the Internet Box with its connection status and tools; Mobile with usage rings and options; and TV and Streaming with subscriptions and equipment.",
+        caption: "Each product now has its own home, with its status, usage and services in one place.",
+      },
     ],
     // Final panel copy (Thomas, 2026-11-18). Keep verbatim.
     story: {
