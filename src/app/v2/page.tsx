@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
     stills: [
       {
         src: "/v2/proximus-objectives-2.jpg",
-        alt: "Three workshop frames on a soft green field, filled with sticky notes and headed of sticky notes Upselling / Conversion, Troubleshooting and Usage, each listing the objectives that define success for that pillar.",
+        alt: "Three workshop frames on a soft green field, filled with sticky notes and headed Upselling / Conversion, Troubleshooting and Usage, each listing the objectives that define success for that pillar.",
         caption: "Before any design, we defined what success meant for each pillar of the app: conversion, troubleshooting and usage.",
       },
       {
