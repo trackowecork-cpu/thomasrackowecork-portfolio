@@ -486,150 +486,64 @@ html:not([data-theme="dark"]) .v2-only-dark {
   line-height: 1.5;
 }
 
-/* ── Footer: sticky reveal (after 21st.dev "sticky-footer" by efferd) ──
-   The wrapper is exactly the footer's height and clips it. Inside, a track one
-   viewport taller than the footer is pulled up by a viewport, and the footer
-   sticks to the bottom of the screen within it. As the page above scrolls up,
-   it slides off the footer, which stays put underneath. */
-.v2-footer-reveal {
-  --v2-footer-h: 540px; /* mobile: the two groups stack */
-  position: relative;
-  height: var(--v2-footer-h);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.v2-footer-reveal__track {
-  position: relative;
-  top: -100vh;
-  height: calc(100vh + var(--v2-footer-h));
-}
-
+/* ── Footer: "Let's talk" (Thomas, 2026-11-19, after workbytomorrow.com/about) ──
+   Heading and links at the hero's size, on the page background. The links are the
+   same size as the heading but softer, and turn full colour with an underline on hover. */
 .v2-footer {
-  position: sticky;
-  top: calc(100vh - var(--v2-footer-h));
-  isolation: isolate;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 40px;
-  height: var(--v2-footer-h);
-  padding: 48px var(--v2-margin) 8px;
-  overflow: hidden;
-  background-color: var(--v2-bg);
-  color: var(--v2-fg);
+  gap: 24px;
+  padding: 96px var(--v2-margin) 20px;
 }
 
-/* White (Thomas, 2026-11-19): stark white with the page colour as text. Swapping the tokens
-   here carries it to links, focus rings and selection inside the footer. Rejected before it:
-   inverted off-white #ECE8E1 (too harsh) and a dark gradient (odd with the curtain reveal).
-   Contrast: #121211 on #FFF 18.7:1; at 68% (links, copyright) 6.5:1; lines at 50% 3.5:1. */
-.v2 .v2-footer {
-  --v2-fg: #121211;
-  --v2-bg: #ffffff;
-  --v2-footer-line: rgb(18 18 17 / 0.5);
-  background: #ffffff;
+.v2-footer__title,
+.v2-footer__links a {
+  font-size: 30px;
+  font-weight: var(--v2-w-display);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 }
 
-/* Short screens (phones on their side): no reveal, the footer simply follows the page. */
-@media (max-height: 640px) {
-  .v2-footer-reveal,
-  .v2-footer {
-    height: auto;
-  }
-
-  .v2-footer-reveal {
-    clip-path: none;
-  }
-
-  .v2-footer-reveal__track {
-    top: 0;
-    height: auto;
-  }
-
-  .v2-footer {
-    position: static;
-  }
+.v2-footer__title {
+  margin: 0;
 }
 
-.v2-footer__top {
+.v2-footer__links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 32px 64px;
-}
-
-.v2-footer__label {
-  margin: 0 0 8px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: var(--v2-w-body);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.v2-footer__group ul {
+  flex-direction: column;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.v2-footer__group a {
+.v2-footer__links a {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
+  gap: 0.2em;
   min-height: 44px;
-  font-size: 16px;
+  padding-block: 4px;
   text-decoration: none;
   opacity: var(--v2-label-opacity);
-  transition: opacity 0.3s;
+  transition: opacity 0.25s;
 }
 
-.v2-footer__group a:hover,
-.v2-footer__group a:focus-visible {
+.v2-footer__links a:hover,
+.v2-footer__links a:focus-visible {
   opacity: 1;
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 }
 
-.v2-footer__bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0 16px;
-  border-top: 1px solid var(--v2-footer-line);
+.v2-footer__arrow {
+  font-size: 0.7em;
+}
+
+.v2-footer__legal {
+  margin: 72px 0 0;
   font-size: 14px;
   line-height: 20px;
-}
-
-.v2-footer__bar p {
-  margin: 0;
   opacity: var(--v2-label-opacity);
-}
-
-.v2-footer__bar a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  text-decoration: none;
-}
-
-.v2-footer__bar a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* Arrive from a light blur, one group after another (0.8s, as in the original).
-   Hidden only once the script is running, so nothing is lost without it. */
-@media (prefers-reduced-motion: no-preference) {
-  .v2-footer-reveal[data-animate="ready"] .v2-footer__anim {
-    opacity: 0;
-    filter: blur(4px);
-    translate: 0 -8px;
-  }
-
-  .v2-footer-reveal[data-animate="in"] .v2-footer__anim {
-    transition: opacity 0.8s ease, filter 0.8s ease, translate 0.8s ease;
-    transition-delay: var(--d, 0.1s);
-  }
 }
 
 /* ── Tablet (768 frame) ── */
@@ -2059,40 +1973,32 @@ html:has(.v2-panel[open]) {
   }
 }
 
-/* Footer sizes (sticky reveal, 2026-11-19). Mobile keeps the base values. */
+/* Footer sizes: the hero's type steps (44px tablet, up to 88px desktop). */
 @media (min-width: 768px) {
-  .v2-footer-reveal {
-    --v2-footer-h: 400px;
-  }
-
   .v2-footer {
-    padding-top: 64px;
+    padding-top: 120px;
   }
 
-  .v2-footer__top {
-    gap: 32px 96px;
-  }
-
-  .v2-footer__bar {
-    padding-block: 4px;
+  .v2-footer__title,
+  .v2-footer__links a {
+    font-size: 44px;
+    letter-spacing: -0.03em;
   }
 }
 
 @media (min-width: 1024px) {
-  .v2-footer-reveal {
-    --v2-footer-h: 440px;
-  }
-
   .v2-footer {
+    gap: 40px;
     padding-top: 80px;
-    padding-bottom: 12px;
+    padding-bottom: 24px;
   }
 
-  .v2-footer__top {
-    gap: 32px clamp(96px, 10vw, 160px);
+  .v2-footer__title,
+  .v2-footer__links a {
+    font-size: clamp(60px, 5vw, 88px);
   }
 
-  .v2-footer__group a {
-    font-size: 18px;
+  .v2-footer__legal {
+    margin-top: 120px;
   }
 }
