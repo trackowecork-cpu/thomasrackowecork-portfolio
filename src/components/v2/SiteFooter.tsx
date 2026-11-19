@@ -5,10 +5,9 @@ import { CONTACT_LINKS } from "@/components/interim/palette";
 
 /*
   Sticky reveal footer, adapted from 21st.dev "sticky-footer" by efferd (Thomas, 2026-11-19).
-  Same structure as the original: a clipped wrapper with the footer pinned underneath, soft
-  diagonal light beams, a brand block beside link groups, a bottom bar, and groups that fade
+  Same structure as the original: a clipped wrapper with the footer pinned underneath, a brand block beside link groups, a bottom bar, and groups that fade
   in from a light blur as they arrive. Rebuilt in plain CSS (no Tailwind, motion or icon
-  libraries) in the v2 type and colours. Contact moved here from its own section.
+  libraries) in the v2 type, inverted: light background, dark text (Thomas, 2026-11-19). Contact moved here from its own section.
 */
 
 const EMAIL = CONTACT_LINKS.find((link) => link.label === "Email")!;
@@ -64,12 +63,6 @@ export default function SiteFooter() {
     <div ref={ref} className="v2-footer-reveal" data-animate={state}>
       <div className="v2-footer-reveal__track">
         <footer id="contact" className="v2-footer" aria-labelledby="v2-footer-name">
-          <div className="v2-footer__beams" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-
           <div className="v2-footer__top">
             <div className="v2-footer__brand v2-footer__anim" style={{ "--d": "0.1s" } as React.CSSProperties}>
               <h2 id="v2-footer-name" className="v2-footer__name">

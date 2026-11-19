@@ -486,7 +486,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   line-height: 1.5;
 }
 
-/* ── Footer: sticky reveal (after 21st.dev "sticky-footer" by efferd) ──
+/* ── Footer: sticky reveal, inverted (after 21st.dev "sticky-footer" by efferd) ──
    The wrapper is exactly the footer's height and clips it. Inside, a track one
    viewport taller than the footer is pulled up by a viewport, and the footer
    sticks to the bottom of the screen within it. As the page above scrolls up,
@@ -515,8 +515,18 @@ html:not([data-theme="dark"]) .v2-only-dark {
   height: var(--v2-footer-h);
   padding: 48px var(--v2-margin) 8px;
   overflow: hidden;
-  border-top: 1px solid var(--v2-footer-line);
-  background-color: var(--v2-footer-bg);
+  background-color: var(--v2-bg);
+  color: var(--v2-fg);
+}
+
+/* Inverted (Thomas, 2026-11-19): the site's text colour becomes the background and the
+   page background becomes the text. Swapping the tokens here carries the inversion to
+   links, focus rings and selection inside the footer.
+   Contrast: #121211 on #ECE8E1 15.4:1; at 68% (labels) 6.0:1; lines at 50% 3.4:1. */
+.v2 .v2-footer {
+  --v2-fg: #121211;
+  --v2-bg: #ece8e1;
+  --v2-footer-line: rgb(18 18 17 / 0.5);
 }
 
 /* Short screens (phones on their side): no reveal, the footer simply follows the page. */
@@ -538,49 +548,6 @@ html:not([data-theme="dark"]) .v2-only-dark {
   .v2-footer {
     position: static;
   }
-}
-
-/* Soft diagonal light from the top left, as in the original. */
-.v2-footer__beams {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  contain: strict;
-}
-
-.v2-footer__beams span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1280px;
-  border-radius: 50%;
-  rotate: -45deg;
-}
-
-.v2-footer__beams span:nth-child(1) {
-  width: 560px;
-  translate: 0 -350px;
-  background: radial-gradient(68.54% 68.72% at 55.02% 31.46%,
-    color-mix(in srgb, var(--v2-fg) 8%, transparent) 0,
-    color-mix(in srgb, var(--v2-fg) 2.5%, transparent) 50%,
-    color-mix(in srgb, var(--v2-fg) 1%, transparent) 80%);
-}
-
-.v2-footer__beams span:nth-child(2) {
-  width: 240px;
-  translate: 5% -50%;
-  background: radial-gradient(50% 50% at 50% 50%,
-    color-mix(in srgb, var(--v2-fg) 5%, transparent) 0,
-    color-mix(in srgb, var(--v2-fg) 1%, transparent) 80%, transparent 100%);
-}
-
-.v2-footer__beams span:nth-child(3) {
-  width: 240px;
-  translate: 0 -350px;
-  background: radial-gradient(50% 50% at 50% 50%,
-    color-mix(in srgb, var(--v2-fg) 5%, transparent) 0,
-    color-mix(in srgb, var(--v2-fg) 1%, transparent) 80%, transparent 100%);
 }
 
 .v2-footer__top {
@@ -2000,8 +1967,6 @@ html:not([data-theme]):has(.v2) {
   --v2-bg: #121211;
   --v2-fg: #ece8e1;
   --v2-panel-bg: #1d1d1b;
-  --v2-footer-bg: var(--v2-panel-bg);
-  --v2-footer-line: var(--v2-divider); /* 45%: lines stay at 3:1 or more (WCAG rule) */
   --v2-label-opacity: 0.68;
   --v2-divider: rgb(236 232 225 / 0.45);
   --v2-w-body: 360;
