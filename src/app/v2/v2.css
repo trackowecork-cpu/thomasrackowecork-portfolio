@@ -2019,3 +2019,30 @@ html:has(.v2-panel[open]) {
     font-size: 16px;
   }
 }
+
+/* ── Sticky reveal footer (preview, Thomas 2026-11-19) ──
+   Same black throughout. The page content (the curtain) has a solid background and
+   scrolls over the footer, which is pinned to the bottom of the screen behind it.
+   A hairline marks the curtain's edge so the reveal reads. Pure CSS, any footer height. */
+.v2 {
+  isolation: isolate;
+}
+
+.v2-curtain {
+  background-color: var(--v2-bg);
+  border-bottom: 1px solid var(--v2-divider);
+}
+
+.v2-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Very short screens (phones on their side): the footer simply follows the page. */
+@media (max-height: 560px) {
+  .v2-footer {
+    position: static;
+    z-index: auto;
+  }
+}

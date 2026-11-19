@@ -224,52 +224,55 @@ export default function V2Page() {
     <>
       <Header />
 
-      <section className="v2-hero" aria-labelledby="v2-headline">
-        <h1 id="v2-headline">I connect people, business, and technology to shape solutions that deliver meaningful impact.</h1>
-      </section>
-
-      <section id="work" className="v2-work" aria-labelledby="v2-work-label">
-        <h2 id="v2-work-label" className="v2-label">
-          Featured work
-        </h2>
-        {/* Minimal homepage: visual + title + company/year. Descriptions move to each case study page. */}
-        <ul className="v2-projects v2-projects--min">
-          {PROJECTS.map((project) => (
-            <li
-              key={project.title}
-              className="v2-project v2-project--min"
-            >
-              <ProjectItem {...project} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <div className="v2-info">
-        <section id="about" className="v2-about" aria-labelledby="v2-about-label">
-          <h2 id="v2-about-label" className="v2-label">
-            About me
-          </h2>
-          <div className="v2-about__body">
-            <div className="v2-about__text">
-              {BIO.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            {/* Trial portrait (Thomas, 2026-11-19: "just for now so I can see"; 500px source).
-                Text comes first in the DOM; on smaller screens CSS shows the photo above it. */}
-            <div className="v2-about__photo">
-              <Image
-                src="/v2/thomas-portrait-3.jpg"
-                alt="Portrait of Thomas Rackowe Cork"
-                fill
-                unoptimized
-                loading="eager"
-                sizes="(min-width: 1024px) 380px, (min-width: 768px) 240px, 160px"
-              />
-            </div>
-          </div>
+      {/* Curtain: the page content slides up to reveal the footer pinned underneath. */}
+      <div className="v2-curtain">
+        <section className="v2-hero" aria-labelledby="v2-headline">
+          <h1 id="v2-headline">I connect people, business, and technology to shape solutions that deliver meaningful impact.</h1>
         </section>
+
+        <section id="work" className="v2-work" aria-labelledby="v2-work-label">
+          <h2 id="v2-work-label" className="v2-label">
+            Featured work
+          </h2>
+          {/* Minimal homepage: visual + title + company/year. Descriptions move to each case study page. */}
+          <ul className="v2-projects v2-projects--min">
+            {PROJECTS.map((project) => (
+              <li
+                key={project.title}
+                className="v2-project v2-project--min"
+              >
+                <ProjectItem {...project} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <div className="v2-info">
+          <section id="about" className="v2-about" aria-labelledby="v2-about-label">
+            <h2 id="v2-about-label" className="v2-label">
+              About me
+            </h2>
+            <div className="v2-about__body">
+              <div className="v2-about__text">
+                {BIO.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              {/* Trial portrait (Thomas, 2026-11-19: "just for now so I can see"; 500px source).
+                  Text comes first in the DOM; on smaller screens CSS shows the photo above it. */}
+              <div className="v2-about__photo">
+                <Image
+                  src="/v2/thomas-portrait-3.jpg"
+                  alt="Portrait of Thomas Rackowe Cork"
+                  fill
+                  unoptimized
+                  loading="eager"
+                  sizes="(min-width: 1024px) 380px, (min-width: 768px) 240px, 160px"
+                />
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
 
       <SiteFooter />
