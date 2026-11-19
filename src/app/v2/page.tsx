@@ -212,9 +212,10 @@ const PROJECTS: Project[] = [
 
 // Bio (Thomas, 2026-11-19). Keep verbatim.
 const BIO = [
-  "I took the scenic route into design. First social anthropology, then the contemporary art world, where I worked as a researcher, advisor and artist liaison for a leading gallery. Few things prepare you for stakeholder management quite like a room full of artists or collectors.",
-  "Along the way, I picked up a habit I never shook: asking why people do what they do. It’s still the first question I bring to every product and service I design.",
-  "I do my best work in cross-functional teams, where different perspectives and expertise meet and make an impact. I believe you get out what you put in, so I put in a lot. Colleagues call me “the demystifier of the difficult”. I’ll take it.",
+  "I took the scenic route into design. I studied social anthropology before building my career in the contemporary art world, working as a researcher, advisor, and artist liaison for a leading gallery. Few things prepare you for stakeholder management quite like a room full of artists and collectors.",
+  "Along the way, I developed a lasting curiosity about people, their behaviour, and the systems they operate within. I'm interested not just in what people do, but why they do it. That curiosity still shapes how I approach my work today.",
+  "I work across business and customer challenges, from framing and understanding problems to shaping and delivering solutions. Research, critical thinking, and collaboration are central to how I work, but so is staying curious, learning, experimenting, and exploring new ways of doing.",
+  "I do my best work in multidisciplinary teams, where different perspectives challenge assumptions and lead to better decisions. Colleagues have dubbed me “the demystifier of the difficult.” I'll take it.",
 ];
 
 export default function V2Page() {
