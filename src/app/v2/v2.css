@@ -553,6 +553,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-footer__bar a {
   display: inline-flex;
   align-items: center;
+  gap: 0.4em; /* the space before the arrow collapses in flex, so set it here (Thomas, 2026-11-19) */
   min-height: 44px;
   text-decoration: none;
 }
