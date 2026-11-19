@@ -16,35 +16,45 @@ const GITHUB_HREF = "https://github.com/trackowecork-cpu";
 
 export default function SiteFooter() {
   return (
-    <footer id="contact" className="v2-footer" aria-labelledby="v2-footer-title">
-      <h2 id="v2-footer-title" className="v2-label">
-        Let&rsquo;s talk
-      </h2>
-      <ul className="v2-footer__links">
-        <li>
-          <a href={LINKEDIN.href} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-            <span aria-hidden="true" className="v2-footer__arrow">↗</span>
-            <span className="v2-visually-hidden"> (opens in a new tab)</span>
+    <>
+      {/* Target for the header's Contact link. It sits in normal flow just before the footer:
+          a link straight to the sticky footer would not scroll, because a pinned footer always
+          counts as "in view". Jumping here scrolls to the end, which reveals the footer. */}
+      <div id="contact" className="v2-footer-anchor" />
+      <footer className="v2-footer" aria-labelledby="v2-footer-title">
+        <h2 id="v2-footer-title" className="v2-label">
+          Let&rsquo;s talk
+        </h2>
+        <ul className="v2-footer__links">
+          <li>
+            <a href={LINKEDIN.href} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+              <span aria-hidden="true" className="v2-footer__arrow">
+                ↗
+              </span>
+              <span className="v2-visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </li>
+          <li>
+            <a href={GITHUB_HREF} target="_blank" rel="noopener noreferrer">
+              GitHub
+              <span aria-hidden="true" className="v2-footer__arrow">
+                ↗
+              </span>
+              <span className="v2-visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </li>
+          <li>
+            <a href={EMAIL.href}>Send me an email</a>
+          </li>
+        </ul>
+        <div className="v2-footer__bar">
+          <p>© 2026 Thomas Rackowe Cork</p>
+          <a href="#top">
+            Back to top <span aria-hidden="true">↑</span>
           </a>
-        </li>
-        <li>
-          <a href={GITHUB_HREF} target="_blank" rel="noopener noreferrer">
-            GitHub
-            <span aria-hidden="true" className="v2-footer__arrow">↗</span>
-            <span className="v2-visually-hidden"> (opens in a new tab)</span>
-          </a>
-        </li>
-        <li>
-          <a href={EMAIL.href}>Send me an email</a>
-        </li>
-      </ul>
-      <div className="v2-footer__bar">
-        <p>© 2026 Thomas Rackowe Cork</p>
-        <a href="#top">
-          Back to top <span aria-hidden="true">↑</span>
-        </a>
-      </div>
-    </footer>
+        </div>
+      </footer>
+    </>
   );
 }
