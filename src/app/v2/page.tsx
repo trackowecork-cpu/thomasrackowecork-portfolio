@@ -4,6 +4,10 @@ import ProjectItem, { type ProjectStill, type ProjectStory } from "@/components/
 import type { ThemedSrc } from "@/components/v2/ProjectVideo";
 import { CONTACT_LINKS } from "@/components/interim/palette";
 
+const EMAIL = CONTACT_LINKS.find((link) => link.label === "Email")!;
+/** LinkedIn and CV read as plain words with the link inside (Thomas, 2026-11-19). */
+const FOOTER_LINKS = CONTACT_LINKS.filter((link) => link.label !== "Email");
+
 type Project = {
   title: string;
   meta: string;
@@ -270,39 +274,60 @@ export default function V2Page() {
             </div>
           </div>
         </section>
-
-        <section id="contact" className="v2-contact" aria-labelledby="v2-contact-label">
-          <h2 id="v2-contact-label" className="v2-label">
-            Contact
-          </h2>
-          <dl>
-            {CONTACT_LINKS.map((link) => (
-              <div key={link.label} className="v2-contact__row">
-                <dt>{link.label}</dt>
-                <dd>
-                  <a
-                    href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  >
-                    {link.value}
-                    {link.external ? (
-                      <>
-                        {" ↗"}
-                        <span className="v2-visually-hidden"> (opens in a new tab)</span>
-                      </>
-                    ) : null}
-                  </a>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </section>
       </div>
 
-      <footer className="v2-footer">
-        <p>© 2026</p>
-        <a href="#top">Back to top ↑</a>
-      </footer>
+      {/* Sticky reveal footer (after 21st.dev "sticky-footer", Thomas 2026-11-19): the page scrolls
+          away to uncover a footer that sits still underneath. Contact lives here now. */}
+      <div className="v2-footer-reveal">
+        <div className="v2-footer-reveal__track">
+          <footer id="contact" className="v2-footer" aria-labelledby="v2-contact-label">
+            <div className="v2-footer__top">
+              <div className="v2-footer__lead">
+                <h2 id="v2-contact-label" className="v2-label">
+                  Contact
+                </h2>
+                <a className="v2-footer__email" href={EMAIL.href}>
+                  {EMAIL.value}
+                </a>
+              </div>
+              <nav className="v2-footer__cols" aria-label="Footer">
+                <ul>
+                  {FOOTER_LINKS.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      >
+                        {link.label}
+                        {link.external ? (
+                          <>
+                            <span aria-hidden="true">{" ↗"}</span>
+                            <span className="v2-visually-hidden"> (opens in a new tab)</span>
+                          </>
+                        ) : null}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <ul>
+                  <li><a href="#work">Work</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#top">Back to top <span aria-hidden="true">↑</span></a></li>
+                </ul>
+              </nav>
+            </div>
+            <div className="v2-footer__bottom">
+              {/* SVG so the name always fills the line exactly, whatever the screen width. */}
+              <svg className="v2-footer__mark" viewBox="0 0 1000 76" aria-hidden="true" focusable="false">
+                <text x="0" y="74" textLength="1000" lengthAdjust="spacing">
+                  Thomas Rackowe Cork
+                </text>
+              </svg>
+              <p className="v2-footer__legal">© 2026</p>
+            </div>
+          </footer>
+        </div>
+      </div>
     </>
   );
 }

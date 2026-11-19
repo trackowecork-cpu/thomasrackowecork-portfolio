@@ -486,78 +486,138 @@ html:not([data-theme="dark"]) .v2-only-dark {
   line-height: 1.5;
 }
 
-.v2-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* Grouped like the live contact page: label tight above its link (4px),
-   clear space between groups, so it reads as three pairs rather than a list. */
-.v2-contact dl {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin: 0;
-}
-
-.v2-contact__row {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.v2-contact dt {
-  opacity: var(--v2-label-opacity);
-}
-
-.v2-contact dd {
-  min-width: 0;
-  margin: 0;
-}
-
-/* The link stays 24px tall visually; an invisible layer extends its tap area to 44px. */
-.v2-contact a {
+/* ── Footer: sticky reveal ──
+   The wrapper is exactly the footer's height and clips it. Inside, a track one
+   viewport taller than the footer is pulled up by a viewport, and the footer
+   sticks to the bottom of the screen within it. As the page above scrolls up,
+   it slides off the footer, which stays put underneath. */
+.v2-footer-reveal {
+  --v2-footer-h: 560px;
   position: relative;
-  font-weight: var(--v2-w-strong);
-  text-decoration: underline;
-  text-underline-position: from-font;
-  overflow-wrap: break-word;
+  height: var(--v2-footer-h);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.v2-contact a::after {
-  content: "";
-  position: absolute;
-  inset: -10px 0;
+.v2-footer-reveal__track {
+  position: relative;
+  top: -100vh;
+  height: calc(100vh + var(--v2-footer-h));
 }
 
-/* ── Footer ── */
 .v2-footer {
+  position: sticky;
+  top: calc(100vh - var(--v2-footer-h));
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 6px var(--v2-margin);
-  border-top: 1px solid var(--v2-divider);
-  font-size: 14px;
-  line-height: 20px;
+  gap: 48px;
+  height: var(--v2-footer-h);
+  padding: 48px var(--v2-margin) 20px;
+  overflow: hidden;
+  background-color: var(--v2-footer-bg);
 }
 
-.v2-footer p {
+/* Short screens (phones on their side): no reveal, the footer simply follows the page. */
+@media (max-height: 640px) {
+  .v2-footer-reveal,
+  .v2-footer {
+    height: auto;
+  }
+
+  .v2-footer-reveal {
+    clip-path: none;
+  }
+
+  .v2-footer-reveal__track {
+    top: 0;
+    height: auto;
+  }
+
+  .v2-footer {
+    position: static;
+  }
+}
+
+.v2-footer__top {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.v2-footer__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.v2-footer__email {
+  align-self: flex-start;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: var(--v2-w-title);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  overflow-wrap: anywhere;
+}
+
+.v2-footer__cols {
+  display: flex;
+  gap: 64px;
+}
+
+.v2-footer__cols ul {
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.v2-footer a {
+.v2-footer__cols a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  font-size: 16px;
   text-decoration: none;
 }
 
-.v2-footer a:hover {
+.v2-footer__email:hover {
+  text-decoration-thickness: 2px;
+}
+
+.v2-footer__cols a:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.v2-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* The name set large across the full width, as a sign-off (decorative, hidden
+   from screen readers). The SVG scales with the line; textLength trims the
+   letter spacing so it ends exactly at the right margin. */
+.v2-footer__mark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.v2-footer__mark text {
+  fill: currentColor;
+  font-size: 100px;
+  font-weight: var(--v2-w-title);
+}
+
+.v2-footer__legal {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: var(--v2-label-opacity);
 }
 
 /* ── Tablet (768 frame) ── */
@@ -759,18 +819,6 @@ html:not([data-theme="dark"]) .v2-only-dark {
     font-size: 20px;
   }
 
-  .v2-contact {
-    gap: 48px;
-  }
-
-  .v2-contact dl {
-    gap: 32px;
-  }
-
-  .v2-contact__row {
-    font-size: 18px;
-    line-height: 28px;
-  }
 }
 
 /* ── Minimal homepage (branch claude/v2-minimal-home) ──
@@ -1868,6 +1916,7 @@ html:not([data-theme]):has(.v2) {
   --v2-bg: #121211;
   --v2-fg: #ece8e1;
   --v2-panel-bg: #1d1d1b;
+  --v2-footer-bg: var(--v2-panel-bg);
   --v2-label-opacity: 0.68;
   --v2-divider: rgb(236 232 225 / 0.45);
   --v2-w-body: 360;
@@ -1996,5 +2045,57 @@ html:has(.v2-panel[open]) {
   .v2-panel__still .v2-project__visual {
     aspect-ratio: 16 / 9;
     border-radius: 16px;
+  }
+}
+
+/* Footer sizes (sticky reveal, 2026-11-19). Mobile keeps the base values. */
+.v2-footer-reveal {
+  --v2-footer-h: 480px;
+}
+
+@media (min-width: 768px) {
+  .v2-footer-reveal {
+    --v2-footer-h: 520px;
+  }
+
+  .v2-footer {
+    padding-top: 64px;
+  }
+
+  .v2-footer__top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .v2-footer__email {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-footer-reveal {
+    --v2-footer-h: 600px;
+  }
+
+  .v2-footer {
+    padding-top: 96px;
+    padding-bottom: 24px;
+  }
+
+  .v2-footer__lead {
+    gap: 24px;
+  }
+
+  .v2-footer__email {
+    font-size: clamp(32px, 3vw, 48px);
+  }
+
+  .v2-footer__cols {
+    gap: clamp(64px, 8vw, 160px);
+  }
+
+  .v2-footer__cols a {
+    font-size: 18px;
   }
 }
