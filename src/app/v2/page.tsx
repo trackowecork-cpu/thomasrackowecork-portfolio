@@ -260,7 +260,7 @@ export default function V2Page() {
                 Text comes first in the DOM; on smaller screens CSS shows the photo above it. */}
             <div className="v2-about__photo">
               <Image
-                src="/v2/thomas-portrait-2.jpg"
+                src="/v2/thomas-portrait-3.jpg"
                 alt="Portrait of Thomas Rackowe Cork"
                 fill
                 unoptimized
