@@ -519,16 +519,11 @@ html:not([data-theme="dark"]) .v2-only-dark {
   color: var(--v2-fg);
 }
 
-/* Dark gradient (Thomas, 2026-11-19): starts on the page colour, so the edge is seamless,
-   and warms up to a lighter version of it at the bottom. Text stays the site's off-white.
-   The inverted #ECE8E1 version was rejected as too harsh. */
+/* White (Thomas, 2026-11-19): stark white with the page colour as text. Swapping the tokens
+   here carries it to links, focus rings and selection inside the footer. Rejected before it:
+   inverted off-white #ECE8E1 (too harsh) and a dark gradient (odd with the curtain reveal).
+   Contrast: #121211 on #FFF 18.7:1; at 68% (links, copyright) 6.5:1; lines at 50% 3.5:1. */
 .v2 .v2-footer {
-  --v2-footer-line: var(--v2-divider);
-  background: linear-gradient(180deg, #121211 0%, #1c1c1a 45%, #2f2e2b 100%);
-}
-
-/* Alternative under review: stark white with the page colour as text. */
-.v2 .v2-footer--white {
   --v2-fg: #121211;
   --v2-bg: #ffffff;
   --v2-footer-line: rgb(18 18 17 / 0.5);
