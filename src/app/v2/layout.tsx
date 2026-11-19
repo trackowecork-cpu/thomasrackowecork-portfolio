@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./v2.css";
 
-// Preview of the v2 redesign (Figma "Minimal-2026" → "Website v2 (revised)").
-// Lives at /v2 so the live homepage is untouched; kept out of search results.
+// The v2 site (Figma "Minimal-2026"). Its files live under /v2; next.config.ts serves it at "/".
 export const metadata: Metadata = {
-  title: "Thomas Rackowe Cork — Product Designer (v2 preview)",
-  robots: { index: false, follow: false },
+  title: "Thomas Rackowe Cork — Product Designer",
+  description: "I connect people, business, and technology to shape solutions that deliver meaningful impact.",
 };
 
 export default function V2Layout({ children }: Readonly<{ children: React.ReactNode }>) {
