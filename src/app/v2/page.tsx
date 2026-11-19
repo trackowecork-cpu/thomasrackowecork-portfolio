@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "@/components/v2/Header";
 import ProjectItem, { type ProjectStill, type ProjectStory } from "@/components/v2/ProjectItem";
 import type { ThemedSrc } from "@/components/v2/ProjectVideo";
@@ -212,10 +213,10 @@ const PROJECTS: Project[] = [
 
 // Bio (Thomas, 2026-11-19). Keep verbatim.
 const BIO = [
-  "I took the scenic route into design. I studied social anthropology before building my career in the contemporary art world, working as a researcher, advisor, and artist liaison for a leading gallery. Few things prepare you for stakeholder management quite like a room full of artists and collectors.",
+  "I took the scenic route into design. I studied social anthropology before building my career in the contemporary art world as a researcher, advisor, and artist liaison for a leading gallery. Few things prepare you for stakeholder management quite like a room full of artists and collectors.",
   "Along the way, I developed a lasting curiosity about people, their behaviour, and the systems they operate within. I'm interested not just in what people do, but why they do it. That curiosity still shapes how I approach my work today.",
-  "I work across business and customer challenges, from framing and understanding problems to shaping and delivering solutions. Research, critical thinking, and collaboration are central to how I work, but so is staying curious, learning, experimenting, and exploring new ways of doing.",
-  "I do my best work in multidisciplinary teams, where different perspectives challenge assumptions and lead to better decisions. Colleagues have dubbed me “the demystifier of the difficult.” I'll take it.",
+  "I work across business and customer challenges, from framing and understanding problems to shaping and delivering solutions. Research, critical thinking, and collaboration are central to how I work, alongside a drive to keep learning, experimenting, and exploring new ways of doing things.",
+  "I do my best work in multidisciplinary teams, where different perspectives challenge assumptions, lead to better decisions, and ultimately deliver greater impact.",
 ];
 
 export default function V2Page() {
@@ -255,9 +256,16 @@ export default function V2Page() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            {/* Placeholder until Thomas picks a photo; swap for an <img> with alt text then.
+            {/* Trial portrait (Thomas, 2026-11-19: "just for now so I can see"; 500px source).
                 Text comes first in the DOM; on smaller screens CSS shows the photo above it. */}
-            <div className="v2-about__photo" aria-hidden="true" />
+            <div className="v2-about__photo">
+              <Image
+                src="/v2/thomas-portrait.jpg"
+                alt="Portrait of Thomas Rackowe Cork"
+                fill
+                sizes="(min-width: 1024px) 380px, (min-width: 768px) 240px, 160px"
+              />
+            </div>
           </div>
         </section>
 

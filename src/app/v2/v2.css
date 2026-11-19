@@ -464,12 +464,18 @@ html:not([data-theme="dark"]) .v2-only-dark {
 }
 
 .v2-about__photo {
+  position: relative;
+  overflow: hidden;
   order: -1;
   flex: none;
   width: 160px;
   height: 160px;
   border-radius: 50%;
   background-color: color-mix(in srgb, var(--v2-fg) 15%, transparent);
+}
+
+.v2-about__photo img {
+  object-fit: cover;
 }
 
 .v2-about p {
