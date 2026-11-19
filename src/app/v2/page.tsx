@@ -81,8 +81,8 @@ const PROJECTS: Project[] = [
       "Proximus was losing digital sales while support calls climbed. The checkout took the blame, but the problems ran deeper: fragmented acquisition journeys, an external identification process, and lengthy fibre installations. I redesigned core acquisition journeys around how customers discover, choose, and order products. Completed orders increased by 17% and self-installation by 76%.",
     // Homepage loop (2026-11-18): graphic laptop on coral, address autocompletes, fast-forward to confirmation.
     // Render: project files portfolio-build/eshare-render.py
-    video: "/v2/eshare-laptop-3.mp4",
-    poster: "/v2/eshare-laptop-3.jpg",
+    video: "/v2/eshare-laptop-4.mp4",
+    poster: "/v2/eshare-laptop-4.jpg",
     // Panel stills (render: project files portfolio-build/eshare-stills.py).
     stills: [
       {
