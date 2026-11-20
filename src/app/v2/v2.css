@@ -324,6 +324,12 @@ html:not([data-theme="dark"]) .v2-only-dark {
   letter-spacing: -0.025em;
 }
 
+/* Second half of the hero in a softer shade (Thomas, 2026-11-20, after stanreimgen.space).
+   55% of the text colour over the background: about 5.2:1, passes AA for any size. */
+.v2-hero__muted {
+  color: color-mix(in srgb, var(--v2-fg) 55%, var(--v2-bg));
+}
+
 /* ── Shared ── */
 /* Type scale (about 1.2 between steps):
    mobile  15 meta · 17 body · 20 title · 24 section
