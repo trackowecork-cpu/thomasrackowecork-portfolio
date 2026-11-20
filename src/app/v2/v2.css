@@ -318,21 +318,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-hero h1 {
   max-width: 900px;
   margin: 0;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: var(--v2-w-display);
   line-height: 1.15;
   letter-spacing: -0.025em;
-}
-
-/* Quiet role line above the hero statement (Thomas, 2026-11-20: role in one sentence felt too heavy). */
-.v2-hero .v2-hero__role {
-  margin-bottom: 20px;
-}
-
-@media (min-width: 1024px) {
-  .v2-hero .v2-hero__role {
-    margin-bottom: 28px;
-  }
 }
 
 /* ── Shared ── */
@@ -600,7 +589,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-hero h1 {
-    font-size: 44px;
+    font-size: 38px;
     letter-spacing: -0.03em;
   }
 
@@ -670,10 +659,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
     min-height: 0;
   }
 
-  /* 60px at 1200, growing with the screen up to 88px; line length stays ~15em as in Figma. */
+  /* Hero sizes reduced (Thomas, 2026-11-20) so the one-sentence line with role feels lighter: 26 / 38 / 48–72px. 17em keeps desktop to four lines. */
   .v2-hero h1 {
-    max-width: 15em;
-    font-size: clamp(60px, 5vw, 88px);
+    max-width: 17em;
+    font-size: clamp(48px, 4.2vw, 72px);
   }
 
   .v2-label {
