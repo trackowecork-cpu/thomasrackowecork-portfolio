@@ -330,6 +330,34 @@ html:not([data-theme="dark"]) .v2-only-dark {
   color: color-mix(in srgb, var(--v2-fg) 55%, var(--v2-bg));
 }
 
+/* One-time entrance on load (Thomas, 2026-11-20): the line rises gently, the role fades in,
+   then the softer half follows. Nothing moves with reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .v2-hero h1 {
+    animation: v2-hero-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .v2-hero__lead {
+    animation: v2-hero-fade 700ms ease-out both;
+  }
+
+  .v2-hero__muted {
+    animation: v2-hero-fade 700ms ease-out 350ms both;
+  }
+}
+
+@keyframes v2-hero-rise {
+  from {
+    transform: translateY(16px);
+  }
+}
+
+@keyframes v2-hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
 /* ── Shared ── */
 /* Type scale (about 1.2 between steps):
    mobile  15 meta · 17 body · 20 title · 24 section
