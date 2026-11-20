@@ -261,11 +261,11 @@ export default function V2Page() {
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
-              {/* Trial portrait (Thomas, 2026-11-19: "just for now so I can see"; 500px source).
+              {/* Portrait (Thomas, 2026-11-20): retouched photo, cut out and placed on dusty blue #9FB3C6.
                   Text comes first in the DOM; on smaller screens CSS shows the photo above it. */}
               <div className="v2-about__photo">
                 <Image
-                  src="/v2/thomas-portrait-3.jpg"
+                  src="/v2/thomas-portrait-4.jpg"
                   alt="Portrait of Thomas Rackowe Cork"
                   fill
                   unoptimized
