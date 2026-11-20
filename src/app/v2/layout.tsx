@@ -3,8 +3,8 @@ import "./v2.css";
 
 // The v2 site (Figma "Minimal-2026"). Its files live under /v2; next.config.ts serves it at "/".
 export const metadata: Metadata = {
-  title: "Thomas Rackowe Cork — Product Designer",
-  description: "I connect people, business, and technology to shape solutions that deliver meaningful impact.",
+  title: "Thomas Rackowe Cork — Product and Service Designer",
+  description: "I’m a product and service designer who connects people, business, and technology to shape solutions that deliver impact.",
 };
 
 export default function V2Layout({ children }: Readonly<{ children: React.ReactNode }>) {

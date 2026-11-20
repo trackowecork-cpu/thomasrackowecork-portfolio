@@ -659,9 +659,9 @@ html:not([data-theme="dark"]) .v2-only-dark {
     min-height: 0;
   }
 
-  /* 60px at 1200, growing with the screen up to 88px; line length stays ~15em as in Figma. */
+  /* 60px at 1200, growing with the screen up to 88px. 17em keeps the hero line (with role, 2026-11-20) to four lines. */
   .v2-hero h1 {
-    max-width: 15em;
+    max-width: 17em;
     font-size: clamp(60px, 5vw, 88px);
   }
 

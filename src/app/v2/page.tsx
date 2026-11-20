@@ -227,7 +227,7 @@ export default function V2Page() {
       {/* Curtain: the page content slides up to reveal the footer pinned underneath. */}
       <div className="v2-curtain">
         <section className="v2-hero" aria-labelledby="v2-headline">
-          <h1 id="v2-headline">I connect people, business, and technology to shape solutions that deliver meaningful impact.</h1>
+          <h1 id="v2-headline">I’m a product and service designer who connects people, business, and technology to shape solutions that deliver impact.</h1>
         </section>
 
         <section id="work" className="v2-work" aria-labelledby="v2-work-label">
