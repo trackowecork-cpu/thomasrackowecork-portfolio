@@ -318,7 +318,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
 .v2-hero h1 {
   max-width: 900px;
   margin: 0;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: var(--v2-w-display);
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -589,7 +589,7 @@ html:not([data-theme="dark"]) .v2-only-dark {
   }
 
   .v2-hero h1 {
-    font-size: 38px;
+    font-size: 44px;
     letter-spacing: -0.03em;
   }
 
@@ -659,10 +659,10 @@ html:not([data-theme="dark"]) .v2-only-dark {
     min-height: 0;
   }
 
-  /* Hero sizes reduced (Thomas, 2026-11-20) so the one-sentence line with role feels lighter: 26 / 38 / 48–72px. 17em keeps desktop to four lines. */
+  /* 60px at 1200, growing with the screen up to 88px; line length stays ~15em as in Figma. */
   .v2-hero h1 {
-    max-width: 17em;
-    font-size: clamp(48px, 4.2vw, 72px);
+    max-width: 15em;
+    font-size: clamp(60px, 5vw, 88px);
   }
 
   .v2-label {
